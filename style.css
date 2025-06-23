@@ -14,7 +14,8 @@ body {
   color: #222;
   line-height: 1.6;
   min-height: 100vh;
-  padding-bottom: 60px;
+  padding-top: 80px;     /* Hauteur du header */
+  padding-bottom: 60px;  /* Hauteur du footer */
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
@@ -23,18 +24,7 @@ body.dark-mode {
   background: linear-gradient(135deg, #1f2c40, #3a5068);
   color: #f0f0f0;
 }
-
-/* Header and Navigation */
-header {
-  background-color: rgba(240, 242, 245, 0.95);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  padding: 15px 30px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  transition: background-color 0.5s ease;
 }
-
 body.dark-mode header {
   background-color: rgba(30, 40, 55, 0.9);
   box-shadow: 0 2px 6px rgba(0,0,0,0.6);
@@ -408,25 +398,105 @@ tr:hover {
   cursor: default;
   transition: background-color 0.3s ease;
 }
-
-/* Footer */
-footer {
-  background-color: rgba(240, 242, 245, 0.95);
-  color: #444;
-  text-align: center;
-  padding: 18px 20px;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  font-size: 0.9rem;
-  letter-spacing: 1.1px;
-  box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
-  user-select: none;
-  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 body.dark-mode footer {
   background-color: rgba(30, 40, 55, 0.95);
   color: #bbb;
   box-shadow: 0 -2px 8px rgba(0,0,0,0.6);
+/* HEADER modernisé, fixe, transparent */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 0.85); /* transparence */
+  backdrop-filter: blur(8px); /* flou moderne */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+body.dark-mode header {
+  background-color: rgba(30, 40, 55, 0.85);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* FOOTER modernisé, fixe, transparent */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  font-size: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.85); /* transparence */
+  backdrop-filter: blur(8px); /* flou moderne */
+  text-align: center;
+  color: #333;
+  z-index: 1000;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.08);
+}
+
+body.dark-mode footer {
+  background-color: rgba(30, 40, 55, 0.85);
+  color: #ccc;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Empêcher le contenu d’être caché derrière le header ou le footer */
+body {
+  padding-top: 60px;     /* Hauteur du header + marge */
+  padding-bottom: 45px;  /* Hauteur du footer + marge */
+}
+body {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+.dark-mode {
+  background-color: #121212;
+  color: #f5f5f5;
+}
+.menu {
+  transition: all 0.3s ease;
+}body {
+  font-family: sans-serif;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  padding: 20px;
+}
+
+.dark-mode {
+  background-color: #121212;
+  color: #f5f5f5;
+}
+
+.menu {
+  display: none;
+  list-style: none;
+  padding: 0;
+}
+
+.menu.menu-open {
+  display: block;
+}
+
+#clock {
+  font-size: 1.5em;
+  text-align: center;
+  margin-top: 15px;
+}
+
+blockquote {
+  text-align: center;
+  font-style: italic;
+  margin-top: 20px;
+}
+
+button {
+  margin: 10px 0;
+  padding: 10px 15px;
+  cursor: pointer;
 }
