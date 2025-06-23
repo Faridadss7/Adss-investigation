@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Farid Adss | Site d'Investigation</title>
+  <meta name="description" content="Site d'investigation professionnelle de Farid Adss. Reportages, débats et analyses fiables." />
+  <meta name="keywords" content="investigation, reportage, analyse, débat, Farid Adss" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXX'); // Remplace par ton ID GA
+  </script>
+</head>
+<body>
+
+<header>
+  <nav>
+    <h1 class="logo">Farid Adss</h1>
+    <button id="menu-toggle" aria-label="Ouvrir le menu">&#9776;</button>
+    <ul class="menu">
+      <li><a href="#accueil">Accueil</a></li>
+      <li><a href="#a-propos">À propos</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#programme">Programme</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><button id="darkmode-toggle" aria-label="Basculer en mode sombre">🌓</button></li>
+    </ul>
+  </nav>
+</header>
+
+<section id="accueil" class="hero">
+  <h2>Bienvenue sur mon site d’enquêtes et d’investigations</h2>
+  <p>Analyse. Vérité. Impact. Découvrez des rapports solides et objectifs.</p>
+  <a href="#contact" class="btn">Me contacter</a>
+</section>
+
+<section id="a-propos">
+  <h2>À propos</h2>
+  <p>Je suis Farid Adss, passionné par la vérité, la transparence et l'information vérifiée. Mon travail consiste à investiguer, analyser et vous livrer des contenus de qualité sur des sujets sensibles ou méconnus.</p>
+</section>
+
+<section id="services">
+  <h2>Ce que je propose</h2>
+  <ul>
+    <li>🔍 Enquêtes terrain</li>
+    <li>🖊️ Rédaction de rapports détaillés</li>
+    <li>📊 Analyse de données</li>
+    <li>🧠 Recherche stratégique</li>
+  </ul>
+</section>
+
+<section id="programme">
+  <h2>Programme quotidien</h2>
+  <p>Tous les jours :</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Heure</th>
+        <th>Activité</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>13h00</td>
+        <td>Reportage : Nouvelles tendances et situations dans le monde</td>
+      </tr>
+      <tr>
+        <td>20h00</td>
+        <td>Débats poignants et points de vue animés</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div id="countdown-section" aria-live="polite" style="margin-top: 30px;">
+    <h3>Prochain rendez-vous dans :</h3>
+    <div id="countdown" aria-atomic="true" style="font-size: 1.6rem; font-weight: 700; color: #ffab00;"></div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Tu veux discuter, proposer une collaboration ou lancer un projet ? Écris-moi :</p>
+  <form id="contact-form" novalidate>
+    <input type="text" name="name" placeholder="Nom" required aria-required="true" />
+    <input type="email" name="email" placeholder="Email" required aria-required="true" />
+    <textarea name="message" placeholder="Message" required aria-required="true"></textarea>
+    
+    <!-- Ici tu pourras intégrer reCAPTCHA quand tu auras la clé -->
+    <!-- <div class="g-recaptcha" data-sitekey="TA_CLE_SITE"></div> -->
+    
+    <button type="submit">Envoyer</button>
+    <div id="form-status" role="alert" aria-live="assertive" style="margin-top:10px;"></div>
+  </form>
+</section>
+
+<footer>
+  <div style="text-align:center; margin-top:20px; color:#ffab00; font-weight:700;">
+    Visiteurs uniques : <span id="visitorCount">...</span>
+  </div>
+  <p>&copy; 2025 Farid Adss. Tous droits réservés.</p>
+</footer>
+
+<script>
+// MENU TOGGLE MOBILE
+const menuToggle = document.getElementById('menu-toggle');
+const menu = document.querySelector('.menu');
+menuToggle.addEventListener('click', () => {
+  menu.classList.toggle('menu-open');
+});
+
+// DARK MODE TOGGLE
+const darkToggle = document.getElementById('darkmode-toggle');
+darkToggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+});
+
+// COMPTE À REBOURS
+function updateCountdown() {
+  const countdownEl = document.getElementById('countdown');
+  const now = new Date();
+
+  const targets = [
+    new Date(now.getFullYear(), now.getMonth(), now.getDate(), 13, 0, 0),
+    new Date(now.getFullYear(), now.getMonth(), now.getDate(), 20, 0, 0),
+  ];
+
+  let nextTarget = targets.find(t => t > now);
+  if (!nextTarget) {
+    nextTarget = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 13, 0, 0);
+  }
+
+  const diffMs = nextTarget - now;
+  const diffH = Math.floor(diffMs / (1000 * 60 * 60));
+  const diffM = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+  const diffS = Math.floor((diffMs % (1000 * 60)) / 1000);
+
+  countdownEl.textContent = `${diffH.toString().padStart(2, '0')}h ${diffM.toString().padStart(2, '0')}m ${diffS.toString().padStart(2, '0')}s`;
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// COMPTEUR VISITEURS SIMPLE (CountAPI)
+fetch('https://api.countapi.xyz/hit/faridadss/sitevisits')
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('visitorCount').textContent = data.value;
+  })
+  .catch(() => {
+    document.getElementById('visitorCount').textContent = 'N/A';
+  });
+
+// FORMULAIRE : validation simple et message de statut
+const form = document.getElementById('contact-form');
+const formStatus = document.getElementById('form-status');
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const name = form.name.value.trim();
+  const email = form.email.value.trim();
+  const message = form.message.value.trim();
+
+  if (!name || !email || !message) {
+    formStatus.textContent = "Veuillez remplir tous les champs.";
+    formStatus.style.color = "red";
+    return;
+  }
+
+  // Email simple validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    formStatus.textContent = "Veuillez entrer un email valide.";
+    formStatus.style.color = "red";
+    return;
+  }
+
+  // Ici tu peux ajouter l’envoi réel via API ou service tiers (Formspree, etc.)
+
+  formStatus.textContent = "Merci pour votre message, je vous recontacte vite !";
+  formStatus.style.color = "#ffab00";
+  form.reset();
+});
+</script>
+
+</body>
+</html>
