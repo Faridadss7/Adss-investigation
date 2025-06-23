@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
@@ -83,15 +82,6 @@
     <div id="countdown" aria-atomic="true" style="font-size: 1.6rem; font-weight: 700; color: #ffab00;"></div>
   </div>
 </section>
-
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Tu veux discuter, proposer une collaboration ou lancer un projet ? Écris-moi :</p>
-  <form id="contact-form" novalidate>
-    <input type="text" name="name" placeholder="Nom" required aria-required="true" />
-    <input type="email" name="email" placeholder="Email" required aria-required="true" />
-    <textarea name="message" placeholder="Message" required aria-required="true"></textarea>
-    
     <!-- Ici tu pourras intégrer reCAPTCHA quand tu auras la clé -->
     <!-- <div class="g-recaptcha" data-sitekey="TA_CLE_SITE"></div> -->
     
@@ -180,70 +170,403 @@ form.addEventListener('submit', function(e) {
     formStatus.style.color = "red";
     return;
   }
-
-  // Ici tu peux ajouter l’envoi réel via API ou service tiers (Formspree, etc.)
-
-  formStatus.textContent = "Merci pour votre message, je vous recontacte vite !";
-  formStatus.style.color = "#ffab00";
-  form.reset();
 });
 </script>
 
 </body>
 </html>
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Tu veux discuter, proposer une collaboration ou lancer un projet ? Écris-moi :</p>
+
+  <form action="https://formsubmit.co/el/xusipo" method="POST" style="max-width: 500px; margin: auto;">
+    <!-- Configuration FormSubmit -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="box">
+    <input type="hidden" name="_next" value="merci.html"> <!-- Redirection après envoi -->
+    <input type="text" name="_honey" style="display:none">
+
+    <!-- Champs visibles -->
+    <label for="name">Nom :</label><br>
+    <input type="text" id="name" name="name" required style="width:100%; padding:10px; margin-bottom:10px;"><br>
+
+    <label for="email">Email :</label><br>
+    <input type="email" id="email" name="email" required style="width:100%; padding:10px; margin-bottom:10px;"><br>
+
+    <label for="message">Message :</label><br>
+    <textarea id="message" name="message" rows="5" required style="width:100%; padding:10px; margin-bottom:10px;"></textarea><br>
+
+    <button type="submit" style="padding:10px 20px; background-color:#0066cc; color:white; border:none; cursor:pointer;">
+      Envoyer
+    </button>
+  </form>
+</section>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <title>Adss-investigation</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Merci pour votre message</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
+      font-family: 'Roboto', sans-serif;
       background-color: #f9f9f9;
+      text-align: center;
+      padding: 50px;
       color: #333;
     }
-    h1, h2 {
-      color: #007bff;
+    .message-box {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: inline-block;
     }
-    ul {
-      list-style-type: disc;
-      padding-left: 20px;
-    }
-    p {
-      line-height: 1.6;
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      color: #0066cc;
+      text-decoration: none;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
+  <div class="message-box">
+    <h1>✅ Message envoyé !</h1>
+    <p>Merci pour votre message, je vous répondrai dans les plus brefs délais.</p>
+    <a href="index.html">⬅ Retour au site</a>
+  </div>
+</body>
+<!-- BOUTON DARK MODE -->
+<button id="darkmode-toggle">
+  <span id="darkmode-icon"></span> Mode
+</button>
 
-<h1>Bienvenue sur Adss-investigation</h1>
+<!-- HORLOGE -->
+<div id="clock" style="font-size:1.5em; text-align:center; margin-top:15px;"></div>
 
-<p>Salut à tous, je suis Farid, créateur de ce site dédié aux enquêtes, analyses et débats qui font réfléchir.</p>
+<!-- CITATION INSPIRANTE -->
+<blockquote id="quote" style="text-align:center; font-style:italic; margin-top:20px;"></blockquote>
 
-<p>Dans un monde où l’information est partout, il est parfois difficile de distinguer le vrai du faux.  
-Ici, je m’engage à vous apporter des contenus sérieux, honnêtes et bien documentés pour mieux comprendre les enjeux actuels.</p>
+<!-- MENU MOBILE -->
+<nav>
+  <button id="menu-toggle">☰ Menu</button>
+  <ul class="menu" style="display: none;">
+    <li><a href="#">Accueil</a></li>
+    <li><a href="#">À propos</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+</html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Mon Site</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-<h2>Pourquoi ce site ?</h2>
+  <!-- BOUTON DARK MODE -->
+  <button id="darkmode-toggle">
+    <span id="darkmode-icon">☀</span> Mode
+  </button>
 
-<p>Adss-investigation n’est pas juste un blog, c’est un espace de réflexion où les idées s’échangent librement, où les sujets importants sont décortiqués,  
-et où chaque lecteur est invité à participer au débat.</p>
+  <!-- HORLOGE -->
+  <div id="clock"></div>
 
-<h2>Qu’allez-vous y trouver ?</h2>
+  <!-- CITATION -->
+  <blockquote id="quote"></blockquote>
+
+  <!-- MENU -->
+  <nav>
+    <button id="menu-toggle">☰ Menu</button>
+    <ul class="menu">
+      <li><a href="#">Accueil</a></li>
+      <li><a href="#">À propos</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- SCRIPT EXTERNE -->
+  <script src="script.js"></script>
+</body>
+</html>
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dossier Harcèlement - Enquête & Débat</title>
+<style>
+  body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; max-width: 900px; }
+  h1, h2, h3 { color: #b22222; }
+  blockquote { font-style: italic; color: #555; border-left: 4px solid #b22222; padding-left: 10px; margin: 20px 0; background: #f9f0f0;}
+  .testimony { background: #f4f4f4; padding: 15px 20px; margin: 20px 0; border-radius: 6px; }
+  .testimony strong { display: block; margin-bottom: 10px; color: #a52a2a; }
+  .question { background: #fff3f3; border-left: 5px solid #b22222; margin: 20px 0; padding: 10px 15px; }
+  .conclusion { background: #ffe6e6; padding: 20px; border-radius: 8px; margin-top: 40px; font-weight: bold; font-size: 1.1em; }
+  a { color: #b22222; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<h1>Dossier Spécial : Harcèlement – Le Crime Sans Bruit</h1>
+
+<h2>Débat – Enquête – Témoignages réels</h2>
+
+<blockquote>
+  Ce n’est pas un coup de poing. C’est un poison lent. Mais il tue aussi.
+</blockquote>
+
+<h2>Introduction</h2>
+
+<p>Le harcèlement, c’est cette réalité que beaucoup perçoivent sans vraiment vouloir la regarder en face. Dans les écoles, il est quotidien. Au travail, il s’installe en silence. Sur internet, il s’amplifie à vitesse grand V.</p>
+
+<p>Et pourtant, la majorité des plaintes restent classées sans suite. Les témoins se taisent, souvent par peur ou par résignation. Les bourreaux, eux, continuent d’agir en toute impunité.</p>
+
+<p>Ce dossier ne se contente pas de répéter ce qui a déjà été dit. Il entend révéler ce que trop de personnes choisissent d’ignorer. Il veut ouvrir un débat là où trop de portes sont closes, afin de mettre en lumière la véritable nature de cette violence invisible.</p>
+
+<hr />
+
+<h2>Témoignages Profonds</h2>
+
+<div class="testimony">
+  <strong>Lina, 15 ans – Harcèlement scolaire dans un établissement privé</strong>
+  <p>« Chaque jour au collège, je savais à quoi m’attendre. Les moqueries, les regards, les ricanements à peine dissimulés. Tout a commencé avec des surnoms qui, au début, me faisaient rire, puis rapidement, ce fut un véritable calvaire. Un jour, ils ont pris une photo de moi en pleine classe, en train de parler, et ont ajouté un filtre dégradant, transformant mon visage en caricature grotesque. Cette image a été partagée partout, jusque dans les couloirs de l’école et même sur les réseaux sociaux.</p>
+  <p>J’ai essayé d’en parler à mes professeurs, à la principale, mais on m’a répondu que c’était “juste des gamins qui s’amusent” et qu’il fallait que j’apprenne à “m’endurcir”. Chaque jour, cette indifférence me blessait un peu plus. J’ai commencé à me replier sur moi-même, à arrêter de manger, et à me couper pour essayer d’exprimer autrement ma douleur. Finalement, j’ai demandé à changer d’établissement. Pourtant, les harceleurs, eux, sont restés là, à continuer ce cercle vicieux, sans être sanctionnés. »</p>
+</div>
+
+<div class="testimony">
+  <strong>Demba, 28 ans – Harcèlement moral en start-up technologique</strong>
+  <p>« Quand j’ai intégré cette start-up, j’y ai vu un lieu de créativité et de liberté. Mais très vite, l’ambiance a viré au toxique. Mon supérieur direct se montrait charmant en public, mais en privé, il était une autre personne. Chaque réunion devenait un moment de torture : il me critiquait systématiquement, rabaissait mes idées, et me coupait la parole devant mes collègues.</p>
+  <p>Il imposait des objectifs impossibles à atteindre et me reprochait ensuite de ne pas être à la hauteur. J’étais constamment isolé, exclu des projets importants. La pression est devenue insupportable. Après plusieurs mois à accumuler stress et angoisse, j’ai fait un burn-out. J’ai tenté de porter plainte pour harcèlement moral, mais on m’a dit que je n’avais “pas assez de preuves”. La fin de l’histoire a été une rupture à l’amiable, pendant que mon ancien patron continuait de vanter sa “culture d’entreprise saine” dans ses communications publiques. »</p>
+</div>
+
+<div class="testimony">
+  <strong>Rania, 19 ans – Harcèlement numérique</strong>
+  <p>« Après une rupture difficile, mon ex-petit ami a décidé de se venger en diffusant des captures d’écran de nos conversations privées, des photos compromettantes et des messages personnels sur plusieurs réseaux sociaux. Ce fut l’enfer : je recevais des centaines de messages haineux, des insultes, des menaces de la part d’inconnus. Cette violence numérique m’a profondément brisée. J’avais l’impression que ma vie privée n’existait plus, que j’étais exposée et humiliée devant tout le monde.</p>
+  <p>J’ai porté plainte et contacté les plateformes pour faire retirer les contenus. Malheureusement, Instagram et les autres ont mis du temps à agir, et certains comptes ont continué d’être actifs. La police, elle, a fini par classer l’affaire, faute de moyens suffisants. Depuis, je vis avec la peur constante que mon passé me rattrape et que ma réputation soit à jamais ternie. »</p>
+</div>
+
+<div class="testimony">
+  <strong>Rachid, 17 ans – Harcèlement familial</strong>
+  <p>« Chez moi, la maison n’était pas un refuge. Les mots durs, les critiques permanentes, les humiliations faisaient partie du quotidien. Mon père me disait souvent que je ne valais rien, que je n’aurais jamais d’avenir. Mon frère me volait parfois mes affaires, sans que personne ne dise rien. J’ai essayé de demander de l’aide à l’assistante sociale, mais quand ma mère a appris cela, elle m’a interdit d’y retourner, me disant que je salissais la famille.</p>
+  <p>Je n’ai jamais compris si c’était de la haine ou une forme d’amour déformé. Ce que je sais, c’est que ce harcèlement à la maison m’a détruit intérieurement, et m’a appris à me taire et à cacher ma souffrance. »</p>
+</div>
+
+<div class="testimony">
+  <strong>Anaïs, 22 ans – Harcèlement de rue</strong>
+  <p>« Quand je sortais, même habillée simplement, j’étais constamment interpellée, sifflée, suivie. “T’as pas un sourire pour moi ?”, “T’es trop belle pour faire ta timide.” Ces phrases résonnaient partout, me mettant mal à l’aise et me faisant sentir prisonnière de mon propre corps.</p>
+  <p>Un soir, j’ai osé répondre à un homme qui me suivait trop longtemps. Il a accéléré le pas, me faisant peur. J’ai appelé la police, mais la réponse a été décevante : “Tant que vous n’avez rien reçu de physique, on ne peut pas faire grand-chose.” Après cet incident, j’ai cessé de sortir seule après 19h, par peur que la situation ne dégénère. J’en suis arrivée à accepter que cette forme de harcèlement faisait partie de ma vie, un fardeau que je devais porter silencieusement. »</p>
+</div>
+
+<hr />
+
+<h2>Enquête : Le Harcèlement en Milieu Scolaire</h2>
+
+<p>Le harcèlement scolaire est une réalité inquiétante qui touche une part importante des élèves en France. Selon plusieurs études récentes, environ un élève sur dix est victime de harcèlement régulier dans son établissement. Pourtant, cette violence est souvent minimisée ou ignorée par les institutions censées la combattre.</p>
+
+<p>Les établissements scolaires manquent souvent de ressources et de formations pour détecter et gérer ces situations. En outre, la montée des réseaux sociaux a complexifié le phénomène : le cyberharcèlement permet aux agresseurs d’atteindre leurs victimes en dehors du cadre scolaire, 24h sur 24, souvent dans l’anonymat et avec une viralité décuplée.</p>
+
+<p>Le personnel éducatif dénonce fréquemment un manque de moyens et de soutien, et certains témoignent que la priorité est parfois donnée à la réputation de l’établissement plutôt qu’à la protection réelle des élèves victimes.</p>
+
+<hr />
+
+<h2>Enquête : Le Harcèlement dans l’Entrepreneuriat et le Milieu Professionnel</h2>
+
+<p>Dans le monde de l’entreprise, le harcèlement prend souvent la forme d’une pression psychologique constante, masquée derrière des discours sur la performance et la compétitivité. En start-up, où la culture du dépassement de soi est valorisée, la frontière entre exigence professionnelle et harcèlement moral est souvent floue.</p>
+
+<p>Le harcèlement moral, l’isolement stratégique, les critiques humiliantes répétées, ainsi que le harcèlement sexuel et la discrimination, sont des réalités vécues par de nombreux salariés. Pourtant, beaucoup craignent de dénoncer ces situations par peur de perdre leur emploi ou de nuire à leur réputation professionnelle.</p>
+
+<p>Les chiffres sont alarmants : environ un salarié sur trois déclare avoir déjà été victime de harcèlement au travail, mais moins de 5 % des plaintes aboutissent à une sanction contre les harceleurs. Cette impunité contribue à entretenir le cycle de la violence et du silence.</p>
+
+<hr />
+
+<h2>Questions Ouvertes au Lecteur – Ouvrons le Débat</h2>
+
+<div class="question">
+  <p><strong>1. Avez-vous déjà été témoin ou victime de harcèlement sans oser en parler ? Quelles ont été vos raisons ?</strong></p>
+</div>
+
+<div class="question">
+  <p><strong>2. Pensez-vous que les établissements scolaires devraient être légalement responsables des cas de harcèlement non traités efficacement ?</strong></p>
+</div>
+
+<div class="question">
+  <p><strong>3. Le monde professionnel valorise-t-il la performance au détriment du bien-être des salariés ? Comment changer cette culture ?</strong></p>
+</div>
+
+<div class="question">
+  <p><strong>4. Que faudrait-il faire pour que les victimes osent davantage dénoncer, et que les harceleurs soient sanctionnés ?</strong></p>
+</div>
+
+<div class="question">
+  <p><strong>5. Quel rôle les témoins peuvent-ils jouer pour casser le cycle du harcèlement ?</strong></p>
+</div>
+
+<hr />
+
+<h2>Votre Voix Compte</h2>
+
+<p>Nous souhaitons que ce dossier soit aussi une plateforme participative. Si vous avez été victime, témoin, ou si vous travaillez dans un établissement scolaire ou une entreprise et que vous avez vu ce que personne ne veut dire, nous vous invitons à témoigner anonymement. Chaque voix compte dans la lutte contre le harcèlement.</p>
+
+<p>Vous pouvez envoyer vos témoignages, vos expériences, vos idées pour améliorer la situation via notre formulaire de témoignage anonyme disponible <a href="/temoignages">ici</a>.</p>
+
+<p>Nous vous invitons également à participer au débat en laissant vos commentaires, en votant aux sondages et en partageant ce dossier pour faire résonner cette cause essentielle.</p>
+
+<hr />
+
+<h2>Conclusion – Brisons le Cycle</h2>
+
+<div class="conclusion">
+  <p>Le harcèlement n’est pas une erreur passagère. C’est un système qui se nourrit des silences, des hiérarchies, de l’ignorance et de la peur. Pour y mettre fin, il faut d’abord le nommer et le comprendre pleinement.</p>
+
+  <p>Ce site est plus qu’un média : c’est une alarme, une main tendue, un miroir que nous tendons à ceux qui ne veulent plus détourner les yeux. Parce que parfois, raconter, c’est déjà résister. Et écouter, c’est déjà se battre.</p>
+</div>
+
+<hr />
+
+<h2>À Suivre</h2>
 
 <ul>
-  <li>Des enquêtes approfondies sur des sujets d’actualité</li>
-  <li>Des analyses critiques pour aller au-delà des apparences</li>
-  <li>Des débats ouverts pour partager vos points de vue</li>
-  <li>Des conseils pour mieux décrypter l’information</li>
+  <li>Dossier : Harcèlement numérique, la guerre invisible</li>
+  <li>Fiches pratiques : Comment agir face au harcèlement</li>
+  <li>Espace ressources : Lignes d’écoute, aides juridiques et éducatives</li>
+  <li>Podcast à venir : “Ce que j’ai tu pendant des années”</li>
 </ul>
-
-<p>Je vous invite à parcourir les articles, à laisser vos commentaires, et à faire vivre cette communauté de passionnés.</p>
-
-<p>Merci de votre visite et à très vite pour de nouvelles investigations !</p>
 
 </body>
 </html>
+<!-- Section Témoignages Anonymes -->
+<section id="temoignages-anonymes" style="margin-top:40px;">
+  <h2>Partagez Votre Témoignage Anonyme</h2>
+  <p>Vous avez été victime ou témoin de harcèlement ? Votre expérience peut aider à briser le silence. Partagez-la ici en toute confidentialité.</p>
+
+  <form action="/envoyer-temoignage" method="POST" style="max-width:600px; margin-top:20px;">
+    <label for="age" style="display:block; margin-bottom:8px;">Âge (facultatif) :</label>
+    <input type="number" id="age" name="age" min="10" max="120" style="width:100%; padding:8px; margin-bottom:15px;" placeholder="Votre âge ou tranche d'âge">
+
+    <label for="milieu" style="display:block; margin-bottom:8px;">Milieu concerné :</label>
+    <select id="milieu" name="milieu" required style="width:100%; padding:8px; margin-bottom:15px;">
+      <option value="">-- Sélectionnez --</option>
+      <option value="scolaire">Milieu scolaire</option>
+      <option value="professionnel">Milieu professionnel / Entreprise</option>
+      <option value="numerique">Harcèlement numérique</option>
+      <option value="familial">Milieu familial</option>
+      <option value="rue">Harcèlement de rue</option>
+      <option value="autre">Autre</option>
+    </select>
+
+    <label for="temoignage" style="display:block; margin-bottom:8px;">Votre témoignage *</label>
+    <textarea id="temoignage" name="temoignage" rows="6" required
+      style="width:100%; padding:10px; margin-bottom:15px;"
+      placeholder="Décrivez votre expérience en quelques lignes..."></textarea>
+
+    <label for="contact" style="display:block; margin-bottom:8px;">Adresse email (facultatif, pour suivi en privé) :</label>
+    <input type="email" id="contact" name="contact" style="width:100%; padding:8px; margin-bottom:15px;" placeholder="Votre email, si vous souhaitez un retour">
+
+    <button type="submit" style="background:#b22222; color:#fff; padding:12px 20px; border:none; cursor:pointer; font-size:1em;">Envoyer mon témoignage</button>
+  </form>
+</section>
+
+<!-- Section Débat Participatif -->
+<section id="debat" style="margin-top:60px;">
+  <h2>Participez au Débat</h2>
+  <p>Votre avis est essentiel pour faire avancer la lutte contre le harcèlement. Répondez aux questions ci-dessous et partagez vos réflexions.</p>
+
+  <form id="form-debat" style="max-width:700px; margin-top:20px;">
+    <label for="question1" style="display:block; margin-bottom:8px;">1. Avez-vous déjà été témoin ou victime de harcèlement sans oser en parler ? Pourquoi ?</label>
+    <textarea id="question1" name="question1" rows="4" style="width:100%; padding:10px; margin-bottom:15px;" placeholder="Votre réponse..."></textarea>
+
+    <label for="question2" style="display:block; margin-bottom:8px;">2. Que pensez-vous que les écoles ou entreprises devraient faire pour mieux protéger les victimes ?</label>
+    <textarea id="question2" name="question2" rows="4" style="width:100%; padding:10px; margin-bottom:15px;" placeholder="Votre réponse..."></textarea>
+
+    <label for="question3" style="display:block; margin-bottom:8px;">3. Selon vous, quel rôle les témoins peuvent-ils jouer dans la lutte contre le harcèlement ?</label>
+    <textarea id="question3" name="question3" rows="4" style="width:100%; padding:10px; margin-bottom:15px;" placeholder="Votre réponse..."></textarea>
+
+    <button type="submit" style="background:#b22222; color:#fff; padding:12px 20px; border:none; cursor:pointer; font-size:1em;">Envoyer mes réponses</button>
+  </form>
+
+  <div id="comments" style="margin-top:40px;">
+    <h3>Commentaires des lecteurs</h3>
+    <p>Cette section sera prochainement interactive pour accueillir vos réactions en direct.</p>
+  </div>
+</section>
+<section id="temoignages-anonymes" style="margin-top:40px;">
+  <h2>Partagez Votre Témoignage Anonyme</h2>
+  <p>Vous avez été victime ou témoin de harcèlement ? Votre expérience peut aider à briser le silence. Partagez-la ici en toute confidentialité.</p>
+
+  <form action="https://formsubmit.co/el/xusipo" method="POST" style="max-width:700px; margin-top:20px;">
+    
+    <!-- Redirection après envoi -->
+    <input type="hidden" name="_next" value="https://tonsite.com/merci.html" />
+    <!-- Désactive captcha -->
+    <input type="hidden" name="_captcha" value="false" />
+    <!-- Sujet email personnalisé -->
+    <input type="hidden" name="_subject" value="Nouveau témoignage harcèlement reçu" />
+    
+    <label for="age" style="display:block; margin-bottom:8px;">Âge (facultatif) :</label>
+    <input type="number" id="age" name="age" min="10" max="120" style="width:100%; padding:8px; margin-bottom:15px;" placeholder="Votre âge ou tranche d'âge">
+    
+    <label for="genre" style="display:block; margin-bottom:8px;">Genre :</label>
+    <select id="genre" name="genre" style="width:100%; padding:8px; margin-bottom:15px;">
+      <option value="">-- Sélectionnez --</option>
+      <option value="femme">Femme</option>
+      <option value="homme">Homme</option>
+      <option value="non-binaire">Non-binaire</option>
+      <option value="prefere-pas-dire">Préfère ne pas dire</option>
+    </select>
+
+    <label for="milieu" style="display:block; margin-bottom:8px;">Milieu concerné :</label>
+    <select id="milieu" name="milieu" required style="width:100%; padding:8px; margin-bottom:15px;">
+      <option value="">-- Sélectionnez --</option>
+      <option value="scolaire">Milieu scolaire</option>
+      <option value="professionnel">Milieu professionnel / Entreprise</option>
+      <option value="numerique">Harcèlement numérique</option>
+      <option value="familial">Milieu familial</option>
+      <option value="rue">Harcèlement de rue</option>
+      <option value="autre">Autre</option>
+    </select>
+
+    <label for="frequence" style="display:block; margin-bottom:8px;">Fréquence du harcèlement :</label>
+    <select id="frequence" name="frequence" required style="width:100%; padding:8px; margin-bottom:15px;">
+      <option value="">-- Sélectionnez --</option>
+      <option value="ponctuel">Ponctuel (une fois)</option>
+      <option value="occasionnel">Occasionnel (quelques fois)</option>
+      <option value="regulier">Régulier (plusieurs fois par semaine)</option>
+      <option value="constant">Constant (tous les jours ou presque)</option>
+    </select>
+
+    <label for="nature" style="display:block; margin-bottom:8px;">Nature du harcèlement subi :</label>
+    <select id="nature" name="nature" multiple required style="width:100%; padding:8px; margin-bottom:15px; height:120px;">
+      <option value="physique">Physique (coups, bousculades, agressions)</option>
+      <option value="verbal">Verbal (insultes, menaces, humiliations)</option>
+      <option value="psychologique">Psychologique (isolement, manipulation)</option>
+      <option value="sexuel">Sexuel (propos ou gestes déplacés)</option>
+      <option value="numerique">Numérique / Cyberharcèlement</option>
+      <option value="autre">Autre (précisez dans le témoignage)</option>
+    </select>
+
+    <label for="impact" style="display:block; margin-bottom:8px;">Impact sur votre vie :</label>
+    <select id="impact" name="impact" required style="width:100%; padding:8px; margin-bottom:15px;">
+      <option value="">-- Sélectionnez --</option>
+      <option value="emotionnel">Troubles émotionnels (anxiété, dépression)</option>
+      <option value="physique">Problèmes physiques (troubles du sommeil, blessures)</option>
+      <option value="social">Isolement social</option>
+      <option value="academique_professionnel">Baisse de performance scolaire ou professionnelle</option>
+      <option value="autre">Autre (précisez dans le témoignage)</option>
+      <option value="aucun">Aucun impact visible</option>
+    </select>
+
+    <label for="temoignage" style="display:block; margin-bottom:8px;">Votre témoignage *</label>
+    <textarea id="temoignage" name="temoignage" rows="6" required
+      style="width:100%; padding:10px; margin-bottom:15px;"
+      placeholder="Décrivez votre expérience en quelques lignes..."></textarea>
+
+    <label for="contact" style="display:block; margin-bottom:8px;">Adresse email (facultatif, pour suivi en privé) :</label>
+    <input type="email" id="contact" name="contac
