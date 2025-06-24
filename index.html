@@ -6,8 +6,20 @@
   <title>Farid Adss | Site d'Investigation</title>
   <meta name="description" content="Site d'investigation professionnelle de Farid Adss. Reportages, débats et analyses fiables." />
   <meta name="keywords" content="investigation, reportage, analyse, débat, Farid Adss" />
+  <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXX'); // Remplace par ton ID GA
+  </script>
+
   <style>
+    /* Style citation, formulaires, mode sombre */
     body {
       font-family: 'Roboto', sans-serif;
       margin: 0;
@@ -128,9 +140,7 @@
     button[type=submit]:hover {
       background-color: #004a99;
     }
-    #form-status,
-    #testimony-status,
-    #newsletter-status {
+    #form-status {
       margin-top: 10px;
       font-weight: 700;
     }
@@ -251,7 +261,7 @@
 </section>
 
 <section id="daily-quote">
-  <!-- Citation quotidienne affichée via JS -->
+  <!-- Citation quotidienne via JS -->
 </section>
 
 <section id="contact">
@@ -259,19 +269,19 @@
   <p>Tu veux discuter, proposer une collaboration ou lancer un projet ? Écris-moi :</p>
 
   <form id="contact-form" action="https://formsubmit.co/el/xusipo" method="POST" style="max-width: 500px; margin: auto;">
-    <input type="hidden" name="_captcha" value="false" />
-    <input type="hidden" name="_template" value="box" />
-    <input type="hidden" name="_next" value="merci.html" />
-    <input type="text" name="_honey" style="display:none" />
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="box">
+    <input type="hidden" name="_next" value="merci.html"> 
+    <input type="text" name="_honey" style="display:none">
 
-    <label for="name">Nom :</label><br />
-    <input type="text" id="name" name="name" required /><br />
+    <label for="name">Nom :</label><br>
+    <input type="text" id="name" name="name" required><br>
 
-    <label for="email">Email :</label><br />
-    <input type="email" id="email" name="email" required /><br />
+    <label for="email">Email :</label><br>
+    <input type="email" id="email" name="email" required><br>
 
-    <label for="message">Message :</label><br />
-    <textarea id="message" name="message" rows="5" required></textarea><br />
+    <label for="message">Message :</label><br>
+    <textarea id="message" name="message" rows="5" required></textarea><br>
 
     <button type="submit">Envoyer</button>
     <div id="form-status" role="alert" aria-live="assertive"></div>
@@ -283,13 +293,13 @@
   <p>Vous pouvez partager vos expériences de manière totalement anonyme en remplissant ce formulaire :</p>
 
   <form id="anonymous-testimony-form" action="https://formsubmit.co/el/xusipo" method="POST" style="max-width: 500px; margin: auto;">
-    <input type="hidden" name="_captcha" value="false" />
-    <input type="hidden" name="_template" value="box" />
-    <input type="hidden" name="_next" value="merci.html" />
-    <input type="text" name="_honey" style="display:none" />
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="box">
+    <input type="hidden" name="_next" value="merci.html">
+    <input type="text" name="_honey" style="display:none">
 
-    <label for="testimony-message">Votre témoignage :</label><br />
-    <textarea id="testimony-message" name="message" rows="6" required placeholder="Votre message ici..."></textarea><br />
+    <label for="testimony-message">Votre témoignage :</label><br>
+    <textarea id="testimony-message" name="message" rows="6" required placeholder="Votre message ici..."></textarea><br>
 
     <button type="submit">Envoyer anonymement</button>
     <div id="testimony-status" role="alert" aria-live="assertive"></div>
@@ -301,13 +311,13 @@
   <p>Reste informé en recevant mes enquêtes et actualités directement par email :</p>
 
   <form id="newsletter-form" action="https://formsubmit.co/el/xusipo" method="POST" style="max-width: 400px; margin: auto;">
-    <input type="hidden" name="_captcha" value="false" />
-    <input type="hidden" name="_template" value="box" />
-    <input type="hidden" name="_next" value="merci.html" />
-    <input type="text" name="_honey" style="display:none" />
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="box">
+    <input type="hidden" name="_next" value="merci.html">
+    <input type="text" name="_honey" style="display:none">
 
-    <label for="newsletter-email">Votre email :</label><br />
-    <input type="email" id="newsletter-email" name="email" required placeholder="exemple@domaine.com" /><br />
+    <label for="newsletter-email">Votre email :</label><br>
+    <input type="email" id="newsletter-email" name="email" required placeholder="exemple@domaine.com"><br>
 
     <button type="submit">S'inscrire</button>
     <div id="newsletter-status" role="alert" aria-live="assertive"></div>
@@ -318,16 +328,20 @@
   <h2>Débat & Commentaires</h2>
   <p>Participez au débat ou laissez vos commentaires ci-dessous :</p>
 
-  <!-- Intégration Disqus -->
+  <!-- Intégration Disqus (ou autre système de commentaires) -->
   <div id="disqus_thread"></div>
   <script>
+    /**
+     * REPLACE 'faridadss-site' BY YOUR OWN DISQUS SHORTNAME
+     * If you don't have a Disqus account, you need to create one and get the shortname.
+     */
     var disqus_config = function () {
       this.page.url = window.location.href;
       this.page.identifier = window.location.pathname;
     };
-    (function() {
+    (function() { 
       var d = document, s = d.createElement('script');
-      s.src = 'https://faridadss-site.disqus.com/embed.js'; // Remplace par ton shortname Disqus
+      s.src = 'https://faridadss-site.disqus.com/embed.js'; // change faridadss-site par ton shortname
       s.setAttribute('data-timestamp', +new Date());
       (d.head || d.body).appendChild(s);
     })();
@@ -344,111 +358,137 @@
 </footer>
 
 <script>
-  // MENU TOGGLE MOBILE
-  const menuToggle = document.getElementById('menu-toggle');
-  const menu = document.querySelector('ul.menu');
-  menuToggle.addEventListener('click', () => {
-    menu.classList.toggle('menu-open');
-  });
+// MENU TOGGLE MOBILE
+const menuToggle = document.getElementById('menu-toggle');
+const menu = document.querySelector('ul.menu');
+menuToggle.addEventListener('click', () => {
+  menu.classList.toggle('menu-open');
+});
 
-  // DARK MODE TOGGLE
-  const darkToggle = document.getElementById('darkmode-toggle');
-  darkToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-  });
+// DARK MODE TOGGLE
+const darkToggle = document.getElementById('darkmode-toggle');
+darkToggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+});
 
-  // COMPTE À REBOURS PROGRAMME
-  function updateCountdown() {
-    const countdownEl = document.getElementById('countdown');
-    const now = new Date();
+// COMPTE À REBOURS PROGRAMME
+function updateCountdown() {
+  const countdownEl = document.getElementById('countdown');
+  const now = new Date();
 
-    // Horaires fixes des événements (13h00 et 20h00)
-    const targets = [
-      new Date(now.getFullYear(), now.getMonth(), now.getDate(), 13, 0, 0),
-      new Date(now.getFullYear(), now.getMonth(), now.getDate(), 20, 0, 0)
-    ];
-
-    let nextTarget = targets.find(t => t > now);
-    if (!nextTarget) {
-      // Si on a passé 20h, cible suivante = demain 13h
-      nextTarget = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 13, 0, 0);
-    }
-
-    const diffMs = nextTarget - now;
-    const diffH = Math.floor(diffMs / (1000 * 60 * 60));
-    const diffM = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
-    const diffS = Math.floor((diffMs % (1000 * 60)) / 1000);
-
-    countdownEl.textContent = `${diffH.toString().padStart(2,'0')}h ${diffM.toString().padStart(2,'0')}m ${diffS.toString().padStart(2,'0')}s`;
-  }
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
-
-  // COMPTEUR VISITEURS SIMPLE (CountAPI)
-  fetch('https://api.countapi.xyz/hit/faridadss/sitevisits')
-    .then(res => res.json())
-    .then(data => {
-      document.getElementById('visitorCount').textContent = data.value;
-    })
-    .catch(() => {
-      document.getElementById('visitorCount').textContent = 'N/A';
-    });
-
-  // CITATION QUOTIDIENNE
-  const quotes = [
-    "« La vérité est le chemin le plus court vers la justice. »",
-    "« L’investigation est la lumière dans l’obscurité de l’ignorance. »",
-    "« Questionner, c’est commencer à comprendre. »",
-    "« Se taire, c’est accepter l’injustice. »",
-    "« La liberté d’informer est la pierre angulaire de la démocratie. »",
-    "« Chaque voix compte dans la quête de la vérité. »",
-    "« L’objectivité est le meilleur allié du journaliste. »"
+  const targets = [
+    new Date(now.getFullYear(), now.getMonth(), now.getDate(), 13, 0, 0),
+    new Date(now.getFullYear(), now.getMonth(), now.getDate(), 20, 0, 0),
   ];
 
-  function displayDailyQuote() {
-    const quoteEl = document.getElementById('daily-quote');
-    const day = new Date().getDate();
-    const index = day % quotes.length;
-    quoteEl.textContent = quotes[index];
+  let nextTarget = targets.find(t => t > now);
+  if (!nextTarget) {
+    nextTarget = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 13, 0, 0);
   }
-  displayDailyQuote();
 
-  // FORMULAIRES VALIDATION SIMPLE
+  const diffMs = nextTarget - now;
+  const diffH = Math.floor(diffMs / (1000 * 60 * 60));
+  const diffM = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+  const diffS = Math.floor((diffMs % (1000 * 60)) / 1000);
 
-  // Contact
-  const contactForm = document.getElementById('contact-form');
-  const contactStatus = document.getElementById('form-status');
-  contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const name = contactForm.name.value.trim();
-    const email = contactForm.email.value.trim();
-    const message = contactForm.message.value.trim();
+  countdownEl.textContent = `${diffH.toString().padStart(2, '0')}h ${diffM.toString().padStart(2, '0')}m ${diffS.toString().padStart(2, '0')}s`;
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
 
-    if (!name || !email || !message) {
-      contactStatus.textContent = "Veuillez remplir tous les champs.";
-      contactStatus.style.color = "red";
-      return;
-    }
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      contactStatus.textContent = "Veuillez entrer un email valide.";
-      contactStatus.style.color = "red";
-      return;
-    }
-    contactStatus.textContent = "Envoi en cours...";
-    contactStatus.style.color = "black";
-    contactForm.submit();
+// COMPTEUR VISITEURS SIMPLE (CountAPI)
+fetch('https://api.countapi.xyz/hit/faridadss/sitevisits')
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('visitorCount').textContent = data.value;
+  })
+  .catch(() => {
+    document.getElementById('visitorCount').textContent = 'N/A';
   });
 
-  // Témoignages anonymes
-  const testimonyForm = document.getElementById('anonymous-testimony-form');
-  const testimonyStatus = document.getElementById('testimony-status');
-  testimonyForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const message = testimonyForm.message.value.trim();
-    if (!message) {
-      testimonyStatus.textContent = "Le témoignage ne peut pas être vide.";
-      <!DOCTYPE html><html lang="fr">
+// CITATION QUOTIDIENNE
+const quotes = [
+  "« La vérité est le chemin le plus court vers la justice. »",
+  "« L’investigation est la lumière dans l’obscurité de l’ignorance. »",
+  "« Questionner, c’est commencer à comprendre. »",
+  "« Se taire, c’est accepter l’injustice. »",
+  "« La liberté d’informer est la pierre angulaire de la démocratie. »",
+  "« Chaque voix compte dans la quête de la vérité. »",
+  "« L’objectivité est le meilleur allié du journaliste. »"
+];
+
+function displayDailyQuote() {
+  const quoteEl = document.getElementById('daily-quote');
+  const day = new Date().getDate();
+  const index = day % quotes.length;
+  quoteEl.textContent = quotes[index];
+}
+displayDailyQuote();
+
+// FORMULAIRES SIMPLE VALIDATION AVEC MESSAGE D'ERREUR POUR LE CONTACT
+const contactForm = document.getElementById('contact-form');
+const contactStatus = document.getElementById('form-status');
+contactForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const name = contactForm.name.value.trim();
+  const email = contactForm.email.value.trim();
+  const message = contactForm.message.value.trim();
+
+  if(!name || !email || !message) {
+    contactStatus.textContent = "Veuillez remplir tous les champs.";
+    contactStatus.style.color = "red";
+    return;
+  }
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if(!emailRegex.test(email)) {
+    contactStatus.textContent = "Veuillez entrer un email valide.";
+    contactStatus.style.color = "red";
+    return;
+  }
+  // Si OK, on laisse l'envoi continuer (formsubmit)
+                             contactStatus.textContent = "Envoi en cours...";
+  contactStatus.style.color = "black";
+  contactForm.submit();
+});
+
+// Témoignages anonymes
+const testimonyForm = document.getElementById('anonymous-testimony-form');
+const testimonyStatus = document.getElementById('testimony-status');
+testimonyForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const message = testimonyForm.message.value.trim();
+  if(!message) {
+    testimonyStatus.textContent = "Le témoignage ne peut pas être vide.";
+    testimonyStatus.style.color = "red";
+    return;
+  }
+  testimonyStatus.textContent = "Envoi en cours...";
+  testimonyStatus.style.color = "black";
+  testimonyForm.submit();
+});
+
+// Newsletter
+const newsletterForm = document.getElementById('newsletter-form');
+const newsletterStatus = document.getElementById('newsletter-status');
+newsletterForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const email = newsletterForm.email.value.trim();
+  if(!email) {
+    newsletterStatus.textContent = "Veuillez entrer votre email.";
+    newsletterStatus.style.color = "red";
+    return;
+  }
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if(!emailRegex.test(email)) {
+    newsletterStatus.textContent = "Email invalide.";
+    newsletterStatus.style.color = "red";
+    return;
+  }
+  newsletterStatus.textContent = "Inscription en cours...";
+  newsletterStatus.style.color = "black";
+  newsletterForm.submit();
+});
+  <!DOCTYPE html><html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -546,4 +586,8 @@
 </section>
 
   </article>  <script src="script.js"></script></body>
+</html>
+</script>
+
+</body>
 </html>
