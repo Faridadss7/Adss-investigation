@@ -438,6 +438,7 @@ contactForm.addEventListener('submit', function(e) {
     contactStatus.textContent = "Veuillez remplir tous les champs.";
     contactStatus.style.color = "red";
     return;
+    <input type="hidden" name="_next" value="merci.html">
   }
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if(!emailRegex.test(email)) {
@@ -461,6 +462,7 @@ testimonyForm.addEventListener('submit', function(e) {
     testimonyStatus.textContent = "Le témoignage ne peut pas être vide.";
     testimonyStatus.style.color = "red";
     return;
+    <input type="hidden" name="_next" value="merci.html">
   }
   testimonyStatus.textContent = "Envoi en cours...";
   testimonyStatus.style.color = "black";
@@ -477,6 +479,7 @@ newsletterForm.addEventListener('submit', function(e) {
     newsletterStatus.textContent = "Veuillez entrer votre email.";
     newsletterStatus.style.color = "red";
     return;
+    <input type="hidden" name="_next" value="merci.html">
   }
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if(!emailRegex.test(email)) {
@@ -492,3 +495,4 @@ newsletterForm.addEventListener('submit', function(e) {
 
 </body>
 </html>
+      
