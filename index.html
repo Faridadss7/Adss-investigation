@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="fr">
+<!DOCTYPE html>
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,13 +8,196 @@
   <meta name="keywords" content="investigation, reportage, analyse, débat, Farid Adss" />
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <script src="script.js" defer></script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXX'); // Remplace par ton ID GA
+  </script>
+
+  <style>
+    /* Style citation, formulaires, mode sombre */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0 15px 50px 15px;
+      background-color: #fff;
+      color: #222;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    body.dark-mode {
+      background-color: #121212;
+      color: #eee;
+    }
+    header nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #222;
+      padding: 10px 20px;
+      color: #ffab00;
+    }
+    header nav .logo {
+      font-weight: 700;
+      font-size: 1.8rem;
+    }
+    header nav ul.menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 15px;
+    }
+    header nav ul.menu li a, header nav ul.menu li button {
+      color: #ffab00;
+      text-decoration: none;
+      font-weight: 600;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    header nav ul.menu li button:hover,
+    header nav ul.menu li a:hover {
+      text-decoration: underline;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #0066cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+    section {
+      max-width: 900px;
+      margin: 30px auto;
+    }
+    h2 {
+      color: #b22222;
+      margin-bottom: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+    #countdown {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #ffab00;
+      margin-top: 5px;
+    }
+    form {
+      background: #f4f4f4;
+      padding: 20px;
+      border-radius: 6px;
+      margin-top: 20px;
+    }
+    form.dark-mode {
+      background: #222;
+    }
+    input[type=text], input[type=email], textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 1rem;
+      background: white;
+      color: black;
+    }
+    body.dark-mode input[type=text],
+    body.dark-mode input[type=email],
+    body.dark-mode textarea {
+      background: #333;
+      color: #eee;
+      border-color: #555;
+    }
+    button[type=submit] {
+      background-color: #0066cc;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    button[type=submit]:hover {
+      background-color: #004a99;
+    }
+    #form-status {
+      margin-top: 10px;
+      font-weight: 700;
+    }
+    #daily-quote {
+      font-style: italic;
+      text-align: center;
+      margin: 30px auto;
+      max-width: 700px;
+      color: #ffab00;
+      font-weight: 600;
+      font-size: 1.3rem;
+    }
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      color: #ffab00;
+      font-weight: 700;
+    }
+    footer a {
+      color: #ffab00;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    /* Responsive menu mobile */
+    @media (max-width: 600px) {
+      header nav ul.menu {
+        display: none;
+        flex-direction: column;
+        background: #222;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        border-radius: 0 0 0 10px;
+        padding: 10px 0;
+      }
+      header nav ul.menu.menu-open {
+        display: flex;
+      }
+      #menu-toggle {
+        background: none;
+        border: none;
+        color: #ffab00;
+        font-size: 2rem;
+        cursor: pointer;
+      }
+    }
+  </style>
 </head>
-<body><header>
+<body>
+
+<header>
   <nav>
-    <a href="#accueil" class="logo">Farid Adss</a>
-    <button id="menu-toggle" aria-label="Ouvrir le menu" title="Menu mobile">&#9776;</button>
+    <h1 class="logo">Farid Adss</h1>
+    <button id="menu-toggle" aria-label="Ouvrir le menu">&#9776;</button>
     <ul class="menu">
       <li><a href="#accueil">Accueil</a></li>
       <li><a href="#a-propos">À propos</a></li>
@@ -22,103 +206,293 @@
       <li><a href="#contact">Contact</a></li>
       <li><a href="#temoignages">Témoignages anonymes</a></li>
       <li><a href="#commentaires">Débat & Commentaires</a></li>
-      <li><button id="darkmode-toggle" aria-label="Basculer le mode sombre" title="Mode sombre">🌓</button></li>
+      <li><button id="darkmode-toggle" aria-label="Basculer en mode sombre">🌓</button></li>
     </ul>
   </nav>
-</header><section id="accueil" class="hero">
+</header>
+
+<section id="accueil" class="hero">
   <h2>Bienvenue sur mon site d’enquêtes et d’investigations</h2>
   <p>Analyse. Vérité. Impact. Découvrez des rapports solides et objectifs.</p>
   <a href="#contact" class="btn">Me contacter</a>
-</section><section id="a-propos">
+</section>
+
+<section id="a-propos">
   <h2>À propos</h2>
   <p>Je suis Farid Adss, passionné par la vérité, la transparence et l'information vérifiée. Mon travail consiste à investiguer, analyser et vous livrer des contenus de qualité sur des sujets sensibles ou méconnus.</p>
-</section><section id="services">
+</section>
+
+<section id="services">
   <h2>Ce que je propose</h2>
   <ul>
-    <li aria-label="Enquêtes terrain">🔍 Enquêtes terrain</li>
-    <li aria-label="Rédaction de rapports détaillés">🖊️ Rédaction de rapports détaillés</li>
-    <li aria-label="Analyse de données">📊 Analyse de données</li>
-    <li aria-label="Recherche stratégique">🧠 Recherche stratégique</li>
+    <li>🔍 Enquêtes terrain</li>
+    <li>🖊️ Rédaction de rapports détaillés</li>
+    <li>📊 Analyse de données</li>
+    <li>🧠 Recherche stratégique</li>
   </ul>
-</section><section id="programme">
+</section>
+
+<section id="programme">
   <h2>Programme quotidien</h2>
   <p>Tous les jours :</p>
   <table>
     <thead>
-      <tr><th>Heure</th><th>Activité</th></tr>
+      <tr>
+        <th>Heure</th>
+        <th>Activité</th>
+      </tr>
     </thead>
     <tbody>
-      <tr><td>13h00</td><td>Reportage : Nouvelles tendances et situations dans le monde</td></tr>
-      <tr><td>20h00</td><td>Débats poignants et points de vue animés</td></tr>
+      <tr>
+        <td>13h00</td>
+        <td>Reportage : Nouvelles tendances et situations dans le monde</td>
+      </tr>
+      <tr>
+        <td>20h00</td>
+        <td>Débats poignants et points de vue animés</td>
+      </tr>
     </tbody>
   </table>
-  <div id="countdown-section" aria-live="polite">
+
+  <div id="countdown-section" aria-live="polite" style="margin-top: 30px;">
     <h3>Prochain rendez-vous dans :</h3>
-    <div id="countdown"></div>
+    <div id="countdown" aria-atomic="true" style="font-size: 1.6rem; font-weight: 700; color: #ffab00;"></div>
   </div>
-</section><section id="daily-quote"></section><section id="contact">
+</section>
+
+<section id="daily-quote">
+  <!-- Citation quotidienne via JS -->
+</section>
+
+<section id="contact">
   <h2>Contact</h2>
   <p>Tu veux discuter, proposer une collaboration ou lancer un projet ? Écris-moi :</p>
-  <form id="contact-form" action="https://formsubmit.co/el/xusipo" method="POST">
+
+  <form id="contact-form" action="https://formsubmit.co/el/xusipo" method="POST" style="max-width: 500px; margin: auto;">
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_template" value="box">
-    <input type="hidden" name="_next" value="merci.html">
-    <input type="text" name="_honey" style="display:none" aria-hidden="true">
-    <label for="name">Nom :</label>
-    <input type="text" id="name" name="name" required>
-    <label for="email">Email :</label>
-    <input type="email" id="email" name="email" required>
-    <label for="message">Message :</label>
-    <textarea id="message" name="message" rows="5" required></textarea>
+    <input type="hidden" name="_next" value="merci.html"> 
+    <input type="text" name="_honey" style="display:none">
+
+    <label for="name">Nom :</label><br>
+    <input type="text" id="name" name="name" required><br>
+
+    <label for="email">Email :</label><br>
+    <input type="email" id="email" name="email" required><br>
+
+    <label for="message">Message :</label><br>
+    <textarea id="message" name="message" rows="5" required></textarea><br>
+
     <button type="submit">Envoyer</button>
     <div id="form-status" role="alert" aria-live="assertive"></div>
   </form>
-</section><section id="temoignages">
+</section>
+
+<section id="temoignages">
   <h2>Témoignages Anonymes</h2>
   <p>Vous pouvez partager vos expériences de manière totalement anonyme en remplissant ce formulaire :</p>
-  <form id="anonymous-testimony-form" action="https://formsubmit.co/el/xusipo" method="POST">
+
+  <form id="anonymous-testimony-form" action="https://formsubmit.co/el/xusipo" method="POST" style="max-width: 500px; margin: auto;">
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_template" value="box">
     <input type="hidden" name="_next" value="merci.html">
-    <input type="text" name="_honey" style="display:none" aria-hidden="true">
-    <label for="testimony-message">Votre témoignage :</label>
-    <textarea id="testimony-message" name="message" rows="6" required placeholder="Votre message ici..."></textarea>
+    <input type="text" name="_honey" style="display:none">
+
+    <label for="testimony-message">Votre témoignage :</label><br>
+    <textarea id="testimony-message" name="message" rows="6" required placeholder="Votre message ici..."></textarea><br>
+
     <button type="submit">Envoyer anonymement</button>
     <div id="testimony-status" role="alert" aria-live="assertive"></div>
   </form>
-</section><section id="newsletter">
+</section>
+
+<section id="newsletter">
   <h2>Inscription à la Newsletter</h2>
   <p>Reste informé en recevant mes enquêtes et actualités directement par email :</p>
-  <form id="newsletter-form" action="https://formsubmit.co/el/xusipo" method="POST">
+
+  <form id="newsletter-form" action="https://formsubmit.co/el/xusipo" method="POST" style="max-width: 400px; margin: auto;">
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_template" value="box">
     <input type="hidden" name="_next" value="merci.html">
-    <input type="text" name="_honey" style="display:none" aria-hidden="true">
-    <label for="newsletter-email">Votre email :</label>
-    <input type="email" id="newsletter-email" name="email" required placeholder="exemple@domaine.com">
+    <input type="text" name="_honey" style="display:none">
+
+    <label for="newsletter-email">Votre email :</label><br>
+    <input type="email" id="newsletter-email" name="email" required placeholder="exemple@domaine.com"><br>
+
     <button type="submit">S'inscrire</button>
     <div id="newsletter-status" role="alert" aria-live="assertive"></div>
   </form>
-</section><section id="commentaires">
+</section>
+
+<section id="commentaires">
   <h2>Débat & Commentaires</h2>
   <p>Participez au débat ou laissez vos commentaires ci-dessous :</p>
+
+  <!-- Intégration Disqus (ou autre système de commentaires) -->
   <div id="disqus_thread"></div>
   <script>
+    /**
+     * REPLACE 'faridadss-site' BY YOUR OWN DISQUS SHORTNAME
+     * If you don't have a Disqus account, you need to create one and get the shortname.
+     */
     var disqus_config = function () {
       this.page.url = window.location.href;
       this.page.identifier = window.location.pathname;
     };
-    (function() {
+    (function() { 
       var d = document, s = d.createElement('script');
-      s.src = 'https://faridadss-site.disqus.com/embed.js';
+      s.src = 'https://faridadss-site.disqus.com/embed.js'; // change faridadss-site par ton shortname
       s.setAttribute('data-timestamp', +new Date());
       (d.head || d.body).appendChild(s);
     })();
   </script>
   <noscript>Merci d'activer JavaScript pour voir les commentaires.</noscript>
-</section><footer>
-  <div>Visiteurs uniques : <span id="visitorCount">...</span></div>
-  <p>Contact : <a href="mailto:faridadss1234@gmail.com">faridadss1234@gmail.com</a></p>
+</section>
+
+<footer>
+  <div style="margin-top:20px;">
+    Visiteurs uniques : <span id="visitorCount">...</span>
+  </div>
+  <p style="margin-top:10px;">Contact : <a href="mailto:faridadss1234@gmabil.com">faridadss1234@gmabil.com</a></p>
   <p>&copy; 2025 Farid Adss. Tous droits réservés.</p>
-</footer></body>
-      </html>
+</footer>
+
+<script>
+// MENU TOGGLE MOBILE
+const menuToggle = document.getElementById('menu-toggle');
+const menu = document.querySelector('ul.menu');
+menuToggle.addEventListener('click', () => {
+  menu.classList.toggle('menu-open');
+});
+
+// DARK MODE TOGGLE
+const darkToggle = document.getElementById('darkmode-toggle');
+darkToggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+});
+
+// COMPTE À REBOURS PROGRAMME
+function updateCountdown() {
+  const countdownEl = document.getElementById('countdown');
+  const now = new Date();
+
+  const targets = [
+    new Date(now.getFullYear(), now.getMonth(), now.getDate(), 13, 0, 0),
+    new Date(now.getFullYear(), now.getMonth(), now.getDate(), 20, 0, 0),
+  ];
+
+  let nextTarget = targets.find(t => t > now);
+  if (!nextTarget) {
+    nextTarget = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 13, 0, 0);
+  }
+
+  const diffMs = nextTarget - now;
+  const diffH = Math.floor(diffMs / (1000 * 60 * 60));
+  const diffM = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+  const diffS = Math.floor((diffMs % (1000 * 60)) / 1000);
+
+  countdownEl.textContent = `${diffH.toString().padStart(2, '0')}h ${diffM.toString().padStart(2, '0')}m ${diffS.toString().padStart(2, '0')}s`;
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// COMPTEUR VISITEURS SIMPLE (CountAPI)
+fetch('https://api.countapi.xyz/hit/faridadss/sitevisits')
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('visitorCount').textContent = data.value;
+  })
+  .catch(() => {
+    document.getElementById('visitorCount').textContent = 'N/A';
+  });
+
+// CITATION QUOTIDIENNE
+const quotes = [
+  "« La vérité est le chemin le plus court vers la justice. »",
+  "« L’investigation est la lumière dans l’obscurité de l’ignorance. »",
+  "« Questionner, c’est commencer à comprendre. »",
+  "« Se taire, c’est accepter l’injustice. »",
+  "« La liberté d’informer est la pierre angulaire de la démocratie. »",
+  "« Chaque voix compte dans la quête de la vérité. »",
+  "« L’objectivité est le meilleur allié du journaliste. »"
+];
+
+function displayDailyQuote() {
+  const quoteEl = document.getElementById('daily-quote');
+  const day = new Date().getDate();
+  const index = day % quotes.length;
+  quoteEl.textContent = quotes[index];
+}
+displayDailyQuote();
+
+// FORMULAIRES SIMPLE VALIDATION AVEC MESSAGE D'ERREUR POUR LE CONTACT
+const contactForm = document.getElementById('contact-form');
+const contactStatus = document.getElementById('form-status');
+contactForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const name = contactForm.name.value.trim();
+  const email = contactForm.email.value.trim();
+  const message = contactForm.message.value.trim();
+
+  if(!name || !email || !message) {
+    contactStatus.textContent = "Veuillez remplir tous les champs.";
+    contactStatus.style.color = "red";
+    return;
+    <input type="hidden" name="_next" value="merci.html">
+  }
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if(!emailRegex.test(email)) {
+    contactStatus.textContent = "Veuillez entrer un email valide.";
+    contactStatus.style.color = "red";
+    return;
+  }
+  // Si OK, on laisse l'envoi continuer (formsubmit)
+                             contactStatus.textContent = "Envoi en cours...";
+  contactStatus.style.color = "black";
+  contactForm.submit();
+});
+
+// Témoignages anonymes
+const testimonyForm = document.getElementById('anonymous-testimony-form');
+const testimonyStatus = document.getElementById('testimony-status');
+testimonyForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const message = testimonyForm.message.value.trim();
+  if(!message) {
+    testimonyStatus.textContent = "Le témoignage ne peut pas être vide.";
+    testimonyStatus.style.color = "red";
+    return;
+    <input type="hidden" name="_next" value="merci.html">
+  }
+  testimonyStatus.textContent = "Envoi en cours...";
+  testimonyStatus.style.color = "black";
+  testimonyForm.submit();
+});
+
+// Newsletter
+const newsletterForm = document.getElementById('newsletter-form');
+const newsletterStatus = document.getElementById('newsletter-status');
+newsletterForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const email = newsletterForm.email.value.trim();
+  if(!email) {
+    newsletterStatus.textContent = "Veuillez entrer votre email.";
+    newsletterStatus.style.color = "red";
+    return;
+    <input type="hidden" name="_next" value="merci.html">
+  }
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if(!emailRegex.test(email)) {
+    newsletterStatus.textContent = "Email invalide.";
+    newsletterStatus.style.color = "red";
+    return;
+  }
+  newsletterStatus.textContent = "Inscription en cours...";
+  newsletterStatus.style.color = "black";
+  newsletterForm.submit();
+});
+</script>
+
+</body>
+</html>
+      
