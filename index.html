@@ -6,20 +6,8 @@
   <title>Farid Adss | Site d'Investigation</title>
   <meta name="description" content="Site d'investigation professionnelle de Farid Adss. Reportages, débats et analyses fiables." />
   <meta name="keywords" content="investigation, reportage, analyse, débat, Farid Adss" />
-  <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXX'); // Remplace par ton ID GA
-  </script>
-
   <style>
-    /* Style citation, formulaires, mode sombre */
     body {
       font-family: 'Roboto', sans-serif;
       margin: 0;
@@ -140,7 +128,9 @@
     button[type=submit]:hover {
       background-color: #004a99;
     }
-    #form-status {
+    #form-status,
+    #testimony-status,
+    #newsletter-status {
       margin-top: 10px;
       font-weight: 700;
     }
@@ -261,7 +251,7 @@
 </section>
 
 <section id="daily-quote">
-  <!-- Citation quotidienne via JS -->
+  <!-- Citation quotidienne affichée via JS -->
 </section>
 
 <section id="contact">
@@ -269,19 +259,19 @@
   <p>Tu veux discuter, proposer une collaboration ou lancer un projet ? Écris-moi :</p>
 
   <form id="contact-form" action="https://formsubmit.co/el/xusipo" method="POST" style="max-width: 500px; margin: auto;">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_template" value="box">
-    <input type="hidden" name="_next" value="merci.html"> 
-    <input type="text" name="_honey" style="display:none">
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="hidden" name="_template" value="box" />
+    <input type="hidden" name="_next" value="merci.html" />
+    <input type="text" name="_honey" style="display:none" />
 
-    <label for="name">Nom :</label><br>
-    <input type="text" id="name" name="name" required><br>
+    <label for="name">Nom :</label><br />
+    <input type="text" id="name" name="name" required /><br />
 
-    <label for="email">Email :</label><br>
-    <input type="email" id="email" name="email" required><br>
+    <label for="email">Email :</label><br />
+    <input type="email" id="email" name="email" required /><br />
 
-    <label for="message">Message :</label><br>
-    <textarea id="message" name="message" rows="5" required></textarea><br>
+    <label for="message">Message :</label><br />
+    <textarea id="message" name="message" rows="5" required></textarea><br />
 
     <button type="submit">Envoyer</button>
     <div id="form-status" role="alert" aria-live="assertive"></div>
@@ -293,13 +283,13 @@
   <p>Vous pouvez partager vos expériences de manière totalement anonyme en remplissant ce formulaire :</p>
 
   <form id="anonymous-testimony-form" action="https://formsubmit.co/el/xusipo" method="POST" style="max-width: 500px; margin: auto;">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_template" value="box">
-    <input type="hidden" name="_next" value="merci.html">
-    <input type="text" name="_honey" style="display:none">
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="hidden" name="_template" value="box" />
+    <input type="hidden" name="_next" value="merci.html" />
+    <input type="text" name="_honey" style="display:none" />
 
-    <label for="testimony-message">Votre témoignage :</label><br>
-    <textarea id="testimony-message" name="message" rows="6" required placeholder="Votre message ici..."></textarea><br>
+    <label for="testimony-message">Votre témoignage :</label><br />
+    <textarea id="testimony-message" name="message" rows="6" required placeholder="Votre message ici..."></textarea><br />
 
     <button type="submit">Envoyer anonymement</button>
     <div id="testimony-status" role="alert" aria-live="assertive"></div>
@@ -311,13 +301,13 @@
   <p>Reste informé en recevant mes enquêtes et actualités directement par email :</p>
 
   <form id="newsletter-form" action="https://formsubmit.co/el/xusipo" method="POST" style="max-width: 400px; margin: auto;">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_template" value="box">
-    <input type="hidden" name="_next" value="merci.html">
-    <input type="text" name="_honey" style="display:none">
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="hidden" name="_template" value="box" />
+    <input type="hidden" name="_next" value="merci.html" />
+    <input type="text" name="_honey" style="display:none" />
 
-    <label for="newsletter-email">Votre email :</label><br>
-    <input type="email" id="newsletter-email" name="email" required placeholder="exemple@domaine.com"><br>
+    <label for="newsletter-email">Votre email :</label><br />
+    <input type="email" id="newsletter-email" name="email" required placeholder="exemple@domaine.com" /><br />
 
     <button type="submit">S'inscrire</button>
     <div id="newsletter-status" role="alert" aria-live="assertive"></div>
@@ -328,20 +318,16 @@
   <h2>Débat & Commentaires</h2>
   <p>Participez au débat ou laissez vos commentaires ci-dessous :</p>
 
-  <!-- Intégration Disqus (ou autre système de commentaires) -->
+  <!-- Intégration Disqus -->
   <div id="disqus_thread"></div>
   <script>
-    /**
-     * REPLACE 'faridadss-site' BY YOUR OWN DISQUS SHORTNAME
-     * If you don't have a Disqus account, you need to create one and get the shortname.
-     */
     var disqus_config = function () {
       this.page.url = window.location.href;
       this.page.identifier = window.location.pathname;
     };
-    (function() { 
+    (function() {
       var d = document, s = d.createElement('script');
-      s.src = 'https://faridadss-site.disqus.com/embed.js'; // change faridadss-site par ton shortname
+      s.src = 'https://faridadss-site.disqus.com/embed.js'; // Remplace par ton shortname Disqus
       s.setAttribute('data-timestamp', +new Date());
       (d.head || d.body).appendChild(s);
     })();
@@ -358,145 +344,206 @@
 </footer>
 
 <script>
-// MENU TOGGLE MOBILE
-const menuToggle = document.getElementById('menu-toggle');
-const menu = document.querySelector('ul.menu');
-menuToggle.addEventListener('click', () => {
-  menu.classList.toggle('menu-open');
-});
-
-// DARK MODE TOGGLE
-const darkToggle = document.getElementById('darkmode-toggle');
-darkToggle.addEventListener('click', () => {
-  document.body.classList.toggle('dark-mode');
-});
-
-// COMPTE À REBOURS PROGRAMME
-function updateCountdown() {
-  const countdownEl = document.getElementById('countdown');
-  const now = new Date();
-
-  const targets = [
-    new Date(now.getFullYear(), now.getMonth(), now.getDate(), 13, 0, 0),
-    new Date(now.getFullYear(), now.getMonth(), now.getDate(), 20, 0, 0),
-  ];
-
-  let nextTarget = targets.find(t => t > now);
-  if (!nextTarget) {
-    nextTarget = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 13, 0, 0);
-  }
-
-  const diffMs = nextTarget - now;
-  const diffH = Math.floor(diffMs / (1000 * 60 * 60));
-  const diffM = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
-  const diffS = Math.floor((diffMs % (1000 * 60)) / 1000);
-
-  countdownEl.textContent = `${diffH.toString().padStart(2, '0')}h ${diffM.toString().padStart(2, '0')}m ${diffS.toString().padStart(2, '0')}s`;
-}
-updateCountdown();
-setInterval(updateCountdown, 1000);
-
-// COMPTEUR VISITEURS SIMPLE (CountAPI)
-fetch('https://api.countapi.xyz/hit/faridadss/sitevisits')
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById('visitorCount').textContent = data.value;
-  })
-  .catch(() => {
-    document.getElementById('visitorCount').textContent = 'N/A';
+  // MENU TOGGLE MOBILE
+  const menuToggle = document.getElementById('menu-toggle');
+  const menu = document.querySelector('ul.menu');
+  menuToggle.addEventListener('click', () => {
+    menu.classList.toggle('menu-open');
   });
 
-// CITATION QUOTIDIENNE
-const quotes = [
-  "« La vérité est le chemin le plus court vers la justice. »",
-  "« L’investigation est la lumière dans l’obscurité de l’ignorance. »",
-  "« Questionner, c’est commencer à comprendre. »",
-  "« Se taire, c’est accepter l’injustice. »",
-  "« La liberté d’informer est la pierre angulaire de la démocratie. »",
-  "« Chaque voix compte dans la quête de la vérité. »",
-  "« L’objectivité est le meilleur allié du journaliste. »"
-];
+  // DARK MODE TOGGLE
+  const darkToggle = document.getElementById('darkmode-toggle');
+  darkToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+  });
 
-function displayDailyQuote() {
-  const quoteEl = document.getElementById('daily-quote');
-  const day = new Date().getDate();
-  const index = day % quotes.length;
-  quoteEl.textContent = quotes[index];
-}
-displayDailyQuote();
+  // COMPTE À REBOURS PROGRAMME
+  function updateCountdown() {
+    const countdownEl = document.getElementById('countdown');
+    const now = new Date();
 
-// FORMULAIRES SIMPLE VALIDATION AVEC MESSAGE D'ERREUR POUR LE CONTACT
-const contactForm = document.getElementById('contact-form');
-const contactStatus = document.getElementById('form-status');
-contactForm.addEventListener('submit', function(e) {
-  e.preventDefault();
-  const name = contactForm.name.value.trim();
-  const email = contactForm.email.value.trim();
-  const message = contactForm.message.value.trim();
+    // Horaires fixes des événements (13h00 et 20h00)
+    const targets = [
+      new Date(now.getFullYear(), now.getMonth(), now.getDate(), 13, 0, 0),
+      new Date(now.getFullYear(), now.getMonth(), now.getDate(), 20, 0, 0)
+    ];
 
-  if(!name || !email || !message) {
-    contactStatus.textContent = "Veuillez remplir tous les champs.";
-    contactStatus.style.color = "red";
-    return;
-    <input type="hidden" name="_next" value="merci.html">
+    let nextTarget = targets.find(t => t > now);
+    if (!nextTarget) {
+      // Si on a passé 20h, cible suivante = demain 13h
+      nextTarget = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 13, 0, 0);
+    }
+
+    const diffMs = nextTarget - now;
+    const diffH = Math.floor(diffMs / (1000 * 60 * 60));
+    const diffM = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+    const diffS = Math.floor((diffMs % (1000 * 60)) / 1000);
+
+    countdownEl.textContent = `${diffH.toString().padStart(2,'0')}h ${diffM.toString().padStart(2,'0')}m ${diffS.toString().padStart(2,'0')}s`;
   }
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if(!emailRegex.test(email)) {
-    contactStatus.textContent = "Veuillez entrer un email valide.";
-    contactStatus.style.color = "red";
-    return;
-  }
-  // Si OK, on laisse l'envoi continuer (formsubmit)
-                             contactStatus.textContent = "Envoi en cours...";
-  contactStatus.style.color = "black";
-  contactForm.submit();
-});
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
 
-// Témoignages anonymes
-const testimonyForm = document.getElementById('anonymous-testimony-form');
-const testimonyStatus = document.getElementById('testimony-status');
-testimonyForm.addEventListener('submit', function(e) {
-  e.preventDefault();
-  const message = testimonyForm.message.value.trim();
-  if(!message) {
-    testimonyStatus.textContent = "Le témoignage ne peut pas être vide.";
-    testimonyStatus.style.color = "red";
-    return;
-    <input type="hidden" name="_next" value="merci.html">
-  }
-  testimonyStatus.textContent = "Envoi en cours...";
-  testimonyStatus.style.color = "black";
-  testimonyForm.submit();
-});
+  // COMPTEUR VISITEURS SIMPLE (CountAPI)
+  fetch('https://api.countapi.xyz/hit/faridadss/sitevisits')
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById('visitorCount').textContent = data.value;
+    })
+    .catch(() => {
+      document.getElementById('visitorCount').textContent = 'N/A';
+    });
 
-// Newsletter
-const newsletterForm = document.getElementById('newsletter-form');
-const newsletterStatus = document.getElementById('newsletter-status');
-newsletterForm.addEventListener('submit', function(e) {
-  e.preventDefault();
-  const email = newsletterForm.email.value.trim();
-  if(!email) {
-    newsletterStatus.textContent = "Veuillez entrer votre email.";
-    newsletterStatus.style.color = "red";
-    return;
-    <input type="hidden" name="_next" value="merci.html">
-  }
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if(!emailRegex.test(email)) {
-    newsletterStatus.textContent = "Email invalide.";
-    newsletterStatus.style.color = "red";
-    return;
-  }
-  newsletterStatus.textContent = "Inscription en cours...";
-  newsletterStatus.style.color = "black";
-  newsletterForm.submit();
-});
-</script>
+  // CITATION QUOTIDIENNE
+  const quotes = [
+    "« La vérité est le chemin le plus court vers la justice. »",
+    "« L’investigation est la lumière dans l’obscurité de l’ignorance. »",
+    "« Questionner, c’est commencer à comprendre. »",
+    "« Se taire, c’est accepter l’injustice. »",
+    "« La liberté d’informer est la pierre angulaire de la démocratie. »",
+    "« Chaque voix compte dans la quête de la vérité. »",
+    "« L’objectivité est le meilleur allié du journaliste. »"
+  ];
 
-</body>
-</html>
-  <div id="countdown-section" aria-live="polite" style="margin-top: 30px;">
-  <h3>Prochain rendez-vous dans :</h3>
-  <div id="countdown" aria-atomic="true" style="font-size: 1.6rem; font-weight: 700; color: #ffab00;"></div>
-  </div>    
+  function displayDailyQuote() {
+    const quoteEl = document.getElementById('daily-quote');
+    const day = new Date().getDate();
+    const index = day % quotes.length;
+    quoteEl.textContent = quotes[index];
+  }
+  displayDailyQuote();
+
+  // FORMULAIRES VALIDATION SIMPLE
+
+  // Contact
+  const contactForm = document.getElementById('contact-form');
+  const contactStatus = document.getElementById('form-status');
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = contactForm.name.value.trim();
+    const email = contactForm.email.value.trim();
+    const message = contactForm.message.value.trim();
+
+    if (!name || !email || !message) {
+      contactStatus.textContent = "Veuillez remplir tous les champs.";
+      contactStatus.style.color = "red";
+      return;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      contactStatus.textContent = "Veuillez entrer un email valide.";
+      contactStatus.style.color = "red";
+      return;
+    }
+    contactStatus.textContent = "Envoi en cours...";
+    contactStatus.style.color = "black";
+    contactForm.submit();
+  });
+
+  // Témoignages anonymes
+  const testimonyForm = document.getElementById('anonymous-testimony-form');
+  const testimonyStatus = document.getElementById('testimony-status');
+  testimonyForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const message = testimonyForm.message.value.trim();
+    if (!message) {
+      testimonyStatus.textContent = "Le témoignage ne peut pas être vide.";
+      <!DOCTYPE html><html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feu sur le croissant : 72 heures de guerre ouverte entre Israël et l’Iran</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <article class="reportage">
+    <header>
+      <h1>Feu sur le croissant : 72 heures de guerre ouverte entre Israël et l’Iran</h1>
+      <h2>Chronique d’une escalade annoncée</h2>
+    </header><section class="introduction">
+  <h3>🕯️ INTRODUCTION — Le silence avant l’orage</h3>
+  <p><strong>Téhéran, 12 juin 2025.</strong> Une chaleur lourde pèse sur la ville. Dans les rues, les murmures courent depuis des semaines : des installations nucléaires iraniennes auraient été repérées par des drones inconnus. À Tel-Aviv, les agences de renseignement israéliennes, elles, parlent d’un « point de non-retour ».</p>
+  <p>Depuis les accords d’Abraham, les tensions ont changé de forme, mais pas de fond. L’Iran, accusé de multiplier l’enrichissement d’uranium au-delà du seuil critique, franchit une ligne rouge invisible. Le <strong>13 juin à 2h14 du matin</strong>, Israël frappe. La guerre est déclarée.</p>
+</section>
+
+<section class="acte">
+  <h3>📆 ACTE I – 13 juin 2025 : L’attaque surprise</h3>
+  <p><strong>2h14 (heure de Téhéran)</strong> – Une série d’explosions secoue les villes d’Ispahan, Natanz et Arak. Israël vient de déclencher l’opération <em>“Rising Lion”</em>, une offensive aérienne coordonnée visant les installations nucléaires et militaires stratégiques iraniennes.</p>
+
+  <h4>Cibles :</h4>
+  <ul>
+    <li>Le complexe de Natanz (centre nucléaire souterrain)</li>
+    <li>Une base de la Garde Révolutionnaire à Kermanshah</li>
+    <li>Un laboratoire balistique à Parchin</li>
+  </ul>
+
+  <h4>Bilan immédiat :</h4>
+  <ul>
+    <li>112 morts (dont 28 ingénieurs civils)</li>
+    <li>4 drones “Harop” israéliens abattus</li>
+  </ul>
+
+  <h4>Réaction mondiale :</h4>
+  <ul>
+    <li>Les États-Unis appellent au calme, tout en admettant avoir été “informés”.</li>
+    <li>La Russie condamne l’attaque mais refuse d’intervenir.</li>
+    <li>L’Arabie Saoudite reste silencieuse.</li>
+  </ul>
+</section>
+
+<section class="acte">
+  <h3>📆 ACTE II – 14 au 17 juin : L’Iran contre-attaque</h3>
+  <p>L’Iran ne tarde pas à répondre. Le <strong>14 juin au soir</strong>, le régime lance une salve de 168 missiles balistiques en direction du sud israélien, dont 34 sont interceptés par le système Dôme de Fer. C’est la riposte la plus massive jamais enregistrée.</p>
+  <blockquote>« Si Israël veut la guerre, il l’aura sur tous les fronts. »<br>— Déclaration du guide suprême Ali Khamenei, 15 juin 2025.</blockquote>
+
+  <p>Dans les rues de Gaza et de Beyrouth, des manifestations éclatent. Le Hezbollah mobilise des brigades, tandis que les Houthis tirent deux drones vers Eilat. Des cyberattaques visent également des infrastructures électriques israéliennes, plongeant temporairement plusieurs quartiers de Haïfa dans le noir.</p>
+
+  <h4>Bilan humain (côté israélien) :</h4>
+  <ul>
+    <li>87 morts</li>
+    <li>350 blessés</li>
+    <li>Un hôpital à Beer Sheva touché</li>
+  </ul>
+</section>
+
+<section class="acte">
+  <h3>📆 ACTE III – 18 au 24 juin : vers une guerre régionale ?</h3>
+  <p>Le conflit atteint un nouveau niveau. Le <strong>18 juin</strong>, Israël bombarde des bases iraniennes en Syrie et en Irak, visant des convois logistiques et des centres de commandement. Le <strong>21 juin</strong>, un pétrolier japonais est touché dans le détroit d’Ormuz, poussant les marchés à la panique et réveillant les craintes d’un blocage du commerce mondial.</p>
+
+  <h4>Économie :</h4>
+  <ul>
+    <li>Prix du baril : +23% en une semaine (76 $ → 93 $)</li>
+    <li>Volatilité accrue sur les marchés asiatiques et européens</li>
+  </ul>
+
+  <p>Le <strong>23 juin</strong>, Donald Trump — candidat à la présidentielle US — tente une médiation surprise :</p>
+  <blockquote>« Si Téhéran arrête ses frappes avant 4h (heure locale), Israël fera de même. »</blockquote>
+
+  <p>Mais Téhéran dément tout accord. Le <strong>24 juin</strong>, une dernière vague de frappes israéliennes touche les abords de la ville de Mashhad. Selon les premières estimations de l’ONU, <strong>380 civils</strong> auraient été tués, dont <strong>17 enfants</strong>. Des journalistes sur place parlent d’un « carnage évitable ».</p>
+</section>
+
+<section class="a-suivre">
+  <h3>📊 Analyse stratégique — Pourquoi cette guerre a-t-elle éclaté maintenant ?</h3>
+  <p>Depuis plusieurs années, les tensions entre Israël et l’Iran n’ont cessé de croître autour de trois axes principaux : l’enrichissement nucléaire, la militarisation régionale via des milices alliées, et la guerre de l’information menée sur les réseaux diplomatiques et numériques.</p>
+  <p>Le déclenchement de l’offensive israélienne répond à une triple logique :</p>
+  <ul>
+    <li><strong>Stratégique</strong> : Israël souhaite éviter que l’Iran ne franchisse le seuil nucléaire militaire, ce qui modifierait irréversiblement l’équilibre de puissance au Moyen-Orient.</li>
+    <li><strong>Politique intérieure</strong> : le gouvernement israélien, affaibli par des crises sociales, cherche à rallier l’opinion autour d’un ennemi extérieur.</li>
+    <li><strong>Géopolitique</strong> : cette offensive teste la solidité des alliances (soutien tacite des pays du Golfe, réaction prudente des États-Unis, immobilisme de la Russie).</li>
+  </ul>
+  <p>Pour Téhéran, riposter était tout aussi impératif : un non-réponse aurait été interprétée comme un aveu de faiblesse. En retour, l’Iran vise à prouver qu’il est capable de dissuasion offensive sur plusieurs fronts à la fois (missiles, drones, cyber, proxies régionaux).</p>
+  <p>À cela s’ajoute un facteur historique : depuis 2010, chaque cycle d’escalade a été suivi de trêves précaires. Mais en 2025, la multiplication des fronts — Yémen, Liban, Syrie, Irak — rend l’enlisement beaucoup plus probable.</p>
+  <p>Cette guerre était-elle évitable ? Peut-être. Prévisible ? Incontestablement. Et ses conséquences dépassent déjà le simple cadre bilatéral.</p>
+</section>
+
+<section class="sommaire">
+  <h3>🧭 À suivre :</h3>
+  <ol>
+    <li>Les victimes oubliées : civils, hôpitaux, presse</li>
+    <li>Risque d’enlisement ou guerre régionale ?</li>
+    <li>Perspectives et conclusion : un cessez-le-feu durable est-il possible ?</li>
+  </ol>
+</section>
+
+  </article>  <script src="script.js"></script></body>
 </html>
