@@ -438,7 +438,8 @@ form.addEventListener('submit', function(e) {
   </style>
 </head>
 <body>
-<!DOCTYPE html><html lang="fr">
+ <!DOCTYPE html>
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -480,12 +481,15 @@ form.addEventListener('submit', function(e) {
       padding: 30px;
       border-radius: 8px;
     }
-    input, textarea {
+    input, textarea, select {
       width: 100%;
       padding: 10px;
       margin-bottom: 15px;
       border: 1px solid #ccc;
       border-radius: 5px;
+      font-size: 1rem;
+      font-family: 'Roboto', sans-serif;
+      box-sizing: border-box;
     }
     button {
       background-color: #003366;
@@ -494,6 +498,7 @@ form.addEventListener('submit', function(e) {
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      font-size: 1rem;
     }
     .btn-retour {
       display: inline-block;
@@ -503,51 +508,87 @@ form.addEventListener('submit', function(e) {
       color: white;
       padding: 10px 20px;
       border-radius: 5px;
+      font-size: 1rem;
     }
     footer {
       text-align: center;
       padding: 30px;
       color: #666;
+      font-size: 0.9rem;
+    }
+    #citation-du-jour {
+      margin: 40px auto 60px auto;
+      padding: 20px;
+      background: #e9f4ff;
+      border-left: 5px solid #0077cc;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: #003366;
+      max-width: 600px;
     }
   </style>
 </head>
-<body>  <section class="content">
-    <h1>Enquête : L'éloquence – Vertu ou Illusion ?</h1><h3>🔍 Introduction</h3>
-<p>L’éloquence. Une qualité qu’on admire, qu’on récompense, qu’on craint parfois. Être éloquent, est-ce parler pour convaincre… ou pour vaincre ? Notre enquête interroge cette arme des mots : quand devient-elle manipulation ?</p>
+<body>
 
-<h3>🗣️ 1. Définir l’éloquence : plus qu’un bel habillage</h3>
-<p>Loin d’être juste « parler bien », l’éloquence renvoie à une capacité à persuader en alliant le fond et la forme. Depuis Cicéron, elle est un art civique. Dans les tribunaux, les débats ou les mouvements sociaux, elle peut mobiliser, mais aussi masquer la vérité.</p>
+  <section class="content">
+    <h1>Enquête : L'éloquence – Vertu ou Illusion ?</h1>
 
-<h3>⚖️ 2. Les deux visages de l’éloquence</h3>
-<ul>
-  <li><strong>Côté lumière :</strong> elle éclaire les idées, donne voix aux silences, démocratise le savoir.</li>
-  <li><strong>Côté obscur :</strong> elle enjolive le vide, détourne, devient théâtre sans contenu.</li>
-</ul>
+    <div id="citation-du-jour">
+      "La parole est moitié à celui qui parle, moitié à celui qui écoute." — Michel de Montaigne
+    </div>
 
-<h3>📚 3. Cas concrets et terrains</h3>
-<p>Concours d’éloquence, campagnes électorales, réseaux sociaux… les espaces de performance verbale se multiplient. Mais qu’en retient le public ? Et à quel moment l’émotion prend-elle le dessus sur le raisonnement ?</p>
+    <h3>Introduction</h3>
+    <p>L’éloquence. Une qualité qu’on admire, qu’on récompense, qu’on craint parfois. Être éloquent, est-ce parler pour convaincre… ou pour vaincre ? Notre enquête interroge cette arme des mots : quand devient-elle manipulation ?</p>
 
-<blockquote>« Un discours bien dit peut cacher un monde mal fait. » — Anonyme</blockquote>
+    <h3>1. Définir l’éloquence : plus qu’un bel habillage</h3>
+    <p>Loin d’être juste « parler bien », l’éloquence renvoie à une capacité à persuader en alliant le fond et la forme. Depuis Cicéron, elle est un art civique. Dans les tribunaux, les débats ou les mouvements sociaux, elle peut mobiliser, mais aussi masquer la vérité.</p>
 
-<h3>🤔 4. Enquête de terrain : ce que pensent les gens</h3>
-<p>Nous avons interrogé 50 personnes : étudiants, enseignants, avocats, citoyens. Pour 62 %, l’éloquence est un art noble. Mais 38 % estiment qu’elle peut masquer des failles d’argumentation. Tous s’accordent à dire qu’elle est puissante — et donc à manier avec éthique.</p>
+    <h3>2. Les deux visages de l’éloquence</h3>
+    <ul>
+      <li>Côté lumière : elle éclaire les idées, donne voix aux silences, démocratise le savoir.</li>
+      <li>Côté obscur : elle enjolive le vide, détourne, devient théâtre sans contenu.</li>
+    </ul>
 
-<h3>🔎 5. Débat ouvert : et vous, qu’en pensez-vous ?</h3>
-<p>Peut-on concilier beauté du verbe et rigueur de la pensée ? L’éloquence est-elle une compétence à démocratiser ou un privilège d’élite ?</p>
-<p style="margin-top: 30px; font-style: italic;">L’enquête reste ouverte. Votre avis compte.</p>
+    <h3>3. Cas concrets et terrains</h3>
+    <p>Concours d’éloquence, campagnes électorales, réseaux sociaux… les espaces de performance verbale se multiplient. Mais qu’en retient le public ? Et à quel moment l’émotion prend-elle le dessus sur le raisonnement ?</p>
 
-<div class="formulaire">
-  <h2>Exprimez votre avis</h2>
-  <form action="https://formspree.io/f/xldnojov" method="POST">
-    <input type="text" name="name" placeholder="Votre nom" required>
-    <input type="email" name="email" placeholder="Votre email" required>
-    <textarea name="message" rows="5" placeholder="Votre opinion sur l'éloquence..." required></textarea>
-    <button type="submit">Envoyer</button>
-  </form>
-  <a href="index.html" class="btn-retour">← Retour à l’accueil</a>
-</div>
+    <blockquote>« Un discours bien dit peut cacher un monde mal fait. » — Anonyme</blockquote>
 
-  </section>  <footer>
+    <h3>4. Enquête de terrain : ce que pensent les gens</h3>
+    <p>Nous avons interrogé 50 personnes : étudiants, enseignants, avocats, citoyens. Pour 62 %, l’éloquence est un art noble. Mais 38 % estiment qu’elle peut masquer des failles d’argumentation. Tous s’accordent à dire qu’elle est puissante — et donc à manier avec éthique.</p>
+
+    <h3>5. Débat ouvert : et vous, qu’en pensez-vous ?</h3>
+    <p>Peut-on concilier beauté du verbe et rigueur de la pensée ? L’éloquence est-elle une compétence à démocratiser ou un privilège d’élite ?</p>
+    <p style="margin-top: 30px; font-style: italic;">L’enquête reste ouverte. Votre avis compte.</p>
+
+    <div class="formulaire">
+      <h2>Exprimez votre avis</h2>
+      <form action="https://formspree.io/f/xldnojov" method="POST">
+        <input type="text" name="name" placeholder="Votre nom" required>
+        <input type="email" name="email" placeholder="Votre email" required>
+        <textarea name="message" rows="5" placeholder="Votre opinion sur l'éloquence..." required></textarea>
+        <button type="submit">Envoyer</button>
+      </form>
+    </div>
+
+    <div class="formulaire" style="margin-top: 40px;">
+      <h2>Proposez une nouvelle enquête</h2>
+      <form action="https://formspree.io/f/xldnojov" method="POST">
+        <input type="text" name="name" placeholder="Votre nom" required>
+        <input type="email" name="email" placeholder="Votre email" required>
+        <input type="text" name="subject" placeholder="Sujet de l'enquête" required>
+        <textarea name="description" rows="5" placeholder="Décrivez brièvement le thème ou la question à investiguer" required></textarea>
+        <button type="submit">Soumettre la proposition</button>
+      </form>
+    </div>
+
+    <a href="index.html" class="btn-retour">← Retour à l’accueil</a>
+
+  </section>
+
+  <footer>
     <p>&copy; 2025 Farid Adss. Tous droits réservés.</p>
-  </footer></body>
-</html>
+  </footer>
+
+</body>
+          </html> 
