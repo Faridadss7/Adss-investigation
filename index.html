@@ -175,31 +175,6 @@ form.addEventListener('submit', function(e) {
 
 </body>
 </html>
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Tu veux discuter, proposer une collaboration ou lancer un projet ? Écris-moi :</p>
-
-  <form action="https://formsubmit.co/el/xusipo" method="POST" style="max-width: 500px; margin: auto;">
-    <!-- Configuration FormSubmit -->
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_template" value="box">
-    <input type="hidden" name="_next" value="merci.html"> <!-- Redirection après envoi -->
-    <input type="text" name="_honey" style="display:none">
-
-    <!-- Champs visibles -->
-    <label for="name">Nom :</label><br>
-    <input type="text" id="name" name="name" required style="width:100%; padding:10px; margin-bottom:10px;"><br>
-
-    <label for="email">Email :</label><br>
-    <input type="email" id="email" name="email" required style="width:100%; padding:10px; margin-bottom:10px;"><br>
-
-    <label for="message">Message :</label><br>
-    <textarea id="message" name="message" rows="5" required style="width:100%; padding:10px; margin-bottom:10px;"></textarea><br>
-
-    <button type="submit" style="padding:10px 20px; background-color:#0066cc; color:white; border:none; cursor:pointer;">
-      Envoyer
-    </button>
-  </form>
 </section>
 <!DOCTYPE html>
 <html lang="fr">
@@ -438,157 +413,296 @@ form.addEventListener('submit', function(e) {
   </style>
 </head>
 <body>
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Enquête : L'Éloquence – Farid Adss</title>
-  <meta name="description" content="Enquête-débat sur l'éloquence, menée par Farid Adss. Découvrez les facettes de cette qualité humaine et ses ambiguïtés." />
-  <meta name="keywords" content="éloquence, débat, enquête, Farid Adss, argumentation, discours" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <title>Enquête-Débat : L'Éloquence | Farid Adss Investigation</title>
+  <meta name="description" content="Enquête approfondie et débat sur le thème de l'éloquence, avec formulaire de questions et suggestions." />
+  <meta name="keywords" content="éloquence, enquête, débat, communication, rhétorique, Farid Adss" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
   <style>
+    /* Reset basique */
+    *, *::before, *::after {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
     body {
       font-family: 'Roboto', sans-serif;
-      background-color: #f9f9f9;
+      background-color: #fafafa;
       color: #222;
-      margin: 0;
-      padding: 0;
-    }
-    .content {
       max-width: 900px;
-      margin: 40px auto;
-      padding: 40px 20px;
-      background-color: white;
-      box-shadow: 0 0 20px rgba(0,0,0,0.05);
+      margin: 2rem auto;
+      padding: 0 1rem 3rem;
+      line-height: 1.6;
     }
     h1, h2, h3 {
-      color: #003366;
+      color: #0a2540;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
     }
-    blockquote {
-      background: #f0f7ff;
-      border-left: 4px solid #003366;
-      padding: 10px 20px;
-      font-style: italic;
-      margin: 20px 0;
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      border-bottom: 3px solid #1f4e79;
+      padding-bottom: 0.3rem;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      border-left: 5px solid #1f4e79;
+      padding-left: 0.6rem;
+    }
+    h3 {
+      font-size: 1.4rem;
+      margin-top: 2rem;
+      margin-bottom: 0.7rem;
+      color: #1f4e79;
+    }
+    p {
+      margin-bottom: 1.2rem;
+      font-size: 1.1rem;
+      color: #333;
     }
     ul {
-      padding-left: 20px;
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+      list-style-type: disc;
+      color: #444;
     }
-    .formulaire {
-      margin-top: 60px;
-      background: #f1f1f1;
-      padding: 30px;
+    blockquote {
+      font-style: italic;
+      background-color: #e6f0ff;
+      border-left: 5px solid #1f4e79;
+      margin: 2rem 0;
+      padding: 1rem 1.2rem;
+      color: #0a2540;
+      font-size: 1.1rem;
+      line-height: 1.4;
+    }
+    .citation-du-jour {
+      background-color: #dce8ff;
+      border-left: 6px solid #1f4e79;
+      margin: 3rem 0 2rem;
+      padding: 1rem 1.5rem;
+      font-weight: 600;
+      color: #073763;
+      font-size: 1.15rem;
+      min-height: 3.2em;
+      font-style: normal;
+      text-align: center;
+    }
+    /* Formulaires */
+    form {
+      max-width: 500px;
+      background: #fff;
+      padding: 1.8rem 2rem;
       border-radius: 8px;
+      box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+      margin: 2rem auto 4rem;
+      color: #222;
     }
-    input, textarea, select {
+    form label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+      color: #0a2540;
+    }
+    form input[type="text"],
+    form input[type="email"],
+    form textarea {
       width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
+      padding: 10px 12px;
+      margin-bottom: 1.2rem;
+      border: 1.8px solid #bbb;
+      border-radius: 6px;
       font-size: 1rem;
-      font-family: 'Roboto', sans-serif;
-      box-sizing: border-box;
+      transition: border-color 0.3s ease;
+      font-family: inherit;
+      color: #222;
+      resize: vertical;
     }
-    button {
-      background-color: #003366;
-      color: white;
-      padding: 10px 20px;
+    form input[type="text"]:focus,
+    form input[type="email"]:focus,
+    form textarea:focus {
+      outline: none;
+      border-color: #1f4e79;
+      box-shadow: 0 0 6px #1f4e79aa;
+    }
+    form button[type="submit"] {
+      background-color: #1f4e79;
+      color: #fff;
+      padding: 12px 25px;
+      font-size: 1.1rem;
       border: none;
-      border-radius: 5px;
+      border-radius: 6px;
       cursor: pointer;
-      font-size: 1rem;
+      transition: background-color 0.25s ease;
+      font-weight: 700;
     }
-    .btn-retour {
+    form button[type="submit"]:hover {
+      background-color: #114070;
+    }
+    /* Bouton retour accueil */
+    .btn-accueil {
       display: inline-block;
-      margin-top: 30px;
+      background-color: #ffab00;
+      color: #0a2540;
+      font-weight: 700;
+      padding: 12px 22px;
+      border-radius: 8px;
       text-decoration: none;
-      background-color: #003366;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 5px;
-      font-size: 1rem;
+      margin: 2rem auto 4rem;
+      box-shadow: 0 2px 8px rgb(255 171 0 / 0.4);
+      transition: background-color 0.3s ease;
+      font-size: 1.1rem;
+      text-align: center;
+      max-width: 180px;
+      display: block;
+    }
+    .btn-accueil:hover {
+      background-color: #e09900;
     }
     footer {
       text-align: center;
-      padding: 30px;
+      margin-top: 3rem;
+      padding: 2rem 1rem;
+      border-top: 1px solid #ddd;
       color: #666;
       font-size: 0.9rem;
     }
-    #citation-du-jour {
-      margin: 40px auto 60px auto;
-      padding: 20px;
-      background: #e9f4ff;
-      border-left: 5px solid #0077cc;
-      font-style: italic;
-      font-size: 1.1rem;
-      color: #003366;
-      max-width: 600px;
+    /* Responsive */
+    @media (max-width: 600px) {
+      body {
+        margin: 1rem;
+        max-width: 100%;
+        padding-bottom: 4rem;
+      }
+      h1 {
+        font-size: 2.2rem;
+      }
+      h2 {
+        font-size: 1.6rem;
+      }
+      form {
+        margin: 1.5rem 0 3rem;
+        padding: 1.3rem 1.5rem;
+      }
+      .btn-accueil {
+        max-width: 100%;
+        padding: 10px 15px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <section class="content">
-    <h1>Enquête : L'éloquence – Vertu ou Illusion ?</h1>
+  <article>
+    <h1>Enquête-Débat : L'Éloquence</h1>
 
-    <div id="citation-du-jour">
-      "La parole est moitié à celui qui parle, moitié à celui qui écoute." — Michel de Montaigne
+    <p><strong>De vous à moi, savons-nous réellement ce qu’est l’éloquence ?</strong>  
+    Cette enquête approfondie explore un art souvent méconnu mais fondamental dans la communication humaine, la politique, le leadership et la société.</p>
+
+    <section>
+      <h2>Introduction</h2>
+      <p>L’éloquence est bien plus qu’un simple talent oratoire. C’est une capacité à toucher, convaincre et inspirer par la parole. Pourtant, son étude demeure parcellaire dans l’espace public, souvent réduite à une idée vague ou à des clichés.</p>
+    </section>
+
+    <section>
+      <h2>1. Origines et définition de l’éloquence</h2>
+      <p>Historiquement, l’éloquence s’enracine dans l’Antiquité gréco-romaine où elle était enseignée comme une discipline majeure. L’art de bien parler pour persuader est au cœur des démocraties naissantes.</p>
+      <p>L’éloquence combine des éléments stylistiques, émotionnels et logiques. Elle s’exprime à travers le choix des mots, le rythme, la gestuelle, et surtout la capacité à adapter le discours à son auditoire.</p>
+    </section>
+
+    <section>
+      <h2>2. Les piliers fondamentaux de l’éloquence</h2>
+      <ul>
+        <li><strong>Le Logos :</strong> la logique et la structure argumentaire.</li>
+        <li><strong>Le Pathos :</strong> l’émotion et la connexion avec l’auditoire.</li>
+        <li><strong>L’Ethos :</strong> la crédibilité et la personnalité du locuteur.</li>
+      </ul>
+      <p>Ces trois piliers doivent s’harmoniser pour créer un discours puissant et persuasif.</p>
+    </section>
+
+    <section>
+      <h2>3. Les obstacles modernes à l’éloquence</h2>
+      <p>À l’ère du numérique et de la rapidité, l’éloquence se heurte à plusieurs défis : la surcharge d’informations, la superficialité des échanges, la montée des formats courts et des médias sociaux qui privilégient l’immédiateté plus que la profondeur.</p>
+      <p>Le déclin des pratiques traditionnelles d’écoute et de débat civilisés affaiblit aussi cette forme d’art.</p>
+    </section>
+
+    <section>
+      <h2>4. L’éloquence comme outil d’influence sociale</h2>
+      <p>De la tribune politique aux plateformes digitales, maîtriser l’éloquence offre un pouvoir considérable. Elle façonne les opinions, mobilise des foules et peut même faire basculer des élections ou des décisions majeures.</p>
+      <blockquote>« L’éloquence est la peinture de la pensée. »<br>— Cicéron</blockquote>
+    </section>
+
+    <section>
+      <h2>5. Perspectives pour redécouvrir l’éloquence</h2>
+      <p>Réhabiliter l’éloquence dans les écoles, promouvoir la formation au débat et à l’expression orale sont des pistes indispensables pour restaurer cet art fondamental. Plus que jamais, la société a besoin de voix fortes, claires et justes.</p>
+    </section>
+
+    <div class="citation-du-jour" aria-live="polite" aria-atomic="true" id="citationDuJour">
+      Chargement de la citation du jour…
     </div>
 
-    <h3>Introduction</h3>
-    <p>L’éloquence. Une qualité qu’on admire, qu’on récompense, qu’on craint parfois. Être éloquent, est-ce parler pour convaincre… ou pour vaincre ? Notre enquête interroge cette arme des mots : quand devient-elle manipulation ?</p>
+    <a href="index.html" class="btn-accueil" aria-label="Retour à la page d'accueil">← Retour à l’accueil</a>
 
-    <h3>1. Définir l’éloquence : plus qu’un bel habillage</h3>
-    <p>Loin d’être juste « parler bien », l’éloquence renvoie à une capacité à persuader en alliant le fond et la forme. Depuis Cicéron, elle est un art civique. Dans les tribunaux, les débats ou les mouvements sociaux, elle peut mobiliser, mais aussi masquer la vérité.</p>
+    <section aria-labelledby="formulaire-avis-title">
+      <h2 id="formulaire-avis-title">Formulaire pour poser vos questions ou suggestions d’enquêtes</h2>
+      <form action="https://formspree.io/f/xldnojov" method="POST" novalidate>
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="box" />
+        <input type="hidden" name="_next" value="merci.html" />
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
 
-    <h3>2. Les deux visages de l’éloquence</h3>
-    <ul>
-      <li>Côté lumière : elle éclaire les idées, donne voix aux silences, démocratise le savoir.</li>
-      <li>Côté obscur : elle enjolive le vide, détourne, devient théâtre sans contenu.</li>
-    </ul>
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="name" required autocomplete="name" placeholder="Votre nom" />
 
-    <h3>3. Cas concrets et terrains</h3>
-    <p>Concours d’éloquence, campagnes électorales, réseaux sociaux… les espaces de performance verbale se multiplient. Mais qu’en retient le public ? Et à quel moment l’émotion prend-elle le dessus sur le raisonnement ?</p>
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" required autocomplete="email" placeholder="Votre email" />
 
-    <blockquote>« Un discours bien dit peut cacher un monde mal fait. » — Anonyme</blockquote>
+        <label for="message">Votre question ou suggestion :</label>
+        <textarea id="message" name="message" rows="5" required placeholder="Écrivez votre message ici"></textarea>
 
-    <h3>4. Enquête de terrain : ce que pensent les gens</h3>
-    <p>Nous avons interrogé 50 personnes : étudiants, enseignants, avocats, citoyens. Pour 62 %, l’éloquence est un art noble. Mais 38 % estiment qu’elle peut masquer des failles d’argumentation. Tous s’accordent à dire qu’elle est puissante — et donc à manier avec éthique.</p>
-
-    <h3>5. Débat ouvert : et vous, qu’en pensez-vous ?</h3>
-    <p>Peut-on concilier beauté du verbe et rigueur de la pensée ? L’éloquence est-elle une compétence à démocratiser ou un privilège d’élite ?</p>
-    <p style="margin-top: 30px; font-style: italic;">L’enquête reste ouverte. Votre avis compte.</p>
-
-    <div class="formulaire">
-      <h2>Exprimez votre avis</h2>
-      <form action="https://formspree.io/f/xldnojov" method="POST">
-        <input type="text" name="name" placeholder="Votre nom" required>
-        <input type="email" name="email" placeholder="Votre email" required>
-        <textarea name="message" rows="5" placeholder="Votre opinion sur l'éloquence..." required></textarea>
         <button type="submit">Envoyer</button>
       </form>
-    </div>
+    </section>
 
-    <div class="formulaire" style="margin-top: 40px;">
-      <h2>Proposez une nouvelle enquête</h2>
-      <form action="https://formspree.io/f/xldnojov" method="POST">
-        <input type="text" name="name" placeholder="Votre nom" required>
-        <input type="email" name="email" placeholder="Votre email" required>
-        <input type="text" name="subject" placeholder="Sujet de l'enquête" required>
-        <textarea name="description" rows="5" placeholder="Décrivez brièvement le thème ou la question à investiguer" required></textarea>
-        <button type="submit">Soumettre la proposition</button>
-      </form>
-    </div>
-
-    <a href="index.html" class="btn-retour">← Retour à l’accueil</a>
-
-  </section>
+  </article>
 
   <footer>
-    <p>&copy; 2025 Farid Adss. Tous droits réservés.</p>
+    <p>© 2025 Farid Adss. Tous droits réservés.</p>
   </footer>
 
+  <script>
+    // Liste de citations inspirantes sur l'éloquence
+    const citations = [
+      "L'éloquence est la peinture de la pensée. — Cicéron",
+      "La parole est la clé de l’âme et du cœur. — Platon",
+      "Parler pour convaincre, écouter pour comprendre. — Proverbe",
+      "Le bon orateur sait que le silence est aussi puissant que le discours.",
+      "La vraie éloquence consiste à faire passer le cœur avant l’esprit.",
+      "L’éloquence, c’est la vérité portée par la voix.",
+      "Celui qui maîtrise les mots détient le pouvoir de changer le monde."
+    ];
+
+    // Fonction pour afficher une citation différente chaque jour
+    function afficherCitationDuJour() {
+      const citationEl = document.getElementById('citationDuJour');
+      const now = new Date();
+      // Choix index basé sur le jour de l'année modulo nombre de citations
+      const debutAnnee = new Date(now.getFullYear(), 0, 0);
+      const diff = now - debutAnnee;
+      const unJourMs = 1000 * 60 * 60 * 24;
+      const jourAnnee = Math.floor(diff / unJourMs);
+      const index = jourAnnee % citations.length;
+      citationEl.textContent = citations[index];
+    }
+    afficherCitationDuJour();
+  </script>
+
 </body>
-          </html> 
+  </html>
+          
