@@ -417,232 +417,49 @@ form.addEventListener('submit', function(e) {
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Enquête-Débat : L'Éloquence | Farid Adss Investigation</title>
-  <meta name="description" content="Enquête approfondie et débat sur le thème de l'éloquence, avec formulaire de questions et suggestions." />
-  <meta name="keywords" content="éloquence, enquête, débat, communication, rhétorique, Farid Adss" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
-  <style>
-    /* Reset basique */
-    *, *::before, *::after {
-      margin: 0; padding: 0; box-sizing: border-box;
-    }
-    body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #fafafa;
-      color: #222;
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem 3rem;
-      line-height: 1.6;
-    }
-    h1, h2, h3 {
-      color: #0a2540;
-      margin-bottom: 0.5rem;
-      line-height: 1.2;
-    }
-    h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      border-bottom: 3px solid #1f4e79;
-      padding-bottom: 0.3rem;
-    }
-    h2 {
-      font-size: 2rem;
-      margin-top: 3rem;
-      margin-bottom: 1rem;
-      border-left: 5px solid #1f4e79;
-      padding-left: 0.6rem;
-    }
-    h3 {
-      font-size: 1.4rem;
-      margin-top: 2rem;
-      margin-bottom: 0.7rem;
-      color: #1f4e79;
-    }
-    p {
-      margin-bottom: 1.2rem;
-      font-size: 1.1rem;
-      color: #333;
-    }
-    ul {
-      padding-left: 1.5rem;
-      margin-bottom: 1.5rem;
-      list-style-type: disc;
-      color: #444;
-    }
-    blockquote {
-      font-style: italic;
-      background-color: #e6f0ff;
-      border-left: 5px solid #1f4e79;
-      margin: 2rem 0;
-      padding: 1rem 1.2rem;
-      color: #0a2540;
-      font-size: 1.1rem;
-      line-height: 1.4;
-    }
-    .citation-du-jour {
-      background-color: #dce8ff;
-      border-left: 6px solid #1f4e79;
-      margin: 3rem 0 2rem;
-      padding: 1rem 1.5rem;
-      font-weight: 600;
-      color: #073763;
-      font-size: 1.15rem;
-      min-height: 3.2em;
-      font-style: normal;
-      text-align: center;
-    }
-    /* Formulaires */
-    form {
-      max-width: 500px;
-      background: #fff;
-      padding: 1.8rem 2rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
-      margin: 2rem auto 4rem;
-      color: #222;
-    }
-    form label {
-      display: block;
-      margin-bottom: 0.4rem;
-      font-weight: 600;
-      color: #0a2540;
-    }
-    form input[type="text"],
-    form input[type="email"],
-    form textarea {
-      width: 100%;
-      padding: 10px 12px;
-      margin-bottom: 1.2rem;
-      border: 1.8px solid #bbb;
-      border-radius: 6px;
-      font-size: 1rem;
-      transition: border-color 0.3s ease;
-      font-family: inherit;
-      color: #222;
-      resize: vertical;
-    }
-    form input[type="text"]:focus,
-    form input[type="email"]:focus,
-    form textarea:focus {
-      outline: none;
-      border-color: #1f4e79;
-      box-shadow: 0 0 6px #1f4e79aa;
-    }
-    form button[type="submit"] {
-      background-color: #1f4e79;
-      color: #fff;
-      padding: 12px 25px;
-      font-size: 1.1rem;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.25s ease;
-      font-weight: 700;
-    }
-    form button[type="submit"]:hover {
-      background-color: #114070;
-    }
-    /* Bouton retour accueil */
-    .btn-accueil {
-      display: inline-block;
-      background-color: #ffab00;
-      color: #0a2540;
-      font-weight: 700;
-      padding: 12px 22px;
-      border-radius: 8px;
-      text-decoration: none;
-      margin: 2rem auto 4rem;
-      box-shadow: 0 2px 8px rgb(255 171 0 / 0.4);
-      transition: background-color 0.3s ease;
-      font-size: 1.1rem;
-      text-align: center;
-      max-width: 180px;
-      display: block;
-    }
-    .btn-accueil:hover {
-      background-color: #e09900;
-    }
-    footer {
-      text-align: center;
-      margin-top: 3rem;
-      padding: 2rem 1rem;
-      border-top: 1px solid #ddd;
-      color: #666;
-      font-size: 0.9rem;
-    }
-    /* Responsive */
-    @media (max-width: 600px) {
-      body {
-        margin: 1rem;
-        max-width: 100%;
-        padding-bottom: 4rem;
-      }
-      h1 {
-        font-size: 2.2rem;
-      }
-      h2 {
-        font-size: 1.6rem;
-      }
-      form {
-        margin: 1.5rem 0 3rem;
-        padding: 1.3rem 1.5rem;
-      }
-      .btn-accueil {
-        max-width: 100%;
-        padding: 10px 15px;
-      }
-    }
-  </style>
-</head>
-<body>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />        
+<section id="temoignage-005" class="temoignage" style="max-width: 900px; margin: 2rem auto; font-family: 'Roboto', sans-serif; color: #222;">
+  <h2 style="color: #0a2540; border-left: 5px solid #1f4e79; padding-left: 10px; margin-top: 2rem; font-weight: 700; font-size: 1.8rem;">
+    Témoignage #005 – <em style="font-style: italic; font-weight: 400;">« J’ai vu mon reflet parler à ma place »</em>
+  </h2>
 
-  <article>
-    <h1>Enquête-Débat : L'Éloquence</h1>
+  <blockquote style="background:#fff5e1; border-left: 6px solid #ffab00; padding: 1rem 1.5rem; font-style: italic; font-size: 1.1rem; line-height: 1.5; margin-top: 1rem;">
+    <p>« Je m’appelle L*, j’ai 17 ans. Enfin… c’est ce que je croyais.</p>
+    <p>En janvier 2024, un compte Instagram est apparu avec ma photo de profil, mes publications récupérées, mes phrases copiées… même mes fautes d’orthographe. Il portait mon nom, il écrivait comme moi, mais ce n’était pas moi. »</p>
 
-    <p><strong>De vous à moi, savons-nous réellement ce qu’est l’éloquence ?</strong>  
-    Cette enquête approfondie explore un art souvent méconnu mais fondamental dans la communication humaine, la politique, le leadership et la société.</p>
+    <p>« Au début, je pensais à une blague. Mes amis aussi. Mais le compte répondait à des messages privés que je n’avais jamais envoyés. Il a insulté une fille avec qui j’étais en froid, il a publié une story disant que je “détestais les gens du quartier D.”</p>
 
-    <section>
-      <h2>Introduction</h2>
-      <p>L’éloquence est bien plus qu’un simple talent oratoire. C’est une capacité à toucher, convaincre et inspirer par la parole. Pourtant, son étude demeure parcellaire dans l’espace public, souvent réduite à une idée vague ou à des clichés.</p>
-    </section>
+    <p>Moi j’étais au CEG, après les cours de retour chez moi , et je recevais des captures, des menaces, des blocages. Même mes parents ont vu passer une story bizarre sur WhatsApp… Ils pensaient que je devenais “rebelle”. »</p>
 
-    <section>
-      <h2>1. Origines et définition de l’éloquence</h2>
-      <p>Historiquement, l’éloquence s’enracine dans l’Antiquité gréco-romaine où elle était enseignée comme une discipline majeure. L’art de bien parler pour persuader est au cœur des démocraties naissantes.</p>
-      <p>L’éloquence combine des éléments stylistiques, émotionnels et logiques. Elle s’exprime à travers le choix des mots, le rythme, la gestuelle, et surtout la capacité à adapter le discours à son auditoire.</p>
-    </section>
+    <p>« J’ai signalé le compte. Zéro réponse. J’ai écrit au support d’Instagram. Silence. J’ai demandé aux gens de signaler. Le compte est resté en ligne <strong>8 jours</strong>. Huit jours de confusion. Huit jours où je n’étais plus moi-même.</p>
 
-    <section>
-      <h2>2. Les piliers fondamentaux de l’éloquence</h2>
-      <ul>
-        <li><strong>Le Logos :</strong> la logique et la structure argumentaire.</li>
-        <li><strong>Le Pathos :</strong> l’émotion et la connexion avec l’auditoire.</li>
-        <li><strong>L’Ethos :</strong> la crédibilité et la personnalité du locuteur.</li>
-      </ul>
-      <p>Ces trois piliers doivent s’harmoniser pour créer un discours puissant et persuasif.</p>
-    </section>
+    <p>Je n’ai plus osé me connecter à mon vrai compte. J’avais l’impression que mon identité était en train de couler, et moi avec. »</p>
 
-    <section>
-      <h2>3. Les obstacles modernes à l’éloquence</h2>
-      <p>À l’ère du numérique et de la rapidité, l’éloquence se heurte à plusieurs défis : la surcharge d’informations, la superficialité des échanges, la montée des formats courts et des médias sociaux qui privilégient l’immédiateté plus que la profondeur.</p>
-      <p>Le déclin des pratiques traditionnelles d’écoute et de débat civilisés affaiblit aussi cette forme d’art.</p>
-    </section>
+    <p>« Après une semaine, le faux compte a disparu. Mais il a laissé une tache. Les gens ont continué à croire que certaines publications venaient de moi. Certains m’évitent encore. Une fille ne me regarde plus dans les yeux.</p>
 
-    <section>
-      <h2>4. L’éloquence comme outil d’influence sociale</h2>
-      <p>De la tribune politique aux plateformes digitales, maîtriser l’éloquence offre un pouvoir considérable. Elle façonne les opinions, mobilise des foules et peut même faire basculer des élections ou des décisions majeures.</p>
-      <blockquote>« L’éloquence est la peinture de la pensée. »<br>— Cicéron</blockquote>
-    </section>
+    <p>Et chaque jour, je me demande : qui a fait ça ? Pourquoi ? Est-ce que ça va recommencer ? Sur Internet, tu peux te faire voler ta voix, et personne ne te la rend. »</p>
+  </blockquote>
 
-    <section>
-      <h2>5. Perspectives pour redécouvrir l’éloquence</h2>
-      <p>Réhabiliter l’éloquence dans les écoles, promouvoir la formation au débat et à l’expression orale sont des pistes indispensables pour restaurer cet art fondamental. Plus que jamais, la société a besoin de voix fortes, claires et justes.</p>
-    </section>
+  <p style="font-weight: 600; color: #444; margin-top: 1.5rem; font-size: 0.9rem;">
+    Reçu le : <time datetime="2025-06-21">21 juin 2025</time> — via formulaire sécurisé
+  </p>
+  <p style="color: #333; font-size: 0.95rem; margin-bottom: 2rem;">
+    <strong>Thèmes :</strong> Usurpation d’identité · Effondrement social numérique · Manque de recours
+  </p>
 
+  <div class="reaction-adss" style="background: #e8f0fe; padding: 1rem 1.5rem; border-radius: 6px; margin-top: 1rem; color: #1f4e79; font-size: 1rem;">
+    <strong>Réaction d’Adss :</strong>
+    <p style="margin-top: 0.5rem; font-style: normal; color: #0a2540;">
+      Ce type de harcèlement, invisible aux yeux de la loi et des plateformes, est une forme de violence sourde, mais dévastatrice. Le vol d'identité numérique est souvent le début d’une perte de soi, surtout à l’adolescence.
+    </p>
+  </div>
+
+  <div style="margin-top: 2rem; text-align: center;">
+    <a href="https://formspree.io/f/xldnojov" class="btn" style="background:#ffab00; color:#0a2540; font-weight: 700; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-size: 1rem; box-shadow: 0 2px 6px rgba(0,0,0,0.15); transition: background-color 0.3s ease;">
+      Moi aussi / Témoigner
+    </a>
+  </div>
+                                                                                                                                                                                                                                                                     </section>
     <div class="citation-du-jour" aria-live="polite" aria-atomic="true" id="citationDuJour">
       Chargement de la citation du jour…
     </div>
@@ -701,6 +518,45 @@ form.addEventListener('submit', function(e) {
       citationEl.textContent = citations[index];
     }
     afficherCitationDuJour();
+    <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Compteur de visiteurs simple</title>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      max-width: 600px;
+      margin: 3rem auto;
+      padding: 1rem;
+      text-align: center;
+      color: #0a2540;
+      background-color: #f9f9f9;
+    }
+    #visitorCount {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #ffab00;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bienvenue sur mon site</h1>
+  <p>Nombre de visiteurs uniques :</p>
+  <div id="visitorCount">Chargement...</div>
+
+  <script>
+    fetch('https://api.countapi.xyz/hit/faridadss/sitevisits')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('visitorCount').textContent = data.value;
+      })
+      .catch(() => {
+        document.getElementById('visitorCount').textContent = 'N/A';
+      });
+  </script>
+</body>
+</html>
   </script>
 
 </body>
