@@ -417,52 +417,220 @@ form.addEventListener('submit', function(e) {
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />        
-<section id="temoignage-005" class="temoignage" style="max-width: 900px; margin: 2rem auto; font-family: 'Roboto', sans-serif; color: #222;">
-  <h2 style="color: #0a2540; border-left: 5px solid #1f4e79; padding-left: 10px; margin-top: 2rem; font-weight: 700; font-size: 1.8rem;">
-    Témoignage #005 – <em style="font-style: italic; font-weight: 400;">« J’ai vu mon reflet parler à ma place »</em>
-  </h2>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RECRUTÉS POUR MOURIR | Enquête d'Investigation</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #f9f9f9;
+      color: #111;
+      line-height: 1.7;
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
 
-  <blockquote style="background:#fff5e1; border-left: 6px solid #ffab00; padding: 1rem 1.5rem; font-style: italic; font-size: 1.1rem; line-height: 1.5; margin-top: 1rem;">
-    <p>« Je m’appelle L*, j’ai 17 ans. Enfin… c’est ce que je croyais.</p>
-    <p>En janvier 2024, un compte Instagram est apparu avec ma photo de profil, mes publications récupérées, mes phrases copiées… même mes fautes d’orthographe. Il portait mon nom, il écrivait comme moi, mais ce n’était pas moi. »</p>
+    h1, h2, h3 {
+      font-family: 'Arial', sans-serif;
+      color: #222;
+    }
 
-    <p>« Au début, je pensais à une blague. Mes amis aussi. Mais le compte répondait à des messages privés que je n’avais jamais envoyés. Il a insulté une fille avec qui j’étais en froid, il a publié une story disant que je “détestais les gens du quartier D.”</p>
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 0.5em;
+      border-bottom: 2px solid #444;
+      padding-bottom: 0.3em;
+    }
 
-    <p>Moi j’étais au CEG, après les cours de retour chez moi , et je recevais des captures, des menaces, des blocages. Même mes parents ont vu passer une story bizarre sur WhatsApp… Ils pensaient que je devenais “rebelle”. »</p>
+    h2 {
+      margin-top: 2em;
+      font-size: 1.8em;
+    }
 
-    <p>« J’ai signalé le compte. Zéro réponse. J’ai écrit au support d’Instagram. Silence. J’ai demandé aux gens de signaler. Le compte est resté en ligne <strong>8 jours</strong>. Huit jours de confusion. Huit jours où je n’étais plus moi-même.</p>
+    h3 {
+      margin-top: 1.2em;
+      font-size: 1.3em;
+      color: #444;
+    }
 
-    <p>Je n’ai plus osé me connecter à mon vrai compte. J’avais l’impression que mon identité était en train de couler, et moi avec. »</p>
+    ul {
+      list-style-type: disc;
+      margin-left: 2em;
+    }
 
-    <p>« Après une semaine, le faux compte a disparu. Mais il a laissé une tache. Les gens ont continué à croire que certaines publications venaient de moi. Certains m’évitent encore. Une fille ne me regarde plus dans les yeux.</p>
+    blockquote {
+      font-style: italic;
+      margin: 1em 0;
+      padding-left: 1em;
+      border-left: 3px solid #ccc;
+      color: #555;
+    }
 
-    <p>Et chaque jour, je me demande : qui a fait ça ? Pourquoi ? Est-ce que ça va recommencer ? Sur Internet, tu peux te faire voler ta voix, et personne ne te la rend. »</p>
+    form {
+      margin-top: 3em;
+      background: #fff;
+      padding: 2em;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
+    input, textarea, button {
+      width: 100%;
+      padding: 0.7em;
+      margin-top: 1em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-family: inherit;
+    }
+
+    button {
+      background-color: #222;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 4em;
+      font-size: 0.9em;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>RECRUTÉS POUR MOURIR : LA MACHINE SILENCIEUSE DU RECRUTEMENT ARMÉ DES JEUNES AFRICAINS</h1>
+
+  <h2>Résumé</h2>
+  <p>En 2025, un phénomène inquiétant frappe l’Afrique de l’Ouest et du Nord : le recrutement clandestin de jeunes Africains, souvent sans emploi, par des groupes armés opérant en Libye et dans la région du Sahel. Exploités, piégés, ou parfois enrôlés de force, ces jeunes deviennent les instruments d’une guerre qui n’est pas la leur. Cette enquête dévoile le fonctionnement de ces réseaux, les responsabilités partagées, et le silence complice de certaines institutions.</p>
+
+  <h2>I. Le contexte régional</h2>
+
+  <h3>1.1 Instabilité chronique du Sahel</h3>
+  <ul>
+    <li>Une insécurité croissante</li>
+    <li>La prolifération de groupes armés</li>
+    <li>Des régimes militaires ou fragilisés</li>
+    <li>Une jeunesse abandonnée par les États</li>
+  </ul>
+
+  <h3>1.2 La Libye, plaque tournante du trafic humain</h3>
+  <p>Depuis la chute de Kadhafi en 2011, la Libye est devenue une zone de non-droit. Milices tribales, groupes islamistes, et réseaux mafieux y coexistent. Ce chaos en fait un lieu central de transit, de recrutement et de formation pour des milliers de jeunes venus d’Afrique subsaharienne.</p>
+
+  <h2>II. Le processus de recrutement</h2>
+
+  <h3>2.1 Cibles privilégiées</h3>
+  <ul>
+    <li>Jeunes hommes de 14 à 30 ans</li>
+    <li>Sans emploi ou en situation de migration</li>
+    <li>Parfois sortis de prison ou rejetés par la société</li>
+    <li>Souvent sans éducation formelle</li>
+  </ul>
+
+  <h3>2.2 Méthodes d’approche</h3>
+  <ul>
+    <li>Promesses de travail (gardiennage, sécurité, transport)</li>
+    <li>Paiements initiaux pour inciter à la confiance</li>
+    <li>Utilisation de groupes WhatsApp, Facebook, Telegram</li>
+    <li>Présence dans les quartiers pauvres, gares, camps de migrants</li>
+  </ul>
+
+  <h3>2.3 Embrigadement</h3>
+  <p>Une fois embarqués, les jeunes sont transportés clandestinement à travers le désert vers la Libye ou le nord du Mali. Sur place :</p>
+  <ul>
+    <li>Privés de papiers et isolés</li>
+    <li>Formés à l’usage des armes</li>
+    <li>Conditionnés psychologiquement</li>
+    <li>Ou contraints sous menace à combattre</li>
+  </ul>
+
+  <h2>III. Le destin des jeunes enrôlés</h2>
+
+  <h3>3.1 Une vie de violence et de soumission</h3>
+  <p>Certains sont utilisés comme soldats, porteurs d’armes, ou boucliers humains. D’autres servent dans la logistique, sont forcés de creuser des tranchées, ou deviennent des gardes pour des cargaisons de drogue.</p>
+
+  <h3>3.2 Esclavage moderne</h3>
+  <p>Certains jeunes ne combattent jamais : ils sont vendus comme travailleurs forcés, ou servent de monnaie d’échange pour des trafics d’organes. Des témoignages recueillis en 2024 font état de mutilations inexpliquées sur des cadavres rapatriés.</p>
+
+  <h3>3.3 Mort ou disparition</h3>
+  <p>Selon des rapports d’ONG, près de 25 % des jeunes enrôlés disparaissent dans les six premiers mois. Certains sont tués lors d’assauts, d’autres sont exécutés en cas de refus d’obéissance.</p>
+
+  <h2>IV. Chaîne de responsabilités</h2>
+
+  <h3>4.1 Les groupes armés</h3>
+  <ul>
+    <li>Al-Qaïda au Maghreb islamique (AQMI)</li>
+    <li>Groupe de soutien à l'islam et aux musulmans (GSIM)</li>
+    <li>Daech-Sahel (ou EIGS)</li>
+    <li>Milices libyennes tribales</li>
+    <li>Groupes rebelles touaregs</li>
+  </ul>
+  <p>Ces groupes exploitent la misère comme une arme de recrutement massive.</p>
+
+  <h3>4.2 Les gouvernements</h3>
+  <p>Certains États sont accusés de passivité, d'autres de complicité indirecte. Des forces de sécurité locales orienteraient parfois des jeunes en rupture vers des réseaux armés "pour s’en débarrasser".</p>
+
+  <h3>4.3 Les réseaux mafieux</h3>
+  <p>Des filières bien organisées contrôlent le transport, la fausse documentation, l’hébergement et les premiers contacts. Ces structures agissent à la frontière du légal et du clandestin, souvent avec des relais dans plusieurs pays.</p>
+
+  <h2>V. Témoignages recueillis</h2>
+
+  <blockquote>
+    <strong>Ali, 19 ans :</strong><br>
+    "Ils m’ont dit que je travaillerais dans un entrepôt. Une fois arrivé en Libye, j’ai été enfermé. On m’a appris à tirer. On m’a dit que je devais tuer ou être tué. Je n’avais plus le choix."
   </blockquote>
 
-  <p style="font-weight: 600; color: #444; margin-top: 1.5rem; font-size: 0.9rem;">
-    Reçu le : <time datetime="2025-06-21">21 juin 2025</time> — via formulaire sécurisé
-  </p>
-  <p style="color: #333; font-size: 0.95rem; margin-bottom: 2rem;">
-    <strong>Thèmes :</strong> Usurpation d’identité · Effondrement social numérique · Manque de recours
-  </p>
+  <blockquote>
+    <strong>Fadima, 24 ans :</strong><br>
+    "Mon petit frère est parti pour 'garder un camp'. Deux mois plus tard, on a retrouvé son corps au Niger. Il n’avait plus ni papiers, ni vêtements, ni yeux."
+  </blockquote>
 
-  <div class="reaction-adss" style="background: #e8f0fe; padding: 1rem 1.5rem; border-radius: 6px; margin-top: 1rem; color: #1f4e79; font-size: 1rem;">
-    <strong>Réaction d’Adss :</strong>
-    <p style="margin-top: 0.5rem; font-style: normal; color: #0a2540;">
-      Ce type de harcèlement, invisible aux yeux de la loi et des plateformes, est une forme de violence sourde, mais dévastatrice. Le vol d'identité numérique est souvent le début d’une perte de soi, surtout à l’adolescence.
-    </p>
-  </div>
+  <h2>VI. Que faire ?</h2>
 
-  <div style="margin-top: 2rem; text-align: center;">
-    <a href="https://formspree.io/f/xldnojov" class="btn" style="background:#ffab00; color:#0a2540; font-weight: 700; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-size: 1rem; box-shadow: 0 2px 6px rgba(0,0,0,0.15); transition: background-color 0.3s ease;">
-      Moi aussi / Témoigner
-    </a>
+  <h3>6.1 Informer</h3>
+  <p>Les jeunes doivent être avertis, dès le collège ou dans les quartiers sensibles, de ce qui se cache derrière les offres alléchantes sur Internet ou dans la rue. L’État, les ONG et les influenceurs peuvent jouer un rôle majeur dans cette prévention.</p>
+
+  <h3>6.2 Pister les recruteurs numériques</h3>
+  <p>Il est urgent que les autorités coopèrent pour surveiller les canaux de recrutement sur les réseaux sociaux. Les groupes Telegram, les pages Facebook cryptées, ou les forums "migrants" sont devenus les nouvelles vitrines du recrutement armé.</p>
+
+  <h3>6.3 Protéger les revenants</h3>
+  <p>Certains jeunes réussissent à fuir. Traumatisés, rejetés, ils sont abandonnés. Il est crucial de mettre en place des dispositifs de réintégration et d’accompagnement psychologique, avec un suivi sérieux.</p>
+
+  <h2>VII. Sources principales</h2>
+  <ul>
+    <li>Rapports Human Rights Watch (2023–2025)</li>
+    <li>Observatoire des conflits sahéliens – Fondation Friedrich Ebert</li>
+    <li>Témoignages recueillis par Amnesty International</li>
+    <li>Plateforme Voix du Sahel (2024)</li>
+    <li>Le Monde Afrique, Al Jazeera, Africanews</li>
+  </ul>
+
+  <h2>Conclusion</h2>
+  <p>Derrière les discours diplomatiques et les sommets pour la paix au Sahel, une vérité brutale persiste : des milliers de jeunes Africains sont piégés, manipulés ou sacrifiés dans des conflits armés qui les dépassent. Leur chair devient une monnaie de guerre. Le silence qui entoure ce phénomène n’est pas une fatalité. L’investigation, la dénonciation et la mobilisation citoyenne peuvent encore sauver une génération.</p>
+
+  <h2>Donnez votre avis</h2>
+  <form action="https://formspree.io/f/xldnojov" method="POST">
+    <label for="email">Adresse email (facultative) :</label>
+    <input type="email" name="email" id="email" placeholder="Votre email (optionnel)" />
+
+    <label for="message">Votre message :</label>
+    <textarea name="message" id="message" rows="6" placeholder="Votre avis, témoignage ou remarque..."></textarea>
+
+    <button type="submit">Envoyer</button>
+  </form>
+
+  <div class="footer">
+    © 2025 - Enquête indépendante par Farid Adisso. Tous droits réservés.
   </div>
+</body>
+</html>
                                                                                                                                                                                                                                                                      </section>
-    <div class="citation-du-jour" aria-live="polite" aria-atomic="true" id="citationDuJour">
-      Chargement de la citation du jour…
-    </div>
 
     <a href="index.html" class="btn-accueil" aria-label="Retour à la page d'accueil">← Retour à l’accueil</a>
 
@@ -504,7 +672,6 @@ form.addEventListener('submit', function(e) {
       "L’éloquence, c’est la vérité portée par la voix.",
       "Celui qui maîtrise les mots détient le pouvoir de changer le monde."
     ];
-
     // Fonction pour afficher une citation différente chaque jour
     function afficherCitationDuJour() {
       const citationEl = document.getElementById('citationDuJour');
