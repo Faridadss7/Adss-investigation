@@ -422,220 +422,7 @@ form.addEventListener('submit', function(e) {
   </footer>
 </body>
 </html>                                                                                                                                                                                                                                            </section>
-
-  <a href="index.html" class="btn-accueil" aria-label="Retour à la page d'accueil">← Retour à l’accueil</a>
-
-    <section aria-labelledby="formulaire-avis-title">
-      <h2 id="formulaire-avis-title">Formulaire pour poser vos questions ou suggestions d’enquêtes</h2>
-      <form action="https://formspree.io/f/xldnojov" method="POST" novalidate>
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_template" value="box" />
-        <input type="hidden" name="_next" value="merci.html" />
-        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
-
-        <label for="nom">Nom :</label>
-        <input type="text" id="nom" name="name" required autocomplete="name" placeholder="Votre nom" />
-
-        <label for="email">Email :</label>
-        <input type="email" id="email" name="email" required autocomplete="email" placeholder="Votre email" />
-
-        <label for="message">Votre question ou suggestion :</label>
-        <textarea id="message" name="message" rows="5" required placeholder="Écrivez votre message ici"></textarea>
-
-        <button type="submit">Envoyer</button>
-      </form>
-    </section>
-
-  </article>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Farid Adss | Site d'Investigation</title>
-  <meta name="description" content="Site d'investigation professionnelle de Farid Adss. Reportages, débats et analyses fiables." />
-  <meta name="keywords" content="investigation, reportage, analyse, débat, Farid Adss" />
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXX'); // Remplace par ton ID GA
-  </script>
-</head>
-<body>
-
-<header>
-  <nav>
-    <h1 class="logo">Farid Adss</h1>
-    <button id="menu-toggle" aria-label="Ouvrir le menu">&#9776;</button>
-    <ul class="menu">
-      <li><a href="#accueil">Accueil</a></li>
-      <li><a href="#a-propos">À propos</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#programme">Programme</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><button id="darkmode-toggle" aria-label="Basculer en mode sombre">🌓</button></li>
-    </ul>
-  </nav>
-</header>
-
-<section id="accueil" class="hero">
-  <h2>Bienvenue sur mon site d’enquêtes et d’investigations</h2>
-  <p>Analyse. Vérité. Impact. Découvrez des rapports solides et objectifs.</p>
-  <a href="#contact" class="btn">Me contacter</a>
-</section>
-
-<section id="a-propos">
-  <h2>À propos</h2>
-  <p>Je suis Farid Adss, passionné par la vérité, la transparence et l'information vérifiée. Mon travail consiste à investiguer, analyser et vous livrer des contenus de qualité sur des sujets sensibles ou méconnus.</p>
-</section>
-
-<section id="services">
-  <h2>Ce que je propose</h2>
-  <ul>
-    <li>🔍 Enquêtes terrain</li>
-    <li>🖊️ Rédaction de rapports détaillés</li>
-    <li>📊 Analyse de données</li>
-    <li>🧠 Recherche stratégique</li>
-  </ul>
-</section>
-
-<section id="programme">
-  <h2>Programme quotidien</h2>
-  <p>Tous les jours :</p>
-  <table>
-    <thead>
-      <tr>
-        <th>Heure</th>
-        <th>Activité</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>13h00</td>
-        <td>Reportage : Nouvelles tendances et situations dans le monde</td>
-      </tr>
-      <tr>
-        <td>20h00</td>
-        <td>Débats poignants et points de vue animés</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div id="countdown-section" aria-live="polite" style="margin-top: 30px;">
-    <h3>Prochain rendez-vous dans :</h3>
-    <div id="countdown" aria-atomic="true" style="font-size: 1.6rem; font-weight: 700; color: #ffab00;"></div>
-  </div>
-</section>
-    <!-- Ici tu pourras intégrer reCAPTCHA quand tu auras la clé -->
-    <!-- <div class="g-recaptcha" data-sitekey="TA_CLE_SITE"></div> -->
-    
-    <button type="submit">Envoyer</button>
-    <div id="form-status" role="alert" aria-live="assertive" style="margin-top:10px;"></div>
-  </form>
-</section>
-
-<footer>
-  <div style="text-align:center; margin-top:20px; color:#ffab00; font-weight:700;">
-    Visiteurs uniques : <span id="visitorCount">...</span>
-  </div>
-  <p>&copy; 2025 Farid Adss. Tous droits réservés.</p>
-</footer>
-
-<script>
-// MENU TOGGLE MOBILE
-const menuToggle = document.getElementById('menu-toggle');
-const menu = document.querySelector('.menu');
-menuToggle.addEventListener('click', () => {
-  menu.classList.toggle('menu-open');
-});
-
-// DARK MODE TOGGLE
-const darkToggle = document.getElementById('darkmode-toggle');
-darkToggle.addEventListener('click', () => {
-  document.body.classList.toggle('dark-mode');
-});
-
-// COMPTE À REBOURS
-function updateCountdown() {
-  const countdownEl = document.getElementById('countdown');
-  const now = new Date();
-
-  const targets = [
-    new Date(now.getFullYear(), now.getMonth(), now.getDate(), 13, 0, 0),
-    new Date(now.getFullYear(), now.getMonth(), now.getDate(), 20, 0, 0),
-  ];
-
-  let nextTarget = targets.find(t => t > now);
-  if (!nextTarget) {
-    nextTarget = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 13, 0, 0);
-  }
-
-  const diffMs = nextTarget - now;
-  const diffH = Math.floor(diffMs / (1000 * 60 * 60));
-  const diffM = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
-  const diffS = Math.floor((diffMs % (1000 * 60)) / 1000);
-
-  countdownEl.textContent = `${diffH.toString().padStart(2, '0')}h ${diffM.toString().padStart(2, '0')}m ${diffS.toString().padStart(2, '0')}s`;
-}
-updateCountdown();
-setInterval(updateCountdown, 1000);
-
-// COMPTEUR VISITEURS SIMPLE (CountAPI)
-fetch('https://api.countapi.xyz/hit/faridadss/sitevisits')
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById('visitorCount').textContent = data.value;
-  })
-  .catch(() => {
-    document.getElementById('visitorCount').textContent = 'N/A';
-  });
-
-// FORMULAIRE : validation simple et message de statut
-const form = document.getElementById('contact-form');
-const formStatus = document.getElementById('form-status');
-
-form.addEventListener('submit', function(e) {
-  e.preventDefault();
-
-  const name = form.name.value.trim();
-  const email = form.email.value.trim();
-  const message = form.message.value.trim();
-
-  if (!name || !email || !message) {
-    formStatus.textContent = "Veuillez remplir tous les champs.";
-    formStatus.style.color = "red";
-    return;
-  }
-
-  // Email simple validation
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email)) {
-    formStatus.textContent = "Veuillez entrer un email valide.";
-    formStatus.style.color = "red";
-    return;
-  }
-});
-</script>
-
-</body>
-</html>
-</section>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Merci pour votre message</title>
-  <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #f9f9f9;
-      text-align: center;
+enter;
       padding: 50px;
       color: #333;
     }
@@ -861,181 +648,150 @@ form.addEventListener('submit', function(e) {
     }
   </style>
 </head>
-<body>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Gagner de l’argent en ligne : enquête sur les vraies opportunités pour la jeunesse africaine</title>
-    <style>
-        body {
-            font-family: "Georgia", serif;
-            line-height: 1.7;
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-            color: #222;
-            background-color: #fff;
-        }
-        h1, h2, h3 {
-            font-family: "Georgia", serif;
-            color: #0d3b66;
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        h1 {
-            font-size: 2.5rem;
-            border-bottom: 3px solid #0d3b66;
-            padding-bottom: 0.3rem;
-        }
-        h2 {
-            font-size: 1.8rem;
-            border-left: 5px solid #0d3b66;
-            padding-left: 0.8rem;
-        }
-        h3 {
-            font-size: 1.4rem;
-            margin-top: 1.5rem;
-        }
-        p {
-            margin-bottom: 1.2rem;
-            font-size: 1.1rem;
-        }
-        blockquote {
-            margin: 1.5rem 2rem;
-            padding: 1rem 1.5rem;
-            background-color: #f0f4f8;
-            border-left: 5px solid #0d3b66;
-            font-style: italic;
-            color: #555;
-        }
-        ul {
-            margin-left: 2rem;
-            margin-bottom: 1.5rem;
-        }
-        ul li {
-            margin-bottom: 0.6rem;
-        }
-        .testimonial {
-            background-color: #e7f1ff;
-            border-left: 6px solid #0d3b66;
-            margin: 1rem 2rem;
-            padding: 1rem 1.5rem;
-            font-style: italic;
-            color: #0a2540;
-        }
-        .highlight {
-            background-color: #fffbcc;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-weight: 600;
-        }
-        footer {
-            margin-top: 4rem;
-            font-size: 0.9rem;
-            text-align: center;
-            color: #555;
-            border-top: 1px solid #ccc;
-            padding-top: 1rem;
-        }
-        a {
-            color: #0d3b66;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tensions entre le Bénin et le Gabon : enquête exclusive</title>
+  <style>
+    body { font-family: "Georgia", serif; line-height: 1.7; margin: 40px; color: #2c2c2c; }
+    h1, h2, h3 { color: #1a1a1a; }
+    h1 { font-size: 2em; margin-bottom: 0.5em; }
+    h2 { margin-top: 1.5em; border-left: 5px solid #c0392b; padding-left: 10px; }
+    p { margin-bottom: 1.2em; text-align: justify; }
+    blockquote { border-left: 4px solid #999; margin: 1em 0; padding-left: 1em; color: #555; font-style: italic; }
+    .temoignage { background: #f9f9f9; border-left: 4px solid #c0392b; padding: 10px 15px; margin: 1.2em 0; font-style: italic; }
+    .signature { margin-top: 40px; font-style: italic; color: #555; }
+    footer { margin-top: 60px; font-size: 0.9em; color: #777; border-top: 1px solid #ddd; padding-top: 20px; }
+  </style>
 </head>
 <body>
-    <article>
-        <h1>Gagner de l’argent en ligne : enquête sur les vraies opportunités pour la jeunesse africaine</h1>
 
-        <p>
-            Sur les réseaux sociaux, les promesses affluent : “Gagne 500 $ par jour avec ton téléphone !”, “Deviens riche en 7 jours grâce à la crypto”, “Rejoins notre groupe exclusif et change ta vie”.  
-            Pour la jeunesse africaine, souvent confrontée au chômage, à la précarité et au manque d’opportunités, ces messages semblent être une porte d’entrée vers un avenir meilleur.  
-            Mais derrière ces slogans séduisants, que se cache-t-il vraiment ?  
-            Cette enquête approfondie explore les vraies façons de gagner de l’argent en ligne, démystifie les illusions, met en garde contre les pièges, et donne la parole à ceux qui ont réussi avec rigueur et persévérance.
-        </p>
+  <h1>Tensions entre le Bénin et le Gabon : enquête exclusive</h1>
+  <p><em>Par Farid Adss, août 2025</em></p>
 
-        <h2>Les méthodes sérieuses pour gagner de l’argent en ligne</h2>
+  <h2>Un climat tendu dans un contexte fragile</h2>
+  <p>
+    Depuis la mi-août 2025, un malaise palpable secoue les relations entre le Bénin et le Gabon. 
+    Tout est parti d’un incident local dans la ville de Lambaréné, où des commerçants béninois, 
+    installés de longue date, ont été accusés par certains habitants d’occuper des places de marché 
+    « au détriment des Gabonais ». En quelques jours, cette affaire locale a pris une tournure diplomatique.
+  </p>
+  <p>
+    Les témoignages qui remontent décrivent un climat de méfiance et parfois d’hostilité. 
+    Pour de nombreux Béninois vivant au Gabon, la peur s’est installée. 
+  </p>
 
-        <p>Contrairement aux promesses irréalistes, plusieurs voies crédibles existent pour générer des revenus sur Internet, à condition d’y investir du temps, de la patience et du sérieux.</p>
+  <div class="temoignage">
+    « On nous a dit de quitter nos étals, que ce n’était plus notre place. 
+    Certains ont même reçu des menaces directes. Moi, je n’ai plus osé ouvrir mon magasin depuis trois jours. »  
+    — <strong>Julien A.</strong>, commerçant béninois à Lambaréné
+  </div>
 
-        <h3>1. Le freelancing : un marché mondial accessible</h3>
-        <p>
-            Le freelancing regroupe un large éventail de services — rédaction, traduction, design graphique, montage vidéo, programmation, marketing digital, etc.  
-            Grâce à des plateformes telles que <a href="https://www.upwork.com" target="_blank" rel="noopener">Upwork</a>, <a href="https://www.fiverr.com" target="_blank" rel="noopener">Fiverr</a> ou <a href="https://www.freelancer.com" target="_blank" rel="noopener">Freelancer</a>, les jeunes Africains peuvent proposer leurs compétences à des clients du monde entier.  
-            Cependant, réussir nécessite de construire un profil solide, recueillir des avis positifs, et être compétitif en qualité et prix.
-        </p>
+  <h2>Origine des tensions : économie, identité et loi</h2>
+  <p>
+    Le gouvernement gabonais justifie sa décision en invoquant la protection de l’emploi local. 
+    Depuis quelques mois, une réglementation interdit aux étrangers d’exercer certaines activités 
+    dans le secteur informel. Ces restrictions touchent particulièrement les Béninois, 
+    très présents dans le commerce de proximité.
+  </p>
+  <p>
+    Pour les autorités gabonaises, il s’agit d’une mesure souveraine. 
+    Mais pour les communautés béninoises, souvent installées depuis plus de 20 ans, 
+    c’est une injustice criante. Beaucoup rappellent qu’ils paient leurs impôts 
+    et contribuent à la vie économique du pays.
+  </p>
 
-        <blockquote>
-            « Au début, j’ai dû accepter des missions à très bas prix, parfois pour ne pas perdre la confiance d’un client. Mais petit à petit, avec de la patience, j’ai pu augmenter mes tarifs et fidéliser mes clients. »  
-            — <span class="highlight">Koffi, 24 ans, freelance ivoirien en graphisme</span>
-        </blockquote>
+  <div class="temoignage">
+    « Nous ne sommes pas contre les étrangers, mais nous voyons nos jeunes sans travail 
+    pendant que d’autres occupent tous les petits commerces. Cela crée de la frustration. »  
+    — <strong>Marianne N.</strong>, vendeuse gabonaise
+  </div>
 
-        <h3>2. La création de contenu : YouTube, TikTok et podcasts</h3>
-        <p>
-            Produire des vidéos, des podcasts ou des articles peut rapporter de l’argent via la publicité, le sponsoring ou l’affiliation.  
-            Cette voie demande une passion authentique, de la créativité et surtout de la régularité, car la monétisation ne vient qu’après une audience fidèle et importante.  
-            Les créateurs qui réussissent investissent souvent plusieurs années avant de générer un revenu significatif.
-        </p>
+  <h2>La diplomatie béninoise en alerte</h2>
+  <p>
+    À Cotonou, le ministère des Affaires étrangères a réagi avec prudence mais fermeté. 
+    Dans un communiqué daté du 14 août, le ministre Shegun Bakari a appelé au respect des lois gabonaises 
+    tout en annonçant un plan de rapatriement volontaire pour les ressortissants béninois désireux de rentrer. 
+  </p>
+  <blockquote>
+    « Le Bénin restera fidèle à ses valeurs panafricanistes de solidarité, 
+    mais il veillera avant tout à la sécurité et à la dignité de ses ressortissants. »  
+    — Ministère béninois des Affaires étrangères
+  </blockquote>
 
-        <h3>3. Le e-commerce et le dropshipping</h3>
-        <p>
-            Le commerce en ligne connaît une croissance rapide en Afrique. Le dropshipping permet de vendre des produits sans avoir à gérer de stock, en s’appuyant sur des fournisseurs tiers.  
-            Certains jeunes Africains ont réussi à exporter des produits locaux (artisanat, mode, cosmétique) à travers le continent et au-delà.  
-            Cependant, cette activité demande une bonne compréhension de la chaîne logistique, du marketing digital, et de la gestion clientèle.
-        </p>
+  <h2>Les réseaux sociaux, catalyseurs de la crise</h2>
+  <p>
+    Sur Facebook, X (ex-Twitter) et TikTok, la crise a pris une ampleur virale. 
+    Des vidéos circulant montrent des attroupements, des étals renversés et des débats enflammés 
+    entre internautes gabonais et béninois. Hashtags hostiles, appels à la solidarité panafricaine, 
+    mais aussi propos xénophobes se multiplient.
+  </p>
+  <p>
+    Ces échanges numériques ont contribué à attiser les tensions, créant un climat 
+    où la désinformation se mélange aux témoignages authentiques. Certains influenceurs gabonais 
+    ont accusé les « commerçants étrangers de ruiner l’économie locale », tandis que 
+    des voix béninoises dénonçaient une « chasse aux sorcières ».
+  </p>
 
-        <h3>4. Le marketing d’affiliation</h3>
-        <p>
-            Il s’agit de promouvoir des produits ou services d’autres entreprises et de toucher une commission sur chaque vente réalisée via son lien affilié.  
-            Cette méthode nécessite de construire une audience (sur un blog, une chaîne YouTube, ou les réseaux sociaux) et de choisir des programmes fiables.  
-            L’affiliation bien menée peut générer un revenu passif sur le long terme.
-        </p>
+  <div class="temoignage">
+    « J’ai vu des vidéos où on disait que les Béninois volaient le travail des Gabonais. 
+    Mais ce n’est pas la vérité. On travaille dur comme tout le monde. »  
+    — <strong>Sandrine T.</strong>, coiffeuse béninoise à Libreville
+  </div>
 
-        <h3>5. Les microservices et missions ponctuelles</h3>
-        <p>
-            Traduction, tutorat en ligne, assistance administrative, voix-off, création de sites…  
-            De nombreux microservices sont recherchés sur des plateformes spécialisées, et peuvent constituer un complément de revenu accessible rapidement.
-        </p>
+  <h2>Un malaise africain plus large</h2>
+  <p>
+    Ce qui se joue entre Cotonou et Libreville dépasse le cadre bilatéral. 
+    L’affaire illustre un paradoxe continental : d’un côté, l’Union africaine et la CEDEAO 
+    prônent la libre circulation des biens et des personnes. De l’autre, de nombreux États 
+    renforcent leurs lois protectionnistes face à la pression économique et au chômage massif.
+  </p>
+  <p>
+    Dans ce contexte, les communautés étrangères deviennent souvent des boucs émissaires. 
+    Le cas béninois au Gabon rappelle d’autres crises vécues ailleurs : Nigérians en Afrique du Sud, 
+    Burkinabè en Côte d’Ivoire, ou encore Ouest-Africains en Angola. 
+  </p>
 
-        <h2>La démarche à suivre pour réussir</h2>
+  <h2>Perspectives et conséquences</h2>
+  <h3>Humanitaires</h3>
+  <p>
+    Le rapatriement volontaire, annoncé par le Bénin, pose la question de la réinsertion 
+    de ces familles qui devront repartir à zéro. Beaucoup craignent de perdre non seulement 
+    leurs revenus mais aussi leur vie sociale construite au Gabon.
+  </p>
 
-        <p>Le succès sur Internet ne s’improvise pas. Voici les étapes clés :</p>
-        <ul>
-            <li><strong>Apprendre et se former :</strong> profiter des milliers de ressources gratuites ou payantes sur YouTube, OpenClassrooms, Coursera, etc.</li>
-            <li><strong>Créer un profil professionnel :</strong> portfolio, CV en ligne, réseaux sociaux dédiés.</li>
-            <li><strong>Rechercher ses premiers clients ou abonnés :</strong> patience et persévérance sont indispensables.</li>
-            <li><strong>Gérer son temps et ses finances :</strong> bien organiser son travail, prévoir un budget, et réinvestir dans ses compétences.</li>
-            <li><strong>Se protéger contre les arnaques :</strong> ne jamais payer pour accéder à de l’argent, vérifier la crédibilité des plateformes, lire les avis.</li>
-        </ul>
+  <h3>Diplomatiques</h3>
+  <p>
+    Cette crise représente un test de résilience pour les relations entre Libreville et Cotonou. 
+    Un dialogue franc est indispensable pour éviter un divorce diplomatique aux conséquences 
+    régionales imprévisibles.
+  </p>
 
-        <h2>Témoignages : portraits de réussite</h2>
+  <h3>Symboliques</h3>
+  <p>
+    Le conflit rappelle que le panafricanisme reste fragile, surtout lorsqu’il se heurte 
+    aux réalités économiques et sociales. Les discours d’unité africaine se heurtent trop souvent 
+    aux réflexes protectionnistes nationaux.
+  </p>
 
-        <div class="testimonial">
-            « J’ai commencé par créer des logos pour des amis, puis j’ai découvert Fiverr. Au début, je gagnais à peine 5 dollars par mission, mais aujourd’hui je travaille avec des clients au Canada et en Europe. Tout est question de travail régulier et de qualité. »  
-            — <strong>Aminata, 27 ans, graphiste freelance au Sénégal</strong>
-        </div>
+  <h2>Conclusion</h2>
+  <p>
+    Les tensions entre le Bénin et le Gabon sont révélatrices des contradictions africaines 
+    entre intégration et souveraineté. Si elles ne débouchent pas sur un conflit ouvert, 
+    elles laissent entrevoir des fractures sociales profondes. 
+    Tout dépendra désormais de la capacité des deux États à dépasser les discours 
+    pour trouver un compromis durable.  
+  </p>
 
-        <div class="testimonial">
-            « La création de contenu sur YouTube n’est pas un sprint, c’est un marathon. Après deux ans de vidéos sur la cuisine africaine, j’ai pu vivre de mes revenus publicitaires et lancer une boutique en ligne. »  
-            — <strong>David, 29 ans, YouTuber camerounais</strong>
-        </div>
+  <p class="signature">— Enquête exclusive réalisée par Farid Adss</p>
 
-        <div class="testimonial">
-            « J’ai lancé ma boutique de vêtements en ligne grâce au dropshipping, en ciblant les diasporas. Le chemin a été semé d’embûches, mais avec une bonne stratégie marketing et de la persévérance, ça marche. »  
-        
   <footer>
-    <p>© 2025 Farid Adss. Tous droits réservés.</p>
+    Sources : Gabon Media Time, LSI Africa, Quotidien L’Express (Bénin), Koaci, Com d’Afrik, Blom News, août 2025.
   </footer>
+</body>
+</html>
 
   <script>
     //    <!DOCTYPE html>
@@ -1080,4 +836,5 @@ DOCTYPE html>
   </script>
 </body>
   </html>
+
 
