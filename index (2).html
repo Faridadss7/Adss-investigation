@@ -1,0 +1,689 @@
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Farid Adss | Site d'Investigation</title>
+  <meta name="description" content="Site d'investigation professionnelle de Farid Adss. Reportages, débats et analyses fiables." />
+  <meta name="keywords" content="investigation, reportage, analyse, débat, Farid Adss" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXX'); // Remplace par ton ID GA
+  </script>
+</head>
+<body>
+
+<header>
+  <nav>
+    <h1 class="logo">Farid Adss</h1>
+    <button id="menu-toggle" aria-label="Ouvrir le menu">&#9776;</button>
+    <ul class="menu">
+      <li><a href="#accueil">Accueil</a></li>
+      <li><a href="#a-propos">À propos</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#programme">Programme</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><button id="darkmode-toggle" aria-label="Basculer en mode sombre">🌓</button></li>
+    </ul>
+  </nav>
+</header>
+
+<section id="accueil" class="hero">
+  <h2>Bienvenue sur mon site d’enquêtes et d’investigations</h2>
+  <p>Analyse. Vérité. Impact. Découvrez des rapports solides et objectifs.</p>
+  <a href="#contact" class="btn">Me contacter</a>
+</section>
+
+<section id="a-propos">
+  <h2>À propos</h2>
+  <p>Je suis Farid Adss, passionné par la vérité, la transparence et l'information vérifiée. Mon travail consiste à investiguer, analyser et vous livrer des contenus de qualité sur des sujets sensibles ou méconnus.</p>
+</section>
+
+<section id="services">
+  <h2>Ce que je propose</h2>
+  <ul>
+    <li>🔍 Enquêtes terrain</li>
+    <li>🖊️ Rédaction de rapports détaillés</li>
+    <li>📊 Analyse de données</li>
+    <li>🧠 Recherche stratégique</li>
+  </ul>
+</section>
+
+<section id="programme">
+  <h2>Programme quotidien</h2>
+  <p>Tous les jours :</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Heure</th>
+        <th>Activité</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>13h00</td>
+        <td>Reportage : Nouvelles tendances et situations dans le monde</td>
+      </tr>
+      <tr>
+        <td>20h00</td>
+        <td>Débats poignants et points de vue animés</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div id="countdown-section" aria-live="polite" style="margin-top: 30px;">
+    <h3>Prochain rendez-vous dans :</h3>
+    <div id="countdown" aria-atomic="true" style="font-size: 1.6rem; font-weight: 700; color: #ffab00;"></div>
+  </div>
+</section>
+    <!-- Ici tu pourras intégrer reCAPTCHA quand tu auras la clé -->
+    <!-- <div class="g-recaptcha" data-sitekey="TA_CLE_SITE"></div> -->
+    
+    <button type="submit">Envoyer</button>
+    <div id="form-status" role="alert" aria-live="assertive" style="margin-top:10px;"></div>
+  </form>
+</section>
+
+<footer>
+  <div style="text-align:center; margin-top:20px; color:#ffab00; font-weight:700;">
+    Visiteurs uniques : <span id="visitorCount">...</span>
+  </div>
+  <p>&copy; 2025 Farid Adss. Tous droits réservés.</p>
+</footer>
+
+<script>
+// MENU TOGGLE MOBILE
+const menuToggle = document.getElementById('menu-toggle');
+const menu = document.querySelector('.menu');
+menuToggle.addEventListener('click', () => {
+  menu.classList.toggle('menu-open');
+});
+
+// DARK MODE TOGGLE
+const darkToggle = document.getElementById('darkmode-toggle');
+darkToggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+});
+
+// COMPTE À REBOURS
+function updateCountdown() {
+  const countdownEl = document.getElementById('countdown');
+  const now = new Date();
+
+  const targets = [
+    new Date(now.getFullYear(), now.getMonth(), now.getDate(), 13, 0, 0),
+    new Date(now.getFullYear(), now.getMonth(), now.getDate(), 20, 0, 0),
+  ];
+
+  let nextTarget = targets.find(t => t > now);
+  if (!nextTarget) {
+    nextTarget = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 13, 0, 0);
+  }
+
+  const diffMs = nextTarget - now;
+  const diffH = Math.floor(diffMs / (1000 * 60 * 60));
+  const diffM = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+  const diffS = Math.floor((diffMs % (1000 * 60)) / 1000);
+
+  countdownEl.textContent = `${diffH.toString().padStart(2, '0')}h ${diffM.toString().padStart(2, '0')}m ${diffS.toString().padStart(2, '0')}s`;
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// COMPTEUR VISITEURS SIMPLE (CountAPI)
+fetch('https://api.countapi.xyz/hit/faridadss/sitevisits')
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('visitorCount').textContent = data.value;
+  })
+  .catch(() => {
+    document.getElementById('visitorCount').textContent = 'N/A';
+  });
+
+// FORMULAIRE : validation simple et message de statut
+const form = document.getElementById('contact-form');
+const formStatus = document.getElementById('form-status');
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const name = form.name.value.trim();
+  const email = form.email.value.trim();
+  const message = form.message.value.trim();
+
+  if (!name || !email || !message) {
+    formStatus.textContent = "Veuillez remplir tous les champs.";
+    formStatus.style.color = "red";
+    return;
+  }
+
+  // Email simple validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    formStatus.textContent = "Veuillez entrer un email valide.";
+    formStatus.style.color = "red";
+    return;
+  }
+});
+</script>
+
+</body>
+</html>
+</section>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Merci pour votre message</title>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f9f9f9;
+      text-align: center;
+      padding: 50px;
+      color: #333;
+    }
+    .message-box {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: inline-block;
+    }
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      color: #0066cc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="message-box">
+    <h1>✅ Message envoyé !</h1>
+    <p>Merci pour votre message, je vous répondrai dans les plus brefs délais.</p>
+    <a href="index.html">⬅ Retour au site</a>
+  </div>
+</body>
+<!-- BOUTON DARK MODE -->
+<button id="darkmode-toggle">
+  <span id="darkmode-icon"></span> Mode
+</button>
+
+<!-- HORLOGE -->
+<div id="clock" style="font-size:1.5em; text-align:center; margin-top:15px;"></div>
+
+<!-- CITATION INSPIRANTE -->
+<blockquote id="quote" style="text-align:center; font-style:italic; margin-top:20px;"></blockquote>
+
+<!-- MENU MOBILE -->
+<nav>
+  <button id="menu-toggle">☰ Menu</button>
+  <ul class="menu" style="display: none;">
+    <li><a href="#">Accueil</a></li>
+    <li><a href="#">À propos</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+</html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Mon Site</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- BOUTON DARK MODE -->
+  <button id="darkmode-toggle">
+    <span id="darkmode-icon">☀</span> Mode
+  </button>
+
+  <!-- HORLOGE -->
+  <div id="clock"></div>
+
+  <!-- CITATION -->
+  <blockquote id="quote"></blockquote>
+
+  <!-- MENU -->
+  <nav>
+    <button id="menu-toggle">☰ Menu</button>
+    <ul class="menu">
+      <li><a href="#">Accueil</a></li>
+      <li><a href="#">À propos</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- SCRIPT EXTERNE -->
+  <script src="script.js"></script>
+</body>
+</html>
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
+  <article class="reportage">
+    <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Feu sur le croissant - Chronique d’une escalade annoncée</title>
+  <style>
+    /* Reset basique */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Merriweather", serif;
+      background-color: #fafafa;
+      color: #222;
+      line-height: 1.65;
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    h1, h2, h3 {
+      font-family: "Merriweather", serif;
+      color: #0a2540;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      border-left: 5px solid #1f4e79;
+      padding-left: 0.5rem;
+    }
+
+    h3 {
+      font-size: 1.4rem;
+      margin-top: 2rem;
+      margin-bottom: 0.6rem;
+      color: #1f4e79;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      font-size: 1.1rem;
+    }
+
+    blockquote {
+      font-style: italic;
+      color: #555;
+      border-left: 4px solid #1f4e79;
+      margin: 1.5rem 0;
+      padding-left: 1rem;
+      background-color: #f0f7ff;
+      font-size: 1.05rem;
+    }
+
+    /* Section intro */
+    .intro {
+      border-bottom: 2px solid #1f4e79;
+      padding-bottom: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    /* Cibles, bilan, réactions */
+    .list-section {
+      background: #e8f0fe;
+      padding: 1rem 1.5rem;
+      border-radius: 6px;
+      margin-bottom: 2rem;
+    }
+
+    .list-section strong {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+      color: #0a2540;
+      font-size: 1.2rem;
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Bilan chiffres */
+    .stats {
+      font-weight: 700;
+      color: #b93232;
+    }
+
+    /* Réactions internationales */
+    .reactions {
+      font-style: italic;
+      color: #333;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
+    /* Ligne horizontale élégante */
+    hr {
+      border: none;
+      border-top: 2px solid #1f4e79;
+      margin: 3rem 0;
+      opacity: 0.25;
+    }
+    /* Citation bloc spécifique */
+    .citation {
+      background: #dce8ff;
+      padding: 1rem 1.5rem;
+      border-left: 6px solid #1f4e79;
+      margin: 2rem 0;
+      font-weight: 600;
+      color: #073763;
+      font-size: 1.1rem;
+    }
+    /* Responsive text */
+    @media (max-width: 600px) {
+      body {
+        margin: 1rem;
+        max-width: 100%;
+      }
+      h1 {
+        font-size: 2.2rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gagner de l’argent en ligne : enquête sur les vraies opportunités pour la jeunesse africaine</title>
+    <style>
+        body {
+            font-family: "Georgia", serif;
+            line-height: 1.7;
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            color: #222;
+            background-color: #fff;
+        }
+        h1, h2, h3 {
+            font-family: "Georgia", serif;
+            color: #0d3b66;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        h1 {
+            font-size: 2.5rem;
+            border-bottom: 3px solid #0d3b66;
+            padding-bottom: 0.3rem;
+        }
+        h2 {
+            font-size: 1.8rem;
+            border-left: 5px solid #0d3b66;
+            padding-left: 0.8rem;
+        }
+        h3 {
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+        }
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+        blockquote {
+            margin: 1.5rem 2rem;
+            padding: 1rem 1.5rem;
+            background-color: #f0f4f8;
+            border-left: 5px solid #0d3b66;
+            font-style: italic;
+            color: #555;
+        }
+        ul {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        ul li {
+            margin-bottom: 0.6rem;
+        }
+        .testimonial {
+            background-color: #e7f1ff;
+            border-left: 6px solid #0d3b66;
+            margin: 1rem 2rem;
+            padding: 1rem 1.5rem;
+            font-style: italic;
+            color: #0a2540;
+        }
+        .highlight {
+            background-color: #fffbcc;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        footer {
+            margin-top: 4rem;
+            font-size: 0.9rem;
+            text-align: center;
+            color: #555;
+            border-top: 1px solid #ccc;
+            padding-top: 1rem;
+        }
+        a {
+            color: #0d3b66;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <article>
+        <h1>Gagner de l’argent en ligne : enquête sur les vraies opportunités pour la jeunesse africaine</h1>
+
+        <p>
+            Sur les réseaux sociaux, les promesses affluent : “Gagne 500 $ par jour avec ton téléphone !”, “Deviens riche en 7 jours grâce à la crypto”, “Rejoins notre groupe exclusif et change ta vie”.  
+            Pour la jeunesse africaine, souvent confrontée au chômage, à la précarité et au manque d’opportunités, ces messages semblent être une porte d’entrée vers un avenir meilleur.  
+            Mais derrière ces slogans séduisants, que se cache-t-il vraiment ?  
+            Cette enquête approfondie explore les vraies façons de gagner de l’argent en ligne, démystifie les illusions, met en garde contre les pièges, et donne la parole à ceux qui ont réussi avec rigueur et persévérance.
+        </p>
+
+        <h2>Les méthodes sérieuses pour gagner de l’argent en ligne</h2>
+
+        <p>Contrairement aux promesses irréalistes, plusieurs voies crédibles existent pour générer des revenus sur Internet, à condition d’y investir du temps, de la patience et du sérieux.</p>
+
+        <h3>1. Le freelancing : un marché mondial accessible</h3>
+        <p>
+            Le freelancing regroupe un large éventail de services — rédaction, traduction, design graphique, montage vidéo, programmation, marketing digital, etc.  
+            Grâce à des plateformes telles que <a href="https://www.upwork.com" target="_blank" rel="noopener">Upwork</a>, <a href="https://www.fiverr.com" target="_blank" rel="noopener">Fiverr</a> ou <a href="https://www.freelancer.com" target="_blank" rel="noopener">Freelancer</a>, les jeunes Africains peuvent proposer leurs compétences à des clients du monde entier.  
+            Cependant, réussir nécessite de construire un profil solide, recueillir des avis positifs, et être compétitif en qualité et prix.
+        </p>
+
+        <blockquote>
+            « Au début, j’ai dû accepter des missions à très bas prix, parfois pour ne pas perdre la confiance d’un client. Mais petit à petit, avec de la patience, j’ai pu augmenter mes tarifs et fidéliser mes clients. »  
+            — <span class="highlight">Koffi, 24 ans, freelance ivoirien en graphisme</span>
+        </blockquote>
+
+        <h3>2. La création de contenu : YouTube, TikTok et podcasts</h3>
+        <p>
+            Produire des vidéos, des podcasts ou des articles peut rapporter de l’argent via la publicité, le sponsoring ou l’affiliation.  
+            Cette voie demande une passion authentique, de la créativité et surtout de la régularité, car la monétisation ne vient qu’après une audience fidèle et importante.  
+            Les créateurs qui réussissent investissent souvent plusieurs années avant de générer un revenu significatif.
+        </p>
+
+        <h3>3. Le e-commerce et le dropshipping</h3>
+        <p>
+            Le commerce en ligne connaît une croissance rapide en Afrique. Le dropshipping permet de vendre des produits sans avoir à gérer de stock, en s’appuyant sur des fournisseurs tiers.  
+            Certains jeunes Africains ont réussi à exporter des produits locaux (artisanat, mode, cosmétique) à travers le continent et au-delà.  
+            Cependant, cette activité demande une bonne compréhension de la chaîne logistique, du marketing digital, et de la gestion clientèle.
+        </p>
+
+        <h3>4. Le marketing d’affiliation</h3>
+        <p>
+            Il s’agit de promouvoir des produits ou services d’autres entreprises et de toucher une commission sur chaque vente réalisée via son lien affilié.  
+            Cette méthode nécessite de construire une audience (sur un blog, une chaîne YouTube, ou les réseaux sociaux) et de choisir des programmes fiables.  
+            L’affiliation bien menée peut générer un revenu passif sur le long terme.
+        </p>
+
+        <h3>5. Les microservices et missions ponctuelles</h3>
+        <p>
+            Traduction, tutorat en ligne, assistance administrative, voix-off, création de sites…  
+            De nombreux microservices sont recherchés sur des plateformes spécialisées, et peuvent constituer un complément de revenu accessible rapidement.
+        </p>
+
+        <h2>La démarche à suivre pour réussir</h2>
+
+        <p>Le succès sur Internet ne s’improvise pas. Voici les étapes clés :</p>
+        <ul>
+            <li><strong>Apprendre et se former :</strong> profiter des milliers de ressources gratuites ou payantes sur YouTube, OpenClassrooms, Coursera, etc.</li>
+            <li><strong>Créer un profil professionnel :</strong> portfolio, CV en ligne, réseaux sociaux dédiés.</li>
+            <li><strong>Rechercher ses premiers clients ou abonnés :</strong> patience et persévérance sont indispensables.</li>
+            <li><strong>Gérer son temps et ses finances :</strong> bien organiser son travail, prévoir un budget, et réinvestir dans ses compétences.</li>
+            <li><strong>Se protéger contre les arnaques :</strong> ne jamais payer pour accéder à de l’argent, vérifier la crédibilité des plateformes, lire les avis.</li>
+        </ul>
+
+        <h2>Témoignages : portraits de réussite</h2>
+
+        <div class="testimonial">
+            « J’ai commencé par créer des logos pour des amis, puis j’ai découvert Fiverr. Au début, je gagnais à peine 5 dollars par mission, mais aujourd’hui je travaille avec des clients au Canada et en Europe. Tout est question de travail régulier et de qualité. »  
+            — <strong>Aminata, 27 ans, graphiste freelance au Sénégal</strong>
+        </div>
+
+        <div class="testimonial">
+            « La création de contenu sur YouTube n’est pas un sprint, c’est un marathon. Après deux ans de vidéos sur la cuisine africaine, j’ai pu vivre de mes revenus publicitaires et lancer une boutique en ligne. »  
+            — <strong>David, 29 ans, YouTuber camerounais</strong>
+        </div>
+
+        <div class="testimonial">
+            « J’ai lancé ma boutique de vêtements en ligne grâce au dropshipping, en ciblant les diasporas. Le chemin a été semé d’embûches, mais avec une bonne stratégie marketing et de la persévérance, ça marche. »  
+            — <strong>Fatou, 25 ans, entrepreneure en e-commerce au Mali</strong>
+        </div>
+
+        <h2>Les pièges à éviter</h2>
+
+        <p>Malheureusement, tout n’est pas rose sur Internet :</p>
+        <ul>
+            <li><strong>Promesses d’argent facile :</strong> méfiez-vous des formules miracles, des “coachings” qui demandent d’importants paiements.</li>
+            <li><strong>Pyramides et systèmes MLM douteux :</strong> ils peuvent ruiner des familles.</li>
+            <li><strong>Fausses formations payantes :</strong> beaucoup promettent des secrets inaccessibles à prix fort.</li>
+            <li><strong>Risques de sécurité :</strong> attention aux arnaques financières et à la protection de vos données personnelles.</li>
+        </ul>
+
+        <h2>Conclusion</h2>
+
+        <p>
+            Gagner de l’argent en ligne est aujourd’hui une réalité accessible à la jeunesse africaine.  
+            Mais, comme dans tout projet sérieux, cela demande du temps, de la discipline, et un apprentissage constant.  
+            En s’appuyant sur les bonnes méthodes et en évitant les pièges, beaucoup peuvent transformer Internet en une véritable source de revenus durables.  
+            La clé ? La persévérance, la formation et la vigilance.
+         <p>
+         <strong> Par Adss – Enquête exclusive pour https://faridadss7.github.io/Adss-investigation</strong></p>
+</article>
+
+</body>
+    </html>
+  </section>  <footer>
+    <p>© 2025 – Enquête réalisée par Adss. Tous droits réservés.</p>
+  </footer>
+</body>
+</html>                                                                                                                                                                                                                                            </section>
+
+  <a href="index.html" class="btn-accueil" aria-label="Retour à la page d'accueil">← Retour à l’accueil</a>
+
+    <section aria-labelledby="formulaire-avis-title">
+      <h2 id="formulaire-avis-title">Formulaire pour poser vos questions ou suggestions d’enquêtes</h2>
+      <form action="https://formspree.io/f/xldnojov" method="POST" novalidate>
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="box" />
+        <input type="hidden" name="_next" value="merci.html" />
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="name" required autocomplete="name" placeholder="Votre nom" />
+
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" required autocomplete="email" placeholder="Votre email" />
+
+        <label for="message">Votre question ou suggestion :</label>
+        <textarea id="message" name="message" rows="5" required placeholder="Écrivez votre message ici"></textarea>
+
+        <button type="submit">Envoyer</button>
+      </form>
+    </section>
+
+  </article>
+
+  <footer>
+    <p>© 2025 Farid Adss. Tous droits réservés.</p>
+  </footer>
+
+  <script>
+    //    <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Compteur de visiteurs simple</title>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      max-width: 600px;
+      margin: 3rem auto;
+      padding: 1rem;
+      text-align: center;
+      color: #0a2540;
+      background-color: #f9f9f9;
+    }
+    #visitorCount {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #ffab00;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bienvenue sur mon site</h1>
+  <p>Nombre de visiteurs uniques :</p>
+  <div id="visitorCount">Chargement...</div>
+
+  <script>
+    fetch('https://api.countapi.xyz/hit/faridadss/sitevisits')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('visitorCount').textContent = data.value;
+      })
+      .catch(() => {
+        document.getElementById('visitorCount').textContent = 'N/A';
+      });
+  </script>
+</body>
+</html>
+  </script>
+</body>
+  </html>
