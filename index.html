@@ -1,166 +1,248 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Farid Adss | Site d’Investigation</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f9f9f9;
-      color: #222;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Farid Adss | Accueil</title>
 
-    header {
-      background: #1a1a1a;
-      color: #fff;
-      padding: 15px 30px;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      z-index: 1000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto&family=Merriweather:wght@700&display=swap" rel="stylesheet">
 
-    header h1 {
-      margin: 0;
-      font-size: 1.5em;
-      color: #ffcc00;
-    }
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
 
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 12px;
-      font-size: 1em;
-      transition: color 0.3s;
-    }
+  body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(160deg, #f0f2f5, #e4e9f0);
+    color: #222;
+    line-height: 1.6;
+  }
 
-    nav a:hover {
-      color: #ffcc00;
-    }
+  header {
+    position: fixed;
+    top:0; left:0;
+    width:100%;
+    background-color: #1a1a1a;
+    color:#fff;
+    padding:15px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+    box-shadow:0 3px 8px rgba(0,0,0,0.2);
+  }
 
-    .section {
-      padding: 100px 20px 60px;
-      max-width: 1100px;
-      margin: auto;
-      text-align: center;
-    }
+  header h1 {
+    font-family: 'Merriweather', serif;
+    font-size:1.7em;
+    color:#ffcc00;
+  }
 
-    .section h2 {
-      font-size: 2em;
-      color: #1a1a1a;
-      margin-bottom: 15px;
-    }
+  nav ul {
+    list-style:none;
+    display:flex;
+  }
 
-    .section p {
-      font-size: 1.1em;
-      line-height: 1.6;
-      color: #333;
-    }
+  nav ul li { margin-left:20px; }
+  nav ul li a {
+    text-decoration:none;
+    color:#fff;
+    font-weight:500;
+    transition: color 0.3s;
+  }
+  nav ul li a:hover { color:#ffcc00; }
 
-    .btn {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 20px;
-      background: #ffcc00;
-      color: #1a1a1a;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
+  #menu-toggle { display:none; font-size:1.8em; background:none; border:none; color:#fff; cursor:pointer; }
 
-    .btn:hover {
-      background: #e6b800;
-    }
+  .section {
+    padding:140px 20px 60px;
+    max-width:1100px;
+    margin:auto;
+    text-align:center;
+  }
 
-    footer {
-      background: #1a1a1a;
-      color: #ddd;
-      text-align: center;
-      padding: 15px 10px;
-      font-size: 0.9em;
-      margin-top: 50px;
-    }
+  .section h2 {
+    font-family: 'Merriweather', serif;
+    font-size:2em;
+    margin-bottom:20px;
+    color:#1a1a1a;
+  }
 
-    footer a {
-      color: #ffcc00;
-      text-decoration: none;
+  .card {
+    background: linear-gradient(145deg, #fff, #f8f9fb);
+    border-radius:12px;
+    padding:25px;
+    margin:20px auto;
+    max-width:500px;
+    box-shadow:0 6px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+  }
+
+  .btn {
+    display:inline-block;
+    padding:12px 25px;
+    margin-top:12px;
+    background-color:#ffcc00;
+    color:#1a1a1a;
+    text-decoration:none;
+    border-radius:6px;
+    font-weight:bold;
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  .btn:hover {
+    background-color:#e6b800;
+    transform: translateY(-2px);
+  }
+
+  footer {
+    background:#1a1a1a;
+    color:#ddd;
+    text-align:center;
+    padding:25px 15px;
+    font-size:0.9em;
+    margin-top:50px;
+  }
+  footer a { color:#ffcc00; text-decoration:none; }
+
+  #countdown {
+    font-size:1.8rem;
+    font-weight:700;
+    color:#ffab00;
+    margin-top:10px;
+  }
+
+  @media(max-width:768px){
+    nav ul {
+      display:none;
+      flex-direction:column;
+      background:#1a1a1a;
+      position:absolute;
+      top:60px; right:0;
+      width:220px;
+      border-left:1px solid #333;
+      padding:15px 0;
     }
-  </style>
+    nav ul li { margin:12px 0; text-align:right; margin-right:15px; }
+    #menu-toggle { display:block; }
+    nav ul.menu-open { display:flex; }
+  }
+</style>
 </head>
 <body>
 
-  <header>
-    <h1>Farid Adss</h1>
-    <nav>
-      <a href="index.html">Accueil</a>
-      <a href="apropos.html">À propos</a>
-      <a href="services.html">Services</a>
-      <a href="enquetes.html">Enquêtes</a>
-      <a href="ebooks.html">Ebooks</a>
-      <a href="astuces.html">Astuces Tech</a>
-      <a href="soutiens.html">Soutiens</a>
-      <a href="projets.html">Projets</a>
-    </nav>
-  </header>
+<header>
+  <h1>Farid Adss</h1>
+  <button id="menu-toggle" aria-label="Ouvrir le menu">&#9776;</button>
+  <nav>
+    <ul class="menu">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="apropos.html">À propos</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="enquetes.html">Enquêtes</a></li>
+      <li><a href="ebooks.html">Ebooks</a></li>
+      <li><a href="astuces.html">Astuces Tech</a></li>
+      <li><a href="soutiens.html">Soutiens</a></li>
+      <li><a href="projets.html">Projets</a></li>
+    </ul>
+  </nav>
+</header>
 
-  <section class="section" id="accueil">
-    <h2>Bienvenue</h2>
-    <p>Bienvenue sur le site officiel de <strong>Farid Adss</strong>, un espace d’investigation, d’actualités et de réflexion autour de l’IA, de l’EdTech, du développement personnel et des grandes questions de société.</p>
-  </section>
-
-  <section class="section" id="apropos">
-    <h2>À propos</h2>
-    <p>Farid Adss propose une vaste gamme d’articles orientés sur l’information, l’EdTech, l’IA et le développement personnel. 
-    Nous publions des enquêtes exclusives sur des événements de société, des débats passionnants, des astuces technologiques et même des ebooks gratuits et payants.</p>
-    <a href="apropos.html" class="btn">En savoir plus</a>
-  </section>
-
-  <section class="section" id="services">
-    <h2>Services</h2>
-    <p>Découvrez nos services : enquêtes approfondies, articles spécialisés, ressources pédagogiques et ebooks exclusifs.</p>
-    <a href="services.html" class="btn">Découvrir</a>
-  </section>
-
-  <section class="section" id="enquetes">
-    <h2>Enquêtes</h2>
-    <p>Plongez au cœur d’enquêtes inédites sur les événements qui façonnent notre monde. Nos publications sont diffusées chaque soir à <strong>20h</strong>.</p>
+<section class="section" id="accueil">
+  <h2>Bienvenue sur le site de Farid Adss</h2>
+  <p>Enquêtes exclusives, analyses fiables, astuces technologiques et ebooks pour approfondir vos connaissances.</p>
+  <div class="card">
+    <p><strong>Prochain rendez-vous quotidien : 20h</strong></p>
+    <div id="countdown"></div>
     <a href="enquetes.html" class="btn">Voir les enquêtes</a>
-  </section>
+  </div>
+</section>
 
-  <section class="section" id="ebooks">
-    <h2>Ebooks</h2>
-    <p>Accédez à nos ebooks gratuits et payants sur la tech, l’internet et les piliers du Mindself. Exemple : <em>Dark Web : comprendre et naviguer légalement</em>, <em>Qu’est-ce que le e-commerce et ses opportunités ?</em></p>
+<section class="section" id="apropos">
+  <h2>À propos</h2>
+  <div class="card">
+    <p>Articles sur l’information, EdTech, IA et développement personnel. Débats passionnants, ebooks gratuits et payants, astuces et outils pratiques.</p>
+    <a href="apropos.html" class="btn">En savoir plus</a>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <h2>Services</h2>
+  <div class="card">
+    <p>Enquêtes terrain, rédaction de rapports, analyses stratégiques, ebooks et astuces technologiques pour professionnels.</p>
+    <a href="services.html" class="btn">Découvrir</a>
+  </div>
+</section>
+
+<section class="section" id="enquetes">
+  <h2>Enquêtes</h2>
+  <div class="card">
+    <p>Plongez au cœur d’enquêtes exclusives publiées chaque soir à 20h.</p>
+    <a href="enquetes.html" class="btn">Voir toutes les enquêtes</a>
+  </div>
+</section>
+
+<section class="section" id="ebooks">
+  <h2>Ebooks</h2>
+  <div class="card">
+    <p>Accédez à nos ebooks gratuits et payants sur la tech, l’internet et le développement personnel.</p>
     <a href="ebooks.html" class="btn">Explorer</a>
-  </section>
+  </div>
+</section>
 
-  <section class="section" id="astuces">
-    <h2>Astuces Tech</h2>
-    <p>Retrouvez des astuces pratiques sur l’EdTech, l’intelligence artificielle et les meilleures applications professionnelles.</p>
+<section class="section" id="astuces">
+  <h2>Astuces Tech</h2>
+  <div class="card">
+    <p>Retrouvez des astuces pratiques sur EdTech, IA et applications professionnelles.</p>
     <a href="astuces.html" class="btn">Voir les astuces</a>
-  </section>
+  </div>
+</section>
 
-  <section class="section" id="soutiens">
-    <h2>Soutiens</h2>
-    <p>Vous souhaitez soutenir cette initiative ? Partagez massivement le site, proposez des sujets via notre formulaire ou participez financièrement pour faire grandir la communauté.</p>
+<section class="section" id="soutiens">
+  <h2>Soutiens</h2>
+  <div class="card">
+    <p>Partagez le site, proposez des sujets ou contribuez financièrement pour faire évoluer la communauté.</p>
     <a href="soutiens.html" class="btn">Soutenir</a>
-  </section>
+  </div>
+</section>
 
-  <section class="section" id="projets">
-    <h2>Projets en cours</h2>
-    <p>Découvrez nos projets en développement : nouvelles enquêtes, formations EdTech, ebooks et outils pour la communauté.</p>
+<section class="section" id="projets">
+  <h2>Projets en cours</h2>
+  <div class="card">
+    <p>Découvrez nos projets : enquêtes, ebooks, astuces et outils pour la communauté.</p>
     <a href="projets.html" class="btn">Voir les projets</a>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    <p>&copy; 2025 Farid Adss. Tous droits réservés. | Contact : <a href="mailto:faridadss1234@gmail.com">faridadss1234@gmail.com</a></p>
-  </footer>
+<footer>
+  <p>&copy; 2025 Farid Adss | Contact : <a href="mailto:faridadss1234@gmail.com">faridadss1234@gmail.com</a></p>
+</footer>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const menu = document.querySelector('nav ul');
+  menuToggle.addEventListener('click',()=>{ menu.classList.toggle('menu-open'); });
+
+  function updateCountdown() {
+    const countdownEl = document.getElementById('countdown');
+    const now = new Date();
+    let target = new Date();
+    target.setHours(20,0,0,0);
+    if(now > target) target.setDate(target.getDate()+1);
+    const diff = target - now;
+    const h = Math.floor(diff/(1000*60*60));
+    const m = Math.floor((diff%(1000*60*60))/(1000*60));
+    const s = Math.floor((diff%(1000*60))/1000);
+    countdownEl.textContent = `${h.toString().padStart(2,'0')}h ${m.toString().padStart(2,'0')}m ${s.toString().padStart(2,'0')}s`;
+  }
+  updateCountdown();
+  setInterval(updateCountdown,1000);
+</script>
 
 </body>
 </html>
