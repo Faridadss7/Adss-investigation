@@ -1,14 +1,18 @@
 document.addEventListener("DOMContentLoaded", function () {
+
   // --------- MENU MOBILE TOGGLE ---------
   const menuToggle = document.getElementById('menu-toggle');
   const menu = document.querySelector('.menu');
-  if (localStorage.getItem("menu-open") === "true") {
+  if (menu && localStorage.getItem("menu-open") === "true") {
     menu.classList.add("menu-open");
   }
-  menuToggle.addEventListener('click', () => {
-    menu.classList.toggle('menu-open');
-    localStorage.setItem("menu-open", menu.classList.contains("menu-open"));
-  })
+  if(menuToggle){
+    menuToggle.addEventListener('click', () => {
+      menu.classList.toggle('menu-open');
+      localStorage.setItem("menu-open", menu.classList.contains("menu-open"));
+    });
+  }
+
   // --------- MODE SOMBRE ---------
   const darkToggle = document.getElementById('darkmode-toggle');
   function applyDarkMode(enabled) {
@@ -20,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
       localStorage.setItem("dark-mode", "disabled");
     }
   }
+
   const hour = new Date().getHours();
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const savedMode = localStorage.getItem("dark-mode");
@@ -28,20 +33,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function updateDarkIcon() {
     const icon = document.getElementById('darkmode-icon');
-    icon.textContent = document.body.classList.contains('dark-mode') ? '🌙' : '☀';
+    if(icon) icon.textContent = document.body.classList.contains('dark-mode') ? '🌙' : '☀';
   }
   updateDarkIcon();
-  darkToggle.addEventListener('click', () => {
-    darkModeOn = !darkModeOn;
-    applyDarkMode(darkModeOn);
-    updateDarkIcon();
-    darkToggle.animate([
-      { transform: 'rotate(0deg)' },
-      { transform: 'rotate(20deg)' },
-      { transform: 'rotate(-20deg)' },
-      { transform: 'rotate(0deg)' }
-    ], { duration: 300 });
-  });
+
+  if(darkToggle){
+    darkToggle.addEventListener('click', () => {
+      darkModeOn = !darkModeOn;
+      applyDarkMode(darkModeOn);
+      updateDarkIcon();
+      darkToggle.animate([
+        { transform: 'rotate(0deg)' },
+        { transform: 'rotate(20deg)' },
+        { transform: 'rotate(-20deg)' },
+        { transform: 'rotate(0deg)' }
+      ], { duration: 300 });
+    });
+  }
+
   // --------- HORLOGE ---------
   function updateClock() {
     const now = new Date();
@@ -52,7 +61,8 @@ document.addEventListener("DOMContentLoaded", function () {
       month: 'long',
       year: 'numeric'
     });
-    document.getElementById('clock').innerHTML = ${time}<br><small>${date}</small>;
+    const clockEl = document.getElementById('clock');
+    if(clockEl) clockEl.innerHTML = `${time}<br><small>${date}</small>`;
   }
   setInterval(updateClock, 1000);
   updateClock();
@@ -66,5 +76,24 @@ document.addEventListener("DOMContentLoaded", function () {
     "Ta voix peut être une révolution."
   ];
   const quoteElement = document.getElementById('quote');
-  quoteElement.textContent = quotes[Math.floor(Math.random() * quotes.length)];
+  if(quoteElement) quoteElement.textContent = quotes[Math.floor(Math.random() * quotes.length)];
+
+  // --------- COMPTE À REBOURS (optionnel) ---------
+  const countdownEl = document.getElementById('countdown');
+  if(countdownEl){
+    function updateCountdown() {
+      const now = new Date();
+      const target = new Date();
+      target.setHours(20,0,0,0); // Heure cible 20h
+      if(now > target) target.setDate(target.getDate()+1);
+      const diff = target - now;
+      const h = String(Math.floor(diff/(1000*60*60))).padStart(2,'0');
+      const m = String(Math.floor((diff%(1000*60*60))/(1000*60))).padStart(2,'0');
+      const s = String(Math.floor((diff%(1000*60))/1000)).padStart(2,'0');
+      countdownEl.textContent = `${h}:${m}:${s}`;
+    }
+    updateCountdown();
+    setInterval(updateCountdown,1000);
+  }
+
 });
