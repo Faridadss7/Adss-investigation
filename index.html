@@ -1,208 +1,166 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Farid Adss | Site d'Investigation</title>
-  <meta name="description" content="Site d'investigation professionnelle de Farid Adss. Reportages et analyses fiables." />
-  <meta name="keywords" content="investigation, reportage, analyse, débat, Farid Adss" />
-  
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Merriweather:wght@700&display=swap" rel="stylesheet" />
-  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farid Adss | Site d’Investigation</title>
   <style>
-    /* RESET */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #f5f5f5;
-      color: #0a2540;
-      line-height: 1.6;
-      scroll-behavior: smooth;
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      color: #222;
     }
 
-    h1, h2, h3 {
-      font-family: 'Merriweather', serif;
-      color: #0a2540;
+    header {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 15px 30px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    h1 { font-size: 2.8rem; margin-bottom: 1rem; }
-    h2 { font-size: 2rem; margin-bottom: 1rem; border-left: 5px solid #ffab00; padding-left: 0.5rem; margin-top: 2rem; }
-    h3 { font-size: 1.4rem; margin-bottom: 0.6rem; color: #0a2540; }
+    header h1 {
+      margin: 0;
+      font-size: 1.5em;
+      color: #ffcc00;
+    }
 
-    a { color: #0a2540; text-decoration: none; }
-    a:hover { color: #ffab00; }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 12px;
+      font-size: 1em;
+      transition: color 0.3s;
+    }
 
-    header { background-color: #0a2540; color: #fff; padding: 1rem 2rem; position: sticky; top: 0; z-index: 1000; }
-    .logo { font-size: 1.8rem; font-weight: 700; }
-    nav ul { list-style: none; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
-    nav ul li a, nav ul li button { color: #fff; background: none; border: none; cursor: pointer; font-size: 1rem; }
-    #menu-toggle { display: none; font-size: 1.5rem; background: none; border: none; cursor: pointer; }
+    nav a:hover {
+      color: #ffcc00;
+    }
 
-    .hero {
-      background-color: #e8f0fe;
+    .section {
+      padding: 100px 20px 60px;
+      max-width: 1100px;
+      margin: auto;
       text-align: center;
-      padding: 4rem 2rem;
-    }
-    .hero h2 { font-size: 2rem; margin-bottom: 1rem; }
-    .hero p { font-size: 1.2rem; margin-bottom: 2rem; }
-    .btn { display: inline-block; margin: 0.5rem; padding: 0.8rem 1.5rem; background-color: #ffab00; color: #0a2540; border-radius: 6px; font-weight: 700; }
-    .btn:hover { background-color: #ffaa00cc; }
-
-    section { padding: 2rem; max-width: 900px; margin: auto; }
-
-    ul li { margin-bottom: 0.5rem; font-size: 1.1rem; }
-
-    /* PROGRAMME */
-    .program-card {
-      background: #fff;
-      border-left: 6px solid #ffab00;
-      padding: 1rem 1.5rem;
-      margin: 1rem 0;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
-    /* FORMULAIRE */
-    form { display: flex; flex-direction: column; gap: 1rem; }
-    input, textarea { padding: 0.7rem; border-radius: 6px; border: 1px solid #ccc; font-size: 1rem; }
-    input:focus, textarea:focus { border-color: #ffab00; outline: none; }
-    button[type="submit"] { width: 150px; padding: 0.7rem; background-color: #ffab00; color: #0a2540; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; }
-    button[type="submit"]:hover { background-color: #ffaa00cc; }
+    .section h2 {
+      font-size: 2em;
+      color: #1a1a1a;
+      margin-bottom: 15px;
+    }
 
-    footer { text-align: center; padding: 2rem; background-color: #0a2540; color: #fff; margin-top: 2rem; }
-    footer a { color: #ffab00; }
+    .section p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      color: #333;
+    }
 
-    /* Dark mode */
-    body.dark-mode { background-color: #121212; color: #f5f5f5; }
-    body.dark-mode header { background-color: #1c1c1c; }
-    body.dark-mode footer { background-color: #1c1c1c; }
-    body.dark-mode .hero { background-color: #1a1a2e; color: #f5f5f5; }
-    body.dark-mode .btn { color: #121212; }
-    
-    /* Responsive */
-    @media (max-width: 768px) {
-      #menu-toggle { display: inline; }
-      nav ul { display: none; flex-direction: column; background-color: #0a2540; position: absolute; top: 60px; left: 0; width: 100%; padding: 1rem; }
-      nav ul.menu-open { display: flex; }
-      nav ul li { margin-bottom: 1rem; }
+    .btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #ffcc00;
+      color: #1a1a1a;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #e6b800;
+    }
+
+    footer {
+      background: #1a1a1a;
+      color: #ddd;
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 0.9em;
+      margin-top: 50px;
+    }
+
+    footer a {
+      color: #ffcc00;
+      text-decoration: none;
     }
   </style>
 </head>
-
 <body>
-  <!-- HEADER -->
+
   <header>
+    <h1>Farid Adss</h1>
     <nav>
-      <h1 class="logo">Farid Adss</h1>
-      <button id="menu-toggle" aria-label="Ouvrir le menu">&#9776;</button>
-      <ul class="menu">
-        <li><a href="#accueil">Accueil</a></li>
-        <li><a href="#a-propos">À propos</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#programme">Programme</a></li>
-        <li><a href="enquete.html">Enquêtes</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><button id="darkmode-toggle" aria-label="Basculer en mode sombre">🌓</button></li>
-      </ul>
+      <a href="index.html">Accueil</a>
+      <a href="apropos.html">À propos</a>
+      <a href="services.html">Services</a>
+      <a href="enquetes.html">Enquêtes</a>
+      <a href="ebooks.html">Ebooks</a>
+      <a href="astuces.html">Astuces Tech</a>
+      <a href="soutiens.html">Soutiens</a>
+      <a href="projets.html">Projets</a>
     </nav>
   </header>
 
-  <!-- HERO -->
-  <section id="accueil" class="hero">
-    <h2>Bienvenue sur le site d’investigation de Farid Adss</h2>
-    <p>Analyse. Vérité. Impact. Découvrez des enquêtes et reportages approfondis.</p>
-    <a href="#contact" class="btn">Me contacter</a>
-    <a href="enquete.html" class="btn">Voir les enquêtes</a>
+  <section class="section" id="accueil">
+    <h2>Bienvenue</h2>
+    <p>Bienvenue sur le site officiel de <strong>Farid Adss</strong>, un espace d’investigation, d’actualités et de réflexion autour de l’IA, de l’EdTech, du développement personnel et des grandes questions de société.</p>
   </section>
 
-  <!-- À PROPOS -->
-  <section id="a-propos">
-    <h2>À propos de Farid Adss</h2>
-    <p>Je suis Farid Adss, journaliste indépendant passionné par la transparence et la vérité. Je réalise des enquêtes approfondies et vous livre des analyses fiables sur des sujets méconnus ou sensibles.</p>
+  <section class="section" id="apropos">
+    <h2>À propos</h2>
+    <p>Farid Adss propose une vaste gamme d’articles orientés sur l’information, l’EdTech, l’IA et le développement personnel. 
+    Nous publions des enquêtes exclusives sur des événements de société, des débats passionnants, des astuces technologiques et même des ebooks gratuits et payants.</p>
+    <a href="apropos.html" class="btn">En savoir plus</a>
   </section>
 
-  <!-- SERVICES -->
-  <section id="services">
-    <h2>Mes services</h2>
-    <ul>
-      <li>🔍 Enquêtes terrain</li>
-      <li>🖊️ Rédaction de rapports détaillés</li>
-      <li>📊 Analyse de données</li>
-      <li>🧠 Recherche stratégique</li>
-    </ul>
+  <section class="section" id="services">
+    <h2>Services</h2>
+    <p>Découvrez nos services : enquêtes approfondies, articles spécialisés, ressources pédagogiques et ebooks exclusifs.</p>
+    <a href="services.html" class="btn">Découvrir</a>
   </section>
 
-  <!-- PROGRAMME -->
-  <section id="programme">
-    <h2>Programme quotidien</h2>
-    <p>Tous les soirs à 20h : reportage et débat en ligne</p>
-
-    <div class="program-card">
-      <h3>20h – Reportage et Débat</h3>
-      <p>Chaque soir, découvrez un reportage approfondi sur un sujet d'actualité, suivi d'une analyse et d'un débat pour comprendre les enjeux.</p>
-    </div>
-
-    <div id="countdown-section" aria-live="polite" style="margin-top: 20px;">
-      <h3>Prochain rendez-vous dans :</h3>
-      <div id="countdown" style="font-size:1.6rem; font-weight:700; color:#ffab00;"></div>
-    </div>
+  <section class="section" id="enquetes">
+    <h2>Enquêtes</h2>
+    <p>Plongez au cœur d’enquêtes inédites sur les événements qui façonnent notre monde. Nos publications sont diffusées chaque soir à <strong>20h</strong>.</p>
+    <a href="enquetes.html" class="btn">Voir les enquêtes</a>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <h2>Contact / Suggestions d’enquêtes</h2>
-    <p>Vous pouvez contacter Farid Adss directement par email : <a href="mailto:faridadss1234@gmail.com">faridadss1234@gmail.com</a></p>
-    <form action="https://formspree.io/f/xldnojov" method="POST" novalidate>
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="merci.html">
-
-      <label for="nom">Nom :</label>
-      <input type="text" id="nom" name="name" placeholder="Votre nom" required>
-
-      <label for="email">Email :</label>
-      <input type="email" id="email" name="email" placeholder="Votre email" required>
-
-      <label for="message">Message / Suggestion :</label>
-      <textarea id="message" name="message" rows="5" placeholder="Écrivez votre message ici" required></textarea>
-
-      <button type="submit">Envoyer</button>
-    </form>
+  <section class="section" id="ebooks">
+    <h2>Ebooks</h2>
+    <p>Accédez à nos ebooks gratuits et payants sur la tech, l’internet et les piliers du Mindself. Exemple : <em>Dark Web : comprendre et naviguer légalement</em>, <em>Qu’est-ce que le e-commerce et ses opportunités ?</em></p>
+    <a href="ebooks.html" class="btn">Explorer</a>
   </section>
 
-  <!-- FOOTER -->
+  <section class="section" id="astuces">
+    <h2>Astuces Tech</h2>
+    <p>Retrouvez des astuces pratiques sur l’EdTech, l’intelligence artificielle et les meilleures applications professionnelles.</p>
+    <a href="astuces.html" class="btn">Voir les astuces</a>
+  </section>
+
+  <section class="section" id="soutiens">
+    <h2>Soutiens</h2>
+    <p>Vous souhaitez soutenir cette initiative ? Partagez massivement le site, proposez des sujets via notre formulaire ou participez financièrement pour faire grandir la communauté.</p>
+    <a href="soutiens.html" class="btn">Soutenir</a>
+  </section>
+
+  <section class="section" id="projets">
+    <h2>Projets en cours</h2>
+    <p>Découvrez nos projets en développement : nouvelles enquêtes, formations EdTech, ebooks et outils pour la communauté.</p>
+    <a href="projets.html" class="btn">Voir les projets</a>
+  </section>
+
   <footer>
-    <p>© 2025 Farid Adss. Tous droits réservés. Email : <a href="mailto:faridadss1234@gmail.com">faridadss1234@gmail.com</a></p>
+    <p>&copy; 2025 Farid Adss. Tous droits réservés. | Contact : <a href="mailto:faridadss1234@gmail.com">faridadss1234@gmail.com</a></p>
   </footer>
 
-  <!-- SCRIPT -->
-  <script>
-    // MENU MOBILE
-    const menuToggle = document.getElementById('menu-toggle');
-    const menu = document.querySelector('.menu');
-    menuToggle.addEventListener('click', () => { menu.classList.toggle('menu-open'); });
-
-    // DARK MODE
-    const darkToggle = document.getElementById('darkmode-toggle');
-    darkToggle.addEventListener('click', () => { document.body.classList.toggle('dark-mode'); });
-
-    // COMPTE À REBOURS POUR 20H
-    function updateCountdown() {
-      const countdownEl = document.getElementById('countdown');
-      const now = new Date();
-      let nextTarget = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 20, 0, 0);
-      if (now >= nextTarget) nextTarget.setDate(nextTarget.getDate()+1);
-
-      const diffMs = nextTarget - now;
-      const diffH = Math.floor(diffMs / (1000*60*60));
-      const diffM = Math.floor((diffMs % (1000*60*60)) / (1000*60));
-      const diffS = Math.floor((diffMs % (1000*60)) / 1000);
-
-      countdownEl.textContent = `${diffH.toString().padStart(2,'0')}h ${diffM.toString().padStart(2,'0')}m ${diffS.toString().padStart(2,'0')}s`;
-    }
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-  </script>
 </body>
 </html>
