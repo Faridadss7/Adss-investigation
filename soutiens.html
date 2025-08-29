@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Soutenir | Farid Adss</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Roboto', sans-serif; margin:0; background:#fafafa; color:#222; }
+    header nav { display:flex; justify-content:space-between; align-items:center; background:#0a2540; padding:0.8rem 1rem; color:#fff; }
+    header nav .logo { font-family:'Merriweather', serif; font-size:1.8rem; font-weight:700; }
+    header nav .menu { list-style:none; display:flex; gap:1rem; }
+    header nav .menu li a { color:#fff; text-decoration:none; }
+    #menu-toggle { display:none; font-size:1.5rem; background:none; border:none; color:#fff; cursor:pointer; }
+    @media(max-width:768px){ 
+      .menu{ display:none; flex-direction:column; gap:0.5rem; background:#0a2540; padding:1rem; position:absolute; top:60px; right:10px; border-radius:8px; } 
+      .menu.menu-open{ display:flex; } 
+      #menu-toggle{ display:block; } 
+    }
+
+    section { max-width:900px; margin:2rem auto; padding:0 1rem; }
+    h2 { color:#0a2540; margin-bottom:1rem; border-left:5px solid #1f4e79; padding-left:0.5rem; }
+    p { line-height:1.7; margin-bottom:1rem; font-size:1.1rem; }
+    .btn { display:inline-block; padding:0.8rem 1.2rem; background:#ffab00; color:#0a2540; font-weight:700; border-radius:6px; text-decoration:none; transition:0.3s; }
+    .btn:hover{ background:#e69b00; }
+
+    .card { background:#f0f7ff; border-left:4px solid #1f4e79; padding:1rem 1.5rem; margin:1rem 0; border-radius:6px; }
+    .share-buttons { display:flex; flex-wrap:wrap; gap:1rem; margin-top:1rem; }
+    .share-buttons a { background:#0a2540; color:#fff; padding:0.8rem 1.2rem; text-decoration:none; border-radius:6px; font-weight:700; transition:0.3s; }
+    .share-buttons a:hover{ background:#1f4e79; }
+
+    footer { text-align:center; margin:3rem 0; color:#555; font-size:0.9rem; }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <h1 class="logo">Farid Adss</h1>
+    <button id="menu-toggle">&#9776;</button>
+    <ul class="menu">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="apropos.html">À propos</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="ebooks.html">Ebooks</a></li>
+      <li><a href="astuces.html">Astuces tech</a></li>
+      <li><a href="soutiens.html">Soutiens</a></li>
+      <li><a href="projets.html">Projets en cours</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section>
+  <h2>Soutenez notre initiative</h2>
+  <p>Votre soutien permet de maintenir et développer des enquêtes exclusives, des guides pratiques et des ebooks uniques. Chaque contribution compte et fait avancer notre communauté.</p>
+
+  <p><strong>Comment soutenir :</strong></p>
+  <ul>
+    <li>Partager le site avec vos contacts et sur les réseaux sociaux.</li>
+    <li>Proposer des sujets pour de futures enquêtes via notre formulaire.</li>
+    <li>Contribuer financièrement en envoyant un email à : <a href="mailto:faridadss1234@gmail.com">faridadss1234@gmail.com</a></li>
+  </ul>
+
+  <div class="card">
+    <h3>Témoignages</h3>
+    <p>« Les enquêtes et guides de Farid Adss m’ont ouvert les yeux sur le Dark Web et l’utilisation responsable de la tech. Merci pour ce travail précieux ! » — <strong>Lecteur fidèle</strong></p>
+    <p>« Je recommande vivement de soutenir ce site. Les articles sont détaillés, pédagogiques et accessibles à tous. » — <strong>Abonné régulier</strong></p>
+  </div>
+
+  <h3>Partagez facilement</h3>
+  <div class="share-buttons">
+    <a href="https://api.whatsapp.com/send?text=Découvrez%20le%20site%20de%20Farid%20Adss%20!%20Lien:%20https://votresite.com" target="_blank">Partager sur WhatsApp</a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://votresite.com" target="_blank">Partager sur Facebook</a>
+    <a href="https://twitter.com/intent/tweet?text=Découvrez%20le%20site%20de%20Farid%20Adss%20!&url=https://votresite.com" target="_blank">Partager sur Twitter</a>
+  </div>
+
+</section>
+
+<footer>
+  <p>© 2025 Farid Adss – Contact : <a href="mailto:faridadss1234@gmail.com">faridadss1234@gmail.com</a></p>
+</footer>
+
+<script>
+  // MENU MOBILE
+  const menuToggle = document.getElementById('menu-toggle');
+  const menu = document.querySelector('.menu');
+  menuToggle.addEventListener('click', ()=>{ menu.classList.toggle('menu-open'); });
+</script>
+
+</body>
+</html>
