@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>À propos | Farid Adss</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(160deg, #f0f2f5, #e4e9f0);
+    color: #222;
+    line-height: 1.6;
+  }
+
+  header {
+    position: fixed;
+    top:0; left:0;
+    width:100%;
+    background-color: #1a1a1a;
+    color:#fff;
+    padding:15px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+    box-shadow:0 3px 8px rgba(0,0,0,0.2);
+  }
+
+  header h1 {
+    font-family: 'Merriweather', serif;
+    font-size:1.7em;
+    color:#ffcc00;
+  }
+
+  nav ul {
+    list-style:none;
+    display:flex;
+  }
+
+  nav ul li { margin-left:20px; }
+  nav ul li a {
+    text-decoration:none;
+    color:#fff;
+    font-weight:500;
+    transition: color 0.3s;
+  }
+  nav ul li a:hover { color:#ffcc00; }
+
+  #menu-toggle { display:none; font-size:1.8em; background:none; border:none; color:#fff; cursor:pointer; }
+
+  .section {
+    padding:120px 20px 60px;
+    max-width:900px;
+    margin:auto;
+    animation: fadeIn 1s ease-in;
+  }
+
+  @keyframes fadeIn {
+    from {opacity:0; transform:translateY(20px);}
+    to {opacity:1; transform:translateY(0);}
+  }
+
+  .section h2 {
+    font-family: 'Merriweather', serif;
+    font-size:2em;
+    margin-bottom:20px;
+    color:#1a1a1a;
+    text-align:center;
+  }
+
+  .card {
+    background: linear-gradient(145deg, #fff, #f8f9fb);
+    border-radius:12px;
+    padding:25px;
+    margin:20px auto;
+    box-shadow:0 6px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow:0 12px 25px rgba(0,0,0,0.15);
+  }
+
+  .btn {
+    display:inline-block;
+    padding:12px 25px;
+    margin-top:12px;
+    background-color:#ffcc00;
+    color:#1a1a1a;
+    text-decoration:none;
+    border-radius:6px;
+    font-weight:bold;
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  .btn:hover {
+    background-color:#e6b800;
+    transform: translateY(-2px);
+  }
+
+  #countdown {
+    font-size:1.8rem;
+    font-weight:700;
+    color:#ff4c00;
+    text-align:center;
+    margin:20px 0;
+  }
+
+  footer {
+    background:#1a1a1a;
+    color:#ddd;
+    text-align:center;
+    padding:25px 15px;
+    font-size:0.9em;
+    margin-top:50px;
+  }
+  footer a { color:#ffcc00; text-decoration:none; }
+
+  @media(max-width:768px){
+    nav ul {
+      display:none;
+      flex-direction:column;
+      background:#1a1a1a;
+      position:absolute;
+      top:60px; right:0;
+      width:220px;
+      border-left:1px solid #333;
+      padding:15px 0;
+    }
+    nav ul li { margin:12px 0; text-align:right; margin-right:15px; }
+    #menu-toggle { display:block; }
+    nav ul.menu-open { display:flex; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Farid Adss</h1>
+  <button id="menu-toggle" aria-label="Ouvrir le menu">&#9776;</button>
+  <nav>
+    <ul class="menu">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="apropos.html">À propos</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="section">
+  <h2>À propos de moi</h2>
+
+  <div class="card">
+    <p>Je suis Farid Adss, passionné par l’information, l’EdTech, l’intelligence artificielle et le développement personnel. Mon objectif est de vous offrir des enquêtes exclusives sur des événements de société, des débats captivants, et des astuces pratiques en technologie et applications professionnelles.</p>
+  </div>
+
+  <div class="card">
+    <p>Je propose également des ebooks gratuits et payants, centrés sur la tech, l’internet et le mindself. Exemples : <em>"Dark web : comprendre et naviguer légalement"</em>, <em>"Qu’est-ce que le e-commerce et ses opportunités"</em>.</p>
+  </div>
+
+  <div class="card">
+    <p>Pour soutenir mon initiative, vous pouvez partager le site ou proposer des sujets via le formulaire. Une rubrique « Soutien » permet également de contribuer financièrement à l’évolution de la communauté.</p>
+    <a href="index.html" class="btn">Retour à l'accueil</a>
+  </div>
+
+  <div class="card">
+    <h3>Prochain rendez-vous en direct</h3>
+    <p>Chaque soir à 20h, retrouvez nos enquêtes exclusives :</p>
+    <div id="countdown">00h 00m 00s</div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Farid Adss | Contact : <a href="mailto:faridadss1234@gmail.com">faridadss1234@gmail.com</a></p>
+</footer>
+
+<script>
+  // MENU RESPONSIVE
+  const menuToggle = document.getElementById('menu-toggle');
+  const menu = document.querySelector('nav ul');
+  menuToggle.addEventListener('click',()=>{ menu.classList.toggle('menu-open'); });
+
+  // COMPTE À REBOURS 20H
+  function updateCountdown(){
+    const now = new Date();
+    let target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 20, 0, 0);
+    if(now > target) target.setDate(target.getDate()+1);
+    const diff = target - now;
+    const h = Math.floor(diff/1000/60/60);
+    const m = Math.floor((diff/1000/60)%60);
+    const s = Math.floor((diff/1000)%60);
+    document.getElementById('countdown').textContent = `${h.toString().padStart(2,'0')}h ${m.toString().padStart(2,'0')}m ${s.toString().padStart(2,'0')}s`;
+  }
+  updateCountdown();
+  setInterval(updateCountdown,1000);
+</script>
+
+</body>
+</html>
