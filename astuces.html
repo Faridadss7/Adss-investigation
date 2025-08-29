@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Astuces Tech | CapCut illustré</title>
+  <meta name="description" content="Apprenez à utiliser CapCut efficacement avec des illustrations et astuces pratiques pour produire vos vidéos plus rapidement." />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Roboto', sans-serif; margin:0; background:#fafafa; color:#222; }
+    header nav { display:flex; justify-content:space-between; align-items:center; background:#0a2540; padding:0.8rem 1rem; color:#fff; }
+    header nav .logo { font-family:'Merriweather', serif; font-size:1.8rem; font-weight:700; }
+    header nav .menu { list-style:none; display:flex; gap:1rem; }
+    header nav .menu li a { color:#fff; text-decoration:none; }
+    #menu-toggle { display:none; font-size:1.5rem; background:none; border:none; color:#fff; cursor:pointer; }
+    @media(max-width:768px){ 
+      .menu{ display:none; flex-direction:column; gap:0.5rem; background:#0a2540; padding:1rem; position:absolute; top:60px; right:10px; border-radius:8px; } 
+      .menu.menu-open{ display:flex; } 
+      #menu-toggle{ display:block; } 
+    }
+
+    .hero { text-align:center; padding:3rem 1rem; background:#e8f0fe; color:#0a2540; }
+    .hero h2 { font-family:'Merriweather', serif; font-size:2rem; margin-bottom:1rem; }
+    .hero p { font-size:1.1rem; margin-bottom:1.5rem; }
+    .btn { display:inline-block; padding:0.8rem 1.2rem; background:#ffab00; color:#0a2540; font-weight:700; border-radius:6px; text-decoration:none; transition:0.3s; }
+    .btn:hover{ background:#e69b00; }
+
+    section { max-width:900px; margin:2rem auto; padding:0 1rem; }
+    h2 { color:#0a2540; margin-bottom:1rem; border-left:5px solid #1f4e79; padding-left:0.5rem; }
+    h3 { color:#1f4e79; margin-top:1.5rem; margin-bottom:0.7rem; }
+    p { line-height:1.7; margin-bottom:1rem; font-size:1.1rem; }
+    ul { margin-left:1.5rem; }
+    li { margin-bottom:0.7rem; }
+    .tip { background:#e8f0fe; padding:0.8rem 1rem; border-left:4px solid #1f4e79; margin:0.7rem 0; font-style:italic; }
+
+    .interface { display:flex; flex-wrap:wrap; gap:1rem; justify-content:center; }
+    .tool { background:#f9f9f9; padding:1rem; border-radius:8px; width:250px; text-align:center; position:relative; transition:transform 0.2s; }
+    .tool:hover { transform:scale(1.05); }
+    .tool img { max-width:100%; border-radius:6px; margin-bottom:0.7rem; }
+    .tooltip { visibility:hidden; background:#0a2540; color:#fff; text-align:center; padding:0.5rem; border-radius:6px; position:absolute; z-index:1; bottom:110%; left:50%; transform:translateX(-50%); width:200px; opacity:0; transition:opacity 0.3s; font-size:0.9rem; }
+    .tool:hover .tooltip { visibility:visible; opacity:1; }
+
+    footer { text-align:center; margin:3rem 0; color:#555; font-size:0.9rem; }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <h1 class="logo">Farid Adss</h1>
+    <button id="menu-toggle">&#9776;</button>
+    <ul class="menu">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="apropos.html">À propos</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="ebooks.html">Ebooks</a></li>
+      <li><a href="#astuces">Astuces tech</a></li>
+      <li><a href="#soutiens">Soutiens</a></li>
+      <li><a href="#projets">Projets en cours</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" id="astuces">
+  <h2>CapCut illustré : Guide pratique pour augmenter votre rendement</h2>
+  <p>Découvrez l’interface de CapCut avec illustrations et conseils humains pour produire vos vidéos efficacement.</p>
+</section>
+
+<section>
+  <h2>Interface détaillée</h2>
+  <div class="interface">
+    <div class="tool">
+      <img src="images/timeline.png" alt="Timeline CapCut">
+      <h3>Timeline</h3>
+      <div class="tooltip">C’est ici que vous placez vos vidéos, musiques et images. Découpez, déplacez ou ajustez vos clips facilement.</div>
+    </div>
+    <div class="tool">
+      <img src="images/tools.png" alt="Barre d'outils CapCut">
+      <h3>Barre d’outils</h3>
+      <div class="tooltip">Ajoutez textes, stickers, effets spéciaux et transitions. Chaque outil a une prévisualisation immédiate.</div>
+    </div>
+    <div class="tool">
+      <img src="images/preview.png" alt="Aperçu vidéo CapCut">
+      <h3>Aperçu vidéo</h3>
+      <div class="tooltip">Regardez vos modifications en temps réel. Zoom, pause, avance rapide et retour disponibles.</div>
+    </div>
+    <div class="tool">
+      <img src="images/export.png" alt="Export vidéo CapCut">
+      <h3>Export</h3>
+      <div class="tooltip">Choisissez la résolution et le format. Partagez directement sur TikTok, Instagram ou YouTube.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Guide étape par étape</h2>
+  <ul>
+    <li>Importer vos médias (vidéos, images, musiques).</li>
+    <li>Organiser la timeline et découper les clips inutiles.</li>
+    <li>Ajouter textes, stickers et transitions fluides.</li>
+    <li>Utiliser des templates pour accélérer le montage.</li>
+    <li>Exporter en HD ou 4K et partager facilement.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Astuces pour aller plus vite</h2>
+  <div class="tip">Préparer vos clips avant de monter la vidéo.</div>
+  <div class="tip">Monter plusieurs vidéos en une seule session.</div>
+  <div class="tip">Créer une bibliothèque d’intros, templates et musiques réutilisables.</div>
+  <div class="tip">Prioriser la qualité sur la quantité pour fidéliser votre audience.</div>
+</section>
+
+<section>
+  <h2>Prochain rendez-vous</h2>
+  <p>Bientôt, nous vous présenterons une autre application professionnelle pour booster votre productivité. Restez connectés !</p>
+</section>
+
+<footer>
+  <p>© 2025 Farid Adss – Contact : <a href="mailto:faridadss1234@gmail.com">faridadss1234@gmail.com</a></p>
+</footer>
+
+<script>
+  // MENU MOBILE
+  const menuToggle = document.getElementById('menu-toggle');
+  const menu = document.querySelector('.menu');
+  menuToggle.addEventListener('click', ()=>{ menu.classList.toggle('menu-open'); });
+</script>
+
+</body>
+</html>
