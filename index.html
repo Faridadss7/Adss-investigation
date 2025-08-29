@@ -209,6 +209,18 @@
     <p>Partagez le site, proposez des sujets ou contribuez financièrement pour faire évoluer la communauté.</p>
     <a href="soutiens.html" class="btn">Soutenir</a>
   </div>
+  <div class="card">
+    <h3>Formulaire de soutien</h3>
+    <form action="https://formspree.io/f/xldnojov" method="POST">
+      <label for="prenom">Prénom :</label>
+      <input type="text" id="prenom" name="prenom" required placeholder="Votre prénom">
+      <label for="email">E-mail :</label>
+      <input type="email" id="email" name="email" required placeholder="Votre e-mail">
+      <label for="message">Message :</label>
+      <textarea id="message" name="message" rows="4" required placeholder="Votre message"></textarea>
+      <button type="submit" class="btn">Envoyer</button>
+    </form>
+  </div>
 </section>
 
 <section class="section" id="projets">
@@ -238,11 +250,6 @@
     const h = Math.floor(diff/(1000*60*60));
     const m = Math.floor((diff%(1000*60*60))/(1000*60));
     const s = Math.floor((diff%(1000*60))/1000);
-    countdownEl.textContent = `${h.toString().padStart(2,'0')}h ${m.toString().padStart(2,'0')}m ${s.toString().padStart(2,'0')}s`;
-  }
-  updateCountdown();
-  setInterval(updateCountdown,1000);
-</script>
-
-</body>
-</html>
+    countdownEl.textContent = `${h.toString().padStart(2,'0')}h ${m.toString().padStart(2,'0')}m ${s.to
+::contentReference[oaicite:4]{index=4}
+ 
