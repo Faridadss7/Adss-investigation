@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services | Farid Adss</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(160deg, #f0f2f5, #e4e9f0);
+    color: #222;
+    line-height: 1.6;
+  }
+
+  header {
+    position: fixed;
+    top:0; left:0;
+    width:100%;
+    background-color: #1a1a1a;
+    color:#fff;
+    padding:15px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+    box-shadow:0 3px 8px rgba(0,0,0,0.2);
+  }
+
+  header h1 {
+    font-family: 'Merriweather', serif;
+    font-size:1.7em;
+    color:#ffcc00;
+  }
+
+  nav ul {
+    list-style:none;
+    display:flex;
+  }
+
+  nav ul li { margin-left:20px; }
+  nav ul li a {
+    text-decoration:none;
+    color:#fff;
+    font-weight:500;
+    transition: color 0.3s;
+  }
+  nav ul li a:hover { color:#ffcc00; }
+
+  #menu-toggle { display:none; font-size:1.8em; background:none; border:none; color:#fff; cursor:pointer; }
+
+  .section {
+    padding:120px 20px 60px;
+    max-width:1000px;
+    margin:auto;
+    animation: fadeIn 1s ease-in;
+  }
+
+  @keyframes fadeIn {
+    from {opacity:0; transform:translateY(20px);}
+    to {opacity:1; transform:translateY(0);}
+  }
+
+  .section h2 {
+    font-family: 'Merriweather', serif;
+    font-size:2em;
+    margin-bottom:30px;
+    color:#1a1a1a;
+    text-align:center;
+  }
+
+  .card {
+    background: linear-gradient(145deg, #fff, #f8f9fb);
+    border-radius:12px;
+    padding:25px;
+    margin:20px auto;
+    box-shadow:0 6px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow:0 12px 25px rgba(0,0,0,0.15);
+  }
+
+  .card h3 {
+    font-family:'Merriweather', serif;
+    color:#1a1a1a;
+    margin-bottom:15px;
+  }
+
+  .card p {
+    font-size:1.1rem;
+    margin-bottom:10px;
+  }
+
+  .btn {
+    display:inline-block;
+    padding:12px 25px;
+    margin-top:15px;
+    background-color:#ffcc00;
+    color:#1a1a1a;
+    text-decoration:none;
+    border-radius:6px;
+    font-weight:bold;
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  .btn:hover {
+    background-color:#e6b800;
+    transform: translateY(-2px);
+  }
+
+  footer {
+    background:#1a1a1a;
+    color:#ddd;
+    text-align:center;
+    padding:25px 15px;
+    font-size:0.9em;
+    margin-top:50px;
+  }
+  footer a { color:#ffcc00; text-decoration:none; }
+
+  @media(max-width:768px){
+    nav ul {
+      display:none;
+      flex-direction:column;
+      background:#1a1a1a;
+      position:absolute;
+      top:60px; right:0;
+      width:220px;
+      border-left:1px solid #333;
+      padding:15px 0;
+    }
+    nav ul li { margin:12px 0; text-align:right; margin-right:15px; }
+    #menu-toggle { display:block; }
+    nav ul.menu-open { display:flex; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Farid Adss</h1>
+  <button id="menu-toggle" aria-label="Ouvrir le menu">&#9776;</button>
+  <nav>
+    <ul class="menu">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="apropos.html">À propos</a></li>
+      <li><a href="services.html">Services</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="section">
+  <h2>Nos Services</h2>
+
+  <div class="card">
+    <h3>Enquêtes exclusives</h3>
+    <p>Investigations approfondies sur des événements sociaux, économiques et technologiques.  
+    Analyse fiable et objective de faits pour comprendre la réalité derrière chaque situation.</p>
+  </div>
+
+  <div class="card">
+    <h3>Rédaction de rapports détaillés</h3>
+    <p>Rapports clairs et complets pour chaque enquête, incluant chiffres, témoignages et analyses.  
+    Destinés aux lecteurs, chercheurs ou professionnels souhaitant un contenu de qualité.</p>
+  </div>
+
+  <div class="card">
+    <h3>Analyse de données et veille stratégique</h3>
+    <p>Exploitation des données pour identifier des tendances et insights.  
+    Veille sur l’actualité, la technologie, l’éducation et l’IA pour anticiper les évolutions.</p>
+  </div>
+
+  <div class="card">
+    <h3>Ebooks gratuits et payants</h3>
+    <p>Guides et livres numériques pour comprendre le monde numérique, le e-commerce, l’éducation technologique et le développement personnel.</p>
+    <p>Exemples : "Dark Web : comprendre et naviguer légalement", "E-commerce et opportunités", "Piliers du MindSelf".</p>
+  </div>
+
+  <div class="card">
+    <h3>Astuces tech et outils IA</h3>
+    <p>Conseils pratiques, applications professionnelles et astuces pour tirer profit de l’IA et des outils numériques dans votre quotidien et votre travail.</p>
+  </div>
+
+  <div class="card">
+    <h3>Soutien et communauté</h3>
+    <p>Partagez le site, proposez des sujets via le formulaire, ou contribuez financièrement pour soutenir l’évolution de la communauté.  
+    Votre soutien nous aide à maintenir une information fiable et professionnelle.</p>
+    <a href="index.html" class="btn">Retour à l'accueil</a>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Farid Adss | Contact : <a href="mailto:faridadss1234@gmail.com">faridadss1234@gmail.com</a></p>
+</footer>
+
+<script>
+  // MENU RESPONSIVE
+  const menuToggle = document.getElementById('menu-toggle');
+  const menu = document.querySelector('nav ul');
+  menuToggle.addEventListener('click',()=>{ menu.classList.toggle('menu-open'); });
+</script>
+
+</body>
+</html>
