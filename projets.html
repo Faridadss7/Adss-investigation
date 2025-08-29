@@ -1,87 +1,185 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Projets en cours | Farid Adss</title>
-  <meta name="description" content="Découvrez les projets en cours de Farid Adss : jeux éducatifs, création de webtoons africains, ebooks et romans." />
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
-  <style>
-    body { font-family:'Roboto',sans-serif; margin:0; background:#fafafa; color:#222; }
-    header nav { display:flex; justify-content:space-between; align-items:center; background:#0a2540; padding:0.8rem 1rem; color:#fff; }
-    header nav .logo { font-family:'Merriweather', serif; font-size:1.8rem; font-weight:700; }
-    header nav .menu { list-style:none; display:flex; gap:1rem; }
-    header nav .menu li a { color:#fff; text-decoration:none; }
-    #menu-toggle { display:none; font-size:1.5rem; background:none; border:none; color:#fff; cursor:pointer; }
-    @media(max-width:768px){ .menu{ display:none; flex-direction:column; gap:0.5rem; background:#0a2540; padding:1rem; position:absolute; top:60px; right:10px; border-radius:8px; } .menu.menu-open{ display:flex; } #menu-toggle{ display:block; } }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Projets en cours | Farid Adss</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&family=Merriweather:wght@700&display=swap" rel="stylesheet" />
 
-    section { max-width:900px; margin:2rem auto; padding:0 1rem; }
-    h2 { color:#0a2540; margin-bottom:1rem; border-left:5px solid #1f4e79; padding-left:0.5rem; }
-    h3 { color:#1f4e79; margin-top:1.5rem; margin-bottom:0.7rem; }
-    p { line-height:1.7; margin-bottom:1rem; font-size:1.1rem; }
-    .project { background:#f0f7ff; padding:1rem 1.5rem; border-radius:8px; margin:1rem 0; }
-    .progress { background:#ddd; border-radius:6px; overflow:hidden; margin-top:0.5rem; }
-    .progress-bar { height:12px; background:#ffab00; width:0%; border-radius:6px; transition: width 1s; }
-    .cta { text-align:center; margin:2rem 0; }
-    .cta a { display:inline-block; padding:0.8rem 1.2rem; background:#0a2540; color:#fff; font-weight:700; border-radius:6px; text-decoration:none; transition:0.3s; }
-    .cta a:hover{ background:#1f4e79; }
-  </style>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(160deg,#f0f2f5,#e4e9f0);
+    color:#222;
+    line-height:1.6;
+  }
+
+  header {
+    position: fixed;
+    top:0; left:0;
+    width:100%;
+    background-color:#1a1a1a;
+    color:#fff;
+    padding:15px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+    box-shadow:0 3px 8px rgba(0,0,0,0.2);
+  }
+
+  header h1, header .logo {
+    font-family:'Merriweather', serif;
+    font-size:1.7em;
+    color:#ffcc00;
+  }
+
+  nav ul {
+    list-style:none;
+    display:flex;
+  }
+  nav ul li { margin-left:20px; }
+  nav ul li a {
+    text-decoration:none;
+    color:#fff;
+    font-weight:500;
+    transition: color 0.3s;
+  }
+  nav ul li a:hover { color:#ffcc00; }
+
+  #menu-toggle { display:none; font-size:1.8em; background:none; border:none; color:#fff; cursor:pointer; }
+
+  .section {
+    padding:140px 20px 60px;
+    max-width:1100px;
+    margin:auto;
+  }
+
+  .section h2 {
+    font-family: 'Merriweather', serif;
+    font-size:2em;
+    margin-bottom:20px;
+    color:#1a1a1a;
+    border-left:5px solid #1f4e79;
+    padding-left:0.5rem;
+    text-align:left;
+  }
+
+  .project {
+    background:#f0f7ff;
+    padding:1rem 1.5rem;
+    border-radius:8px;
+    margin:1rem 0;
+    text-align:left;
+  }
+
+  .progress {
+    background:#ddd;
+    border-radius:6px;
+    overflow:hidden;
+    margin-top:0.5rem;
+  }
+  .progress-bar {
+    height:12px;
+    background:#ffcc00;
+    width:0%;
+    border-radius:6px;
+    transition: width 1s;
+  }
+
+  p, li { margin-bottom:1rem; font-size:1.1rem; }
+  ul { margin-left:1.5rem; margin-bottom:1rem; }
+
+  .cta {
+    text-align:center;
+    margin:2rem 0;
+  }
+  .cta a {
+    display:inline-block;
+    padding:12px 25px;
+    background-color:#1a1a1a;
+    color:#fff;
+    font-weight:700;
+    border-radius:6px;
+    text-decoration:none;
+    transition: background 0.3s, transform 0.2s;
+  }
+  .cta a:hover { background-color:#1f4e79; transform:translateY(-2px); }
+
+  footer {
+    background:#1a1a1a;
+    color:#ddd;
+    text-align:center;
+    padding:25px 15px;
+    font-size:0.9em;
+    margin-top:50px;
+  }
+  footer a { color:#ffcc00; text-decoration:none; }
+
+  @media(max-width:768px){
+    nav ul {
+      display:none;
+      flex-direction:column;
+      background:#1a1a1a;
+      position:absolute;
+      top:60px; right:0;
+      width:220px;
+      border-left:1px solid #333;
+      padding:15px 0;
+    }
+    nav ul li { margin:12px 0; text-align:right; margin-right:15px; }
+    #menu-toggle { display:block; }
+    nav ul.menu-open { display:flex; }
+  }
+</style>
 </head>
 <body>
 
 <header>
+  <h1 class="logo">Farid Adss</h1>
+  <button id="menu-toggle" aria-label="Ouvrir le menu">&#9776;</button>
   <nav>
-    <h1 class="logo">Farid Adss</h1>
-    <button id="menu-toggle">&#9776;</button>
     <ul class="menu">
       <li><a href="index.html">Accueil</a></li>
       <li><a href="apropos.html">À propos</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="ebooks.html">Ebooks</a></li>
-      <li><a href="astuces.html">Astuces tech</a></li>
+      <li><a href="astuces.html">Astuces Tech</a></li>
       <li><a href="soutiens.html">Soutiens</a></li>
-      <li><a href="#projets">Projets en cours</a></li>
+      <li><a href="projets.html">Projets en cours</a></li>
     </ul>
   </nav>
 </header>
 
-<section id="projets">
+<section class="section">
   <h2>Projets en cours</h2>
 
   <div class="project">
     <h3>1. Jeu de société "Voyage des Héros"</h3>
-    <p>Un jeu éducatif et ludique pour faire connaître l’histoire des grandes figures africaines. Il combine divertissement et apprentissage, idéal pour les jeunes et les passionnés d’histoire.</p>
-    <div class="progress">
-      <div class="progress-bar" style="width:60%;"></div>
-    </div>
+    <p>Un jeu éducatif et ludique pour faire connaître l’histoire des grandes figures africaines. Il combine divertissement et apprentissage, idéal pour les jeunes et passionnés d’histoire.</p>
+    <div class="progress"><div class="progress-bar" style="width:60%;"></div></div>
     <p><em>État d’avancement : Prototype 60% terminé</em></p>
   </div>
 
   <div class="project">
     <h3>2. Communauté de création de webtoons et manhwa africains "AfroMhwa"</h3>
     <p>Créer un espace collaboratif pour auteurs, illustrateurs et scénaristes afin de développer des webtoons, manhwa et bandes dessinées africaines uniques.</p>
-    <div class="progress">
-      <div class="progress-bar" style="width:40%;"></div>
-    </div>
+    <div class="progress"><div class="progress-bar" style="width:40%;"></div></div>
     <p><em>État d’avancement : Lancement plateforme en cours</em></p>
   </div>
 
   <div class="project">
     <h3>3. Collection d’ebooks éducatifs et professionnels</h3>
     <p>Préparation d’ebooks gratuits et payants sur l’éducation digitale, l’IA, le e-commerce et le développement personnel pour aider la communauté à progresser.</p>
-    <div class="progress">
-      <div class="progress-bar" style="width:50%;"></div>
-    </div>
+    <div class="progress"><div class="progress-bar" style="width:50%;"></div></div>
     <p><em>État d’avancement : 2 ebooks finalisés, d’autres en préparation</em></p>
   </div>
 
   <div class="project">
     <h3>4. Romans et publications narratives</h3>
     <p>Écriture et publication de romans et histoires captivantes, combinant thriller, suspense et enseignement, destinés à inspirer et divertir.</p>
-    <div class="progress">
-      <div class="progress-bar" style="width:30%;"></div>
-    </div>
+    <div class="progress"><div class="progress-bar" style="width:30%;"></div></div>
     <p><em>État d’avancement : 1 roman en cours d’écriture</em></p>
   </div>
 
@@ -111,10 +209,9 @@
 </footer>
 
 <script>
-  // MENU MOBILE
-  const menuToggle = document.getElementById('menu-toggle');
-  const menu = document.querySelector('.menu');
-  menuToggle.addEventListener('click', ()=>{ menu.classList.toggle('menu-open'); });
+const menuToggle = document.getElementById('menu-toggle');
+const menu = document.querySelector('.menu');
+menuToggle.addEventListener('click', ()=>{ menu.classList.toggle('menu-open'); });
 </script>
 
 </body>
